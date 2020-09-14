@@ -1,5 +1,4 @@
-\documentclass[11pt]{aghdpl}
-% \documentclass[en,11pt]{aghdpl}  % praca w języku angielskim
+\documentclass[en,11pt]{classes/aghdpl}  % praca w języku angielskim
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
@@ -45,7 +44,7 @@ backend=bibtex
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
 \DeclareQuoteAlias{croatian}{polish}
 
-\addbibresource{bibliografia.bib}
+\addbibresource{bibliography/bibliography.bib}
 
 % Nie wyświetlaj wybranych pól.
 %\AtEveryBibitem{\clearfield{note}}
@@ -162,10 +161,10 @@ backend=bibtex
 \tableofcontents
 \clearpage
 
-\include{rozdzial3}
-\include{rozdzial1}
-\include{rozdzial2}
-\include{tests}
+\include{chapters/chapter3}
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/tests}
 
 
 
