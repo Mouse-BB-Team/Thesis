@@ -15,13 +15,12 @@ jobs:
       - name: Compile LaTeX document
         run: |
           cd thesis
-          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD/../ $FILENAME
-          cd ..
+          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
       - name: Upload to Google Drive
         uses: satackey/action-google-drive@v1
         with:
           skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE }}
-          upload-from: ./main.pdf
+          upload-from: ./thesis/main.pdf
           upload-to: '/thesis/thesis-master'
           google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
