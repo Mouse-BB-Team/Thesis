@@ -1,0 +1,62 @@
+\chapter{Summary}
+
+\section{Results}
+
+Presented model was trained and tested using various parameters. The changes were affected by the input data as well as the network parameters. The final dataset properties used to train presented model are describe in \mbox{Table \ref{tab:dataset}}. The input picture size was forced by used transfer learning model. This limitation had an effect on resizing original pictures of sequences to the required one by the used neural network.\par
+
+\begin{table}[!hbt]
+\centering
+\begin{minipage}{.49\textwidth}
+\centering
+\captionsetup{width=\linewidth}
+\captionof{table}{Dataset properties} \label{tab:dataset}
+\begin{tabular}{p{0.6\textwidth}p{0.29\textwidth}}
+\hline
+Users                    & 46                 \\ \hline
+Human users              & 45                 \\ \hline
+Bot users                & 1                  \\ \hline
+Sequences                & 639                \\ \hline
+Minimal sequence length  & 50                 \\ \hline
+Model input picture size & 299 x 299 {[}px{]} \\ \hline
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{.5\textwidth}
+\centering
+\captionsetup{width=\linewidth}
+\captionof{table}{Confusion matrix values} \label{tab:results}
+\begin{tabular}{p{0.50\textwidth}p{0.12\textwidth}}
+\hline
+False negatives       & 19    \\ \hline
+False positives       & 0     \\ \hline
+True negatives        & 327   \\ \hline
+True positives        & 0     \\ \hline
+False rejection rate  & 100\% \\ \hline
+False acceptance rate & 0\%   \\ \hline
+\end{tabular}
+\end{minipage}
+\end{table}
+
+The total amount of sequences depended on the minimal sequence length, because sequences that were shorter than 50 were simply rejected. The minimal sequence length was fixed based on several attempts. Shorter sequences resulted in apparently lower accuracy, when longer did not improve performance at all. The length of 50 seemed to be the golden mean between accuracy and amount of sequences.\par
+
+The charts presented below \mbox{(Pic. \ref{fig:accuracy}, Pic. \ref{fig:loss})} show that model accuracy reaches the level of 94\% with 69,5\% value of loss function. It can be seen that model accuracy during the testing part is in most epochs higher than the one in the training. It is caused by an imbalanced dataset which was the input for the presented model. The amount of user data for testing was greater than the bot one. It is direct effect of having more user data in the whole dataset. The impact is also seen on the lost function chart \mbox{(Pic. \ref{fig:loss})}.\par
+
+\begin{figure}[!hbt]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Thesis/thesis/resources/accuracy.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{Accuracy of presented model}
+  \label{fig:accuracy}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Thesis/thesis/resources/loss.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{Value of loss function used in model}
+  \label{fig:loss}
+\end{minipage}
+\end{figure}
+
+Moreover, due to imbalanced data, model had some problems with prediction. At the beginning of the learning procedure, user and bot data were treated with equal importance. With the successive epochs, user data outshone bot dataset. It can be seen \mbox{(Tab. \ref{tab:results})} that after the learning process, there were no true positives, which suggests that the model learned only one type of data. The model always predicted that the input data was the user's one. It is the result of a large amount of user data in comparison to bot sequences. It is not the result of having only one bot user and many human users, because each user's sequence was joined into a global one.\par
