@@ -1,6 +1,8 @@
 name: build-master
 on:
-  push:
+  # push:
+  #   branches: [ master ]
+  pull_request:
     branches: [ master ]
 jobs:
   build_master:
@@ -20,7 +22,7 @@ jobs:
         uses: satackey/action-google-drive@v1
         with:
           skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE }}
-          upload-from: ./main.pdf
+          upload-from: ./thesis/main.pdf
           upload-to: '/thesis/thesis-master'
           google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
