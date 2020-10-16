@@ -17,7 +17,6 @@ jobs:
         run: |
           cd thesis
           latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
-          cd ..
       - name: Rename output file
         id: rename
         run: |
