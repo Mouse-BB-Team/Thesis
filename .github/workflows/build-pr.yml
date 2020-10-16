@@ -15,9 +15,7 @@ jobs:
         uses: actions/checkout@v1
       - name: Compile LaTeX document
         run: |
-          cd thesis
-          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD/../ $FILENAME
-          cd ..
+          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD/../ thesis/$FILENAME
       - name: Rename output file
         id: rename
         run: |
