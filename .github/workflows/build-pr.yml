@@ -28,7 +28,7 @@ jobs:
         uses: satackey/action-google-drive@v1
         with:
           skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE }}
-          upload-from: ./thesis/${{ steps.rename.outputs.new_filename }}
+          upload-from: ./${{ steps.rename.outputs.new_filename }}
           upload-to: '/thesis/thesis-pr'
           google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
