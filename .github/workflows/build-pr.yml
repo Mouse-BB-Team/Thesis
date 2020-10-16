@@ -22,13 +22,13 @@ jobs:
         run: |
           SUFFIX=$(echo $GITHUB_REF | grep -Po "\d+")
           NEW_FILENAME=$PREFIX-pr-$SUFFIX.pdf
-          mv main.pdf $NEW_FILENAME
+          mv thesis/main.pdf $NEW_FILENAME
           echo "::set-output name=new_filename::$NEW_FILENAME"
       - name: Upload to Google Drive
         uses: satackey/action-google-drive@v1
         with:
           skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE }}
-          upload-from: ./${{ steps.rename.outputs.new_filename }}
+          upload-from: ./thesis/${{ steps.rename.outputs.new_filename }}
           upload-to: '/thesis/thesis-pr'
           google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
           google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
