@@ -1,7 +1,6 @@
 name: build-pr
 on:
   pull_request:
-    branches: [ master ]
 jobs:
   build_pr:
     runs-on: ubuntu-latest
@@ -16,14 +15,13 @@ jobs:
       - name: Compile LaTeX document
         run: |
           cd thesis
-          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD/../ $FILENAME
-          cd ..
+          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
       - name: Rename output file
         id: rename
         run: |
           SUFFIX=$(echo $GITHUB_REF | grep -Po "\d+")
           NEW_FILENAME=$PREFIX-pr-$SUFFIX.pdf
-          mv main.pdf $NEW_FILENAME
+          mv thesis/main.pdf $NEW_FILENAME
           echo "::set-output name=new_filename::$NEW_FILENAME"
       - name: Upload to Google Drive
         uses: satackey/action-google-drive@v1
