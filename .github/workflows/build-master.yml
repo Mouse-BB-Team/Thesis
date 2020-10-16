@@ -1,8 +1,6 @@
 name: build-master
 on:
-  # push:
-  #   branches: [ master ]
-  pull_request:
+  push:
     branches: [ master ]
 jobs:
   build_master:
