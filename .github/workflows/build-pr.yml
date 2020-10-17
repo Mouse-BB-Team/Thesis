@@ -1,7 +1,6 @@
 name: build-pr
 on:
   pull_request:
-    branches: [ master ]
 jobs:
   build_pr:
     runs-on: ubuntu-latest
@@ -10,13 +9,16 @@ jobs:
     env:
       FILENAME: main.tex
       PREFIX: main
+      BIB_FILENAME: main.aux
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Compile LaTeX document
         run: |
           cd thesis
-          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf -outdir=$PWD/../ $FILENAME
+          pdflatex -interaction=nonstopmode $FILENAME && \
+          bibtex $BIB_FILENAME && \
+          pdflatex -interaction=nonstopmode -output-directory=.. $FILENAME
           cd ..
       - name: Rename output file
         id: rename
