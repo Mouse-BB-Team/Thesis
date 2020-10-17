@@ -1,6 +1,7 @@
 name: build-master
 on:
-  pull_request:
+  push:
+    branches: [ master ]
 jobs:
   build_master:
     runs-on: ubuntu-latest
