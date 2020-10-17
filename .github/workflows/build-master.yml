@@ -16,7 +16,7 @@ jobs:
         run: |
           cd thesis
           pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
-          bibtex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          bibtex $FILENAME && \
           pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
           pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
       - name: Upload to Google Drive
