@@ -1,1 +1,24 @@
-\chapter{Summary}
+\chapter{Summary}\label{ch:summary}
+
+\section{Summary}\label{sec:summary}
+During the work on the presented solution, the authors took steps to limit the impact of the imbalanced dataset.
+As an example, linear interpolation was used.
+It was done by connecting points in recorded sequences.
+Each single recorded sequence consisted of many single discrete points.
+Interpolation provided an order between discrete coordinates and gave the opportunity to feed the neural network with additional information.
+
+Another approach that was taken was a manipulation of the input data size.
+On the one hand, the user's sequences were limited to the number of total bot sequences.
+This solution was aimed to balance the dataset at the cost of fewer data.
+Results of this approach turned out insufficient.
+Because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a worsening of performance.
+On the other hand, the duplication of the bot sequences was used.
+The idea was similar to the one before, but instead of reducing, the authors increased the number of bot samples using a single sample several times.
+It resulted in an artificially balanced dataset.
+However, this approach did not increase performance at all.
+
+Manipulation of the distribution of labels between training and testing dataset was also considered.
+It was done by equalization of the number of both types of samples in testing dataset as well as manipulating the distribution of number of samples between both datasets.
+The first solution had no effect, but the second one slightly improve overall performance if the ratio was close to \num{50}:\num{50}.
+When the number of training samples was significantly greater than testing ones, the accuracy decreased due to very small number of bot samples in testing dataset.
+
