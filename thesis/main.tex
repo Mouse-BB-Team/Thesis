@@ -2,10 +2,10 @@
 
 % Lista wszystkich języków stanowiących języki pozycji bibliograficznych użytych w pracy.
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
-\usepackage[english,polish]{babel}
+\usepackage[english]{babel}
 
 % Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
-\usepackage{polski}
+% \usepackage{polski}
 
 \usepackage[utf8]{inputenc}
 
@@ -15,6 +15,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{hyperref}
 
 % --- < bibliografia > ---
 
@@ -24,7 +25,7 @@ sorting=none,
 %
 % Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
 language=autobib,
-autolang=other,
+autolang=english,
 % Zapisuj datę dostępu do strony WWW w formacie RRRR-MM-DD.
 urldate=iso8601,
 % Nie dodawaj numerów stron, na których występuje cytowanie.
@@ -42,7 +43,7 @@ backend=bibtex
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
-\DeclareQuoteAlias{croatian}{polish}
+\DeclareQuoteAlias{croatian}{english}
 
 \addbibresource{bibliography/bibliography.bib}
 
