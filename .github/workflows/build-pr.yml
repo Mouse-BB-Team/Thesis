@@ -15,7 +15,10 @@ jobs:
       - name: Compile LaTeX document
         run: |
           cd thesis
-          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
+          pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          bibtex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
       - name: Rename output file
         id: rename
         run: |

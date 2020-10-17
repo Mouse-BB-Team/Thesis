@@ -15,7 +15,10 @@ jobs:
       - name: Compile LaTeX document
         run: |
           cd thesis
-          latexmk -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
+          pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          bibtex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME && \
+          pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf $FILENAME
       - name: Upload to Google Drive
         uses: satackey/action-google-drive@v1
         with:
