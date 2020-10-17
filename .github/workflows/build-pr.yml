@@ -1,37 +1,37 @@
-name: build-pr
-on:
-  pull_request:
-jobs:
-  build_pr:
-    runs-on: ubuntu-latest
-    container:
-      image: danteev/texlive:latest
-    env:
-      FILENAME: main.tex
-      PREFIX: main
-      BIB_FILENAME: main.aux
-    steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v1
-      - name: Compile LaTeX document
-        run: |
-          cd thesis
-          pdflatex -interaction=nonstopmode $FILENAME && \
-          bibtex $BIB_FILENAME && \
-          pdflatex -interaction=nonstopmode -output-directory=.. $FILENAME
-          cd ..
-      - name: Rename output file
-        id: rename
-        run: |
-          SUFFIX=$(echo $GITHUB_REF | grep -Po "\d+")
-          NEW_FILENAME=$PREFIX-pr-$SUFFIX.pdf
-          mv main.pdf $NEW_FILENAME
-          echo "::set-output name=new_filename::$NEW_FILENAME"
-      - name: Upload to Google Drive
-        uses: satackey/action-google-drive@v1
-        with:
-          skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE }}
-          upload-from: ./${{ steps.rename.outputs.new_filename }}
-          upload-to: '/thesis/thesis-pr'
-          google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
-          google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+#name: build-pr
+#on:
+#  pull_request:
+#jobs:
+#  build_pr:
+#    runs-on: ubuntu-latest
+#    container:
+#      image: danteev/texlive:latest
+#    env:
+#      FILENAME: main.tex
+#      PREFIX: main
+#      BIB_FILENAME: main.aux
+#    steps:
+#      - name: Set up Git repository
+#        uses: actions/checkout@v1
+#      - name: Compile LaTeX document
+#        run: |
+#          cd thesis
+#          pdflatex -interaction=nonstopmode $FILENAME && \
+#          bibtex $BIB_FILENAME && \
+#          pdflatex -interaction=nonstopmode -output-directory=.. $FILENAME
+#          cd ..
+#      - name: Rename output file
+#        id: rename
+#        run: |
+#          SUFFIX=$(echo $GITHUB_REF | grep -Po "\d+")
+#          NEW_FILENAME=$PREFIX-pr-$SUFFIX.pdf
+#          mv main.pdf $NEW_FILENAME
+#          echo "::set-output name=new_filename::$NEW_FILENAME"
+#      - name: Upload to Google Drive
+#        uses: satackey/action-google-drive@v1
+#        with:
+#          skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE }}
+#          upload-from: ./${{ steps.rename.outputs.new_filename }}
+#          upload-to: '/thesis/thesis-pr'
+#          google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
+#          google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
