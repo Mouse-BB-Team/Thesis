@@ -32,3 +32,19 @@ Some of them slightly improved performance and those ones were considered in the
 Despite the efforts of the authors, the described problem significantly worsened the performance of the model.
 
 \section{Further study}\label{sec:further-study}
+Due to the described issues, the authors find further study mainly in the improvement of the dataset.
+Some efforts may be taken to extend the size of the recorded data.
+Firstly, recording sequences of a bigger group of users may be proposed as a solution, especially bot users to prevent imbalance.
+Such a solution should improve the overall performance of the model or at least suggest other problems related to the quality of the dataset.
+If the quality of the recorded samples would be inappropriate, the collection module~\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} should be reviewed and improved.
+The main object of interest should be the method of gathering the samples.
+Delays and synchronization that can disturb the reliability of the data may be considered as a major area of study.
+
+Another approach that may be taken into consideration is another machine learning model.
+In the presented solution, the focus was on the two-dimensional convolutional neural network, taking an example from related works like Chong et al.~\cite{Main} and Wei et al.~\cite{Inspiration}.
+The work~\cite{Main} also shows other solutions, such as especially recursive neural networks.
+Those kinds of neural networks are very popular in problems where the order and time intervals between samples have natural interpretations.
+The problem which is described in this work also has similar properties.
+
+These two described areas of study are found by the authors as the major to improve performance and reliability.
+To deliver a safe and reliable solution to the commercial market further study is necessary.
