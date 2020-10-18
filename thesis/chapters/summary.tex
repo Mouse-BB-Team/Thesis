@@ -11,7 +11,7 @@ Another approach that was taken was a manipulation of the input data size.
 On the one hand, the user's sequences were limited to the number of total bot sequences.
 This solution was aimed to balance the dataset at the cost of fewer data.
 The results of this approach turned out insufficient.
-Because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a worsening of performance.
+Because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a performance deterioration.
 On the other hand, the duplication of the bot sequences was used.
 The idea was similar to the one before, but instead of reducing, the authors increased the number of bot samples using a single sample several times.
 It resulted in an artificially balanced dataset.
@@ -19,7 +19,7 @@ However, this approach did not increase performance at all.
 
 Manipulation of the distribution of labels between training and testing dataset was also considered.
 It was done by equalization of the number of both types of samples in testing dataset as well as manipulating the distribution of the number of samples between both datasets.
-The first solution did not affect, but the second one slightly improves overall performance if the ratio was close to \num{50}:\num{50}.
+The first solution did not affect, but the second one slightly improved overall performance if the ratio was close to \num{50}:\num{50}.
 When the number of training samples was significantly greater than testing ones, the accuracy decreased due to a very small number of bot samples in testing dataset.
 
 Yet another attempt to reduce the impact of the inappropriate dataset was changing the dataset itself.
@@ -35,14 +35,14 @@ Despite the efforts of the authors, the described problem significantly worsened
 Due to the described issues, the authors find further study mainly in the improvement of the dataset.
 Some efforts may be taken to extend the size of the recorded data.
 Firstly, recording sequences of a bigger group of users may be proposed as a solution, especially bot users to prevent imbalance.
-Such a solution should improve the overall performance of the model or at least suggest other problems related to the quality of the dataset.
-If the quality of the recorded samples would be inappropriate, the collection module~\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} should be reviewed and improved.
+Such a solution should improve the overall performance of the model or at least suggest other problems related to the quality of the dataset.\\
+If the quality of the recorded samples would be inappropriate, the collection module\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} should be reviewed and improved.
 The main object of interest should be the method of gathering the samples.
 Delays and synchronization that can disturb the reliability of the data may be considered as a major area of study.
 
-Another approach that may be taken into consideration is another machine learning model.
+The different approach that may be taken into consideration is another machine learning model.
 In the presented solution, the focus was on the two-dimensional convolutional neural network, taking an example from related works like Chong et al.~\cite{Main} and Wei et al.~\cite{Inspiration}.
-The work~\cite{Main} also shows other solutions, such as especially recursive neural networks.
+The work~\cite{Main} also shows other solutions, especially recursive neural networks.
 Those kinds of neural networks are very popular in problems where the order and time intervals between samples have natural interpretations.
 The problem which is described in this work also has similar properties.
 
