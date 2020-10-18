@@ -5,7 +5,7 @@ During the work on the presented solution, the authors took steps to limit the i
 As an example, linear interpolation was used.
 It was done by connecting points in recorded sequences.
 Each single recorded sequence consisted of many single discrete points.
-Interpolation provided an order between discrete coordinates and gave the opportunity to feed the neural network with additional information.
+Interpolation provided an order between discrete coordinates and allowed feeding the neural network with additional information.
 
 Another approach that was taken was a manipulation of the input data size.
 On the one hand, the user's sequences were limited to the number of total bot sequences.
@@ -18,8 +18,8 @@ It resulted in an artificially balanced dataset.
 However, this approach did not increase performance at all.
 
 Manipulation of the distribution of labels between training and testing dataset was also considered.
-It was done by equalization of the number of both types of samples in testing dataset as well as manipulating the distribution of number of samples between both datasets.
-The first solution had no effect, but the second one slightly improves overall performance if the ratio was close to \num{50}:\num{50}.
+It was done by equalization of the number of both types of samples in testing dataset as well as manipulating the distribution of the number of samples between both datasets.
+The first solution did not affect, but the second one slightly improves overall performance if the ratio was close to \num{50}:\num{50}.
 When the number of training samples was significantly greater than testing ones, the accuracy decreased due to a very small number of bot samples in testing dataset.
 
 Yet another attempt to reduce the impact of the inappropriate dataset was changing the dataset itself.
@@ -28,7 +28,7 @@ Using longer sequences meant that the overall number of them would be smaller.
 The authors tested several ones and found out that the best performance was for a length equal to \num{50}, as it was mentioned before.
 
 All of the presented approaches tended to minimize the dataset problem.
-Some of them slightly improved performance and those ones were considered in the final solution.
+Some of them slightly improved performance and those were considered in the final solution.
 Despite the efforts of the authors, the described problem significantly worsened the performance of the model.
 
 \section{Further study}\label{sec:further-study}
