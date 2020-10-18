@@ -4,6 +4,9 @@
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
 \usepackage[english]{babel}
 
+% Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
+% \usepackage{polski}
+
 \usepackage[utf8]{inputenc}
 
 % dodatkowe pakiety
@@ -40,7 +43,7 @@ backend=bibtex
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
-\DeclareQuoteAlias{croatian}{english}
+% \DeclareQuoteAlias{croatian}{english}
 
 \addbibresource{bibliography/bibliography.bib}
 
@@ -102,37 +105,40 @@ backend=bibtex
 
 %---------------------------------------------------------------------------
 
-\author{Marcin Szpyrka}
-\shortauthor{M. Szpyrka}
+\author{Kamil~Kaliś and Piotr~Kuglin}
+\shortauthor{K.~Kaliś P.~Kuglin}
 
 %\titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
 %\titleEN{Preparation of a very long and fascinating bachelor or master thesis in \LaTeX}
 
-\titlePL{Przygotowanie pracy dyplomowej w~systemie~\LaTeX}
-\titleEN{Thesis in \LaTeX}
+% \titlePL{Przygotowanie pracy dyplomowej w~systemie~\LaTeX}
+\titleEN{Protection of Web Applications with Behavioral Biometrics}
 
 
-\shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
-\shorttitleEN{Preparation of a long and fascinating thesis in \LaTeX}
+% \shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
+\shorttitleEN{Protection of Web Applications with Behavioral Biometrics}
 
-\thesistype{Praca dyplomowa magisterska}
-%\thesistype{Master of Science Thesis}
+% \thesistype{Praca dyplomowa magisterska}
+\thesistype{Bachelor's Thesis}
 
-\supervisor{prof. dr hab. Marcin Szpyrka}
-%\supervisor{Marcin Szpyrka PhD, DSc}
+% \supervisor{prof. dr hab. Marcin Szpyrka}
+\supervisor{Piotr Chołda, BEng, PhD, DS}
 
-\degreeprogramme{Informatyka}
-%\degreeprogramme{Computer Science}
+% \degreeprogramme{Informatyka}
+\degreeprogramme{Electronics and Telecommunications}
 
-\date{2015}
+\date{2020}
 
-\department{Katedra Informatyki Stosowanej}
-%\department{Department of Applied Computer Science}
+% \department{Katedra Informatyki Stosowanej}
+\department{Department of Telecommunications}
 
-\faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
-%\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
+% \faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
+\faculty{Faculty of Computer Science, Electronics and Telecommunications}
 
-\acknowledgements{Serdecznie dziękuję \dots tu ciąg dalszych podziękowań np. dla promotora, żony, sąsiada itp.}
+\acknowledgements{We hereby express our thanks to our supervisor – Piotr Chołda, BEng, PhD, DS, which was guiding the process of creation of this thesis. The support in granting the needed resources for the study and feedback provided by Mr. Chołda are invaluable.\\
+Special thanks to Krzysztof Rusek BEng, PhD – for consulting the approach for proper machine learning model execution.\\
+This research was supported in part by PLGrid Infrastructure.
+}
 
 
 \setlength{\cftsecnumwidth}{10mm}

@@ -1,41 +1,50 @@
 \chapter{Summary}
 
 \section{Limitations, conditions and problems of the current study}
-Although the model was considered with different set of parameters and various approaches, it did not perform well.
+Although the model was considered with different sets of parameters and various approaches, it did not perform well.
 Due to certain limitations, some aspects of the model performance could not been improved.
-Some problems can be addressed, that have a great impact of the overall results and are described in the following sections.
+Some problems that have a great impact on the overall results are described in the following sections.
 
 \subsection{Dataset limitation}
-The main reason of poor performance has to be an insufficient dataset used in the study.
-The searching for proper and publicly available data resulted in failure.
-In other related works, like Chong et al.~\cite{Main} or Antal et al.~\cite{balabit1} points at the Balabit Mouse Challenge Dataset as the most popular and comprehensive data source for mouse sequences and behaviors.
+The main reason for poor performance has to be an insufficient dataset used in the study.
+The search for proper and publicly available data resulted in failure.
+In other related works, like Chong et al.~\cite{Main} or Antal et al.~\cite{balabit1} points at the Balabit Mouse Challenge Dataset\footnote{\url{https://github.com/balabit/Mouse-Dynamics-Challenge}} as the most popular and comprehensive, yet still quite small data source for mouse sequences and behaviors.
 However, this dataset is not appropriate for the problem considered in this study.
 
-The Balabit dataset consist of an user sessions recorded on the remote machine. The data includes a timing and position of the mouse cursor of ten different users.
-Splited dataset represents training sessions and test sessions.
+The Balabit dataset consists of user sessions recorded on the remote machine. The data includes the timing and position of the mouse cursor of ten different users.
+The split dataset represents training sessions and test sessions.
 
-In the training sessions one can find \num{65} legitimate sessions of various length, where in total gives \num{2253871} rows of registered user mouse actions.\\
-Test sessions consists of \num{1611} shorter sequences, that in total has \num{2357714} recorded actions, where during the session execution of the legal user, the illegitimate action happens – session is taken over by other user. Illegal sessions are the mix of two legitimate users, and when the model considers the example it should assume one user, that is then interrupted and replaced by another user somewhere betwen the session.
+In the training sessions, one can find \num{65} legitimate sessions of various lengths, wherein total gives \num{2253871} rows of registered user mouse actions.\\
+Test sessions consist of \num{1611} shorter sequences, that in total have \num{2357714} recorded actions, where during the session execution of the legal user, the illegitimate action happens – the session is taken over by another user. Illegal sessions are the mix of two legitimate users, and when the model considers the example it should assume one user, that is then interrupted and replaced by another user somewhere between the session.
 
-This data does not relates to the problem given in the scope of this work – the model that can distinguish legitimate human user and non-human bot behavior is taken into consideration. This particular case is a derived from the general problem of distinguishing two or more users and represents more specific case of using mouse behavioral biometrics.
+This data does not relate to the problem given in the scope of this work – the model that can distinguish legitimate human user and non-human bot behavior is taken into consideration. This particular case is derived from the general problem of distinguishing two or more users and represents a more specific case of using mouse behavioral biometrics.
 
-Since no public dataset is available, there was an attempt to collect exclusive and dedicated data.
-The custom environment\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} created for the puropse of this study was designed to collect and record the mouse data, but it did not serve real responsiveness of commercial website, and therefore it may caused some confusion among the subject users. By that means, data collecting was in some kind suggestive and task-oriented. That factors could have an negative impact on the quality of collected data.
+\subsection{Custom dataset research participation limitation}
+Since no public dataset is available, there was an attempt to collect exclusive and dedicated data for purpose of the study.
+The custom environment\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} created as a playground for research participants was designed to collect and record the mouse data, but it did not serve the responsiveness of a real commercial website, and therefore it may be causing some confusion among the subject users. By that means, data collecting was in some kind suggestive and task-oriented. Given factors could have a negative impact on the quality of the collected data.
 
-The other thing is that the participation in the study was completely voluntary and community based.
-Advertisement of the ongoing study was posted on couple of Facebook\footnote{https://facebook.com} groups and gathered \num{63} unique users. Overall user mouse actions collected is equal to \num{334184} rows.
-Number of bot actions registered and collected is equal to only \num{24791} rows.\\
-Such an uneven ratio of the data made the dataset imbalanced, which resulted in model asumptions about every sequence is legitimate user.
+The other thing is that participation in the study was completely voluntary and community-based.
+The advertisement for the ongoing study was posted on a couple of Facebook\footnote{https://facebook.com/} groups, which was the most available and large user community base. However, such an approach resulted in non-supervised data gathering, and therefore some user actions could not be assessed as properly executed and caused disturbances and noises in the set.
 
-\subsection{Finance and time limitation}
-Other problem encountered when preparing the thesis was the limit of the finance intended. Because the research was planned to reach many different users it has to be deployed and hosted on trusted and reliable resources – in this case it was the Google Cloud Platform\footnote{\url{https://cloud.google.com}}.
+The research gathered \num{63} unique users. Overall user mouse actions collected are equal to \num{334184} rows.
+The number of bot actions registered and collected is equal to only \num{24791} rows.\\
+Such an uneven ratio of the data made the dataset imbalanced, which resulted in the model making assumptions about every sequence biased towards the class of human users.
+Training set contained about \num{269231} bot and user sequences, whereas the test set contained \num{89744} sequences – even using transfer learning technique, the dataset was too small for efficient model training.
 
-Google cloud services offers efficient deployment of the whole system.
-Cloud services are really convenient way to handle such a project.
-The computation and storage resources can be acquired on-demand, with no time and commitment. This form of hosting the application comes with its price.
+\subsection{Finance limitation}
+Another problem encountered when preparing the thesis was the limit of the finance intended.\\
+Because the research was planned to reach many different users it had to be deployed and hosted on trusted and reliable resources.
+
+Cloud services are really convenient way to handle such a project – the hosting, computation, and storage resources can be acquired on-demand, with no time and commitment.
+In the variety of different cloud solutions, in this case, the Google Cloud Platform\footnote{\url{https://cloud.google.com/}} was selected and used.
+
+Google cloud services are able to handle the deployment of the whole system efficiently.
+This form of hosting and maintaining the infrastructure of the application comes with its price.
 The whole infrastructure was running for about two months, and due this time generated the cost of total \num{300}\$.
-This amount of cash is the highest financial outlay that could have been incurred by the authors of the work.
+This amount of cash is the highest financial outlay that could have been incurred by the authors of the work, since no other scholarship than PLGrid\footnote{\url{http://www.plgrid.pl/}} computation cluster was granted for the purpose of preparing the thesis.
+Longer exposure on the web would cost extra money, that could not be afforded.
 
-Longer exposure on the web would cost extra money, that could not been afforded. Additionally, there were existing concerns for scheduled milestones and goals. The project has been carefully thought out, and in order to meet the adopted deadlines, the data collection period also had to follow strict terms and deadlines.
-
-% --- rozbuduj te zdania z ostatniego akapitu
+\subsection{Time limitation}
+Engineering thesis defending has its term specified, thus the project has been carefully thought out in the manner of time since the beginning of the implementation.
+In order to meet the adopted milestones and goals, the data collection period had to follow strict deadlines.
+The duration of the period when the data was collected could not be extended to broader terms, thus the research and the voluntary participation in data collection were canceled during the further implementation of the project – the bot detection part\footnote{\url{https://github.com/Mouse-BB-Team/Bot-Detection}}, where the machine learning model was in build.
