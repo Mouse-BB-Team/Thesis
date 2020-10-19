@@ -76,7 +76,7 @@ Opiekun pracy: & {\itshape \@supervisor}\\
 
 \def\thesistable{
 \begin{tabular}{p{45mm}l}
-Author: & {\itshape \@author}\\[-1mm]
+Authors: & {\itshape \@author}\\[-1mm]
 Degree programme: & {\itshape \@degreeprogramme}\\[-1mm]
 Supervisor: & {\itshape \@supervisor}\\
 \end{tabular}
@@ -96,7 +96,7 @@ Supervisor: & {\itshape \@supervisor}\\
 
 \vspace*{2mm}
 
-{\sffamily{\large{\bfseries{\scshape Akademia G\'{o}rniczo-Hutnicza im. Stanis\l{}awa Staszica w Krakowie}}}
+{\sffamily{\large{\bfseries{\scshape AGH University of Science and Technology}}}
 
 \vspace*{1mm}
 
