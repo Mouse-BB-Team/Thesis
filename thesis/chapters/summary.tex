@@ -105,10 +105,10 @@ The data includes the timing and position of the mouse cursor of ten different u
 The split dataset represents training sessions and test sessions.
 
 In the training sessions, one can find \num{65} legitimate sessions of various lengths, wherein total gives \num{2253871} rows of registered user mouse actions.\\
-Test sessions consist of \num{1611} shorter sequences, that in total have \num{2357714} recorded actions, where during the session execution of the legal user, the illegitimate action happens – the session is taken over by another user.
+Test sessions consist of \num{1611} shorter sequences, that in total have \num{2357714} recorded actions, where during the session execution of the legal user, the illegitimate action happens --- the session is taken over by another user.
 Illegal sessions are the mix of two legitimate users, and when the model considers the example it should assume one user, that is then interrupted and replaced by another user somewhere between the session.
 
-This data does not relate to the problem given in the scope of this work – the model that can distinguish legitimate human user and non-human bot behavior is taken into consideration.
+This data does not relate to the problem given in the scope of this work --- the model that can distinguish legitimate human user and non-human bot behavior is taken into consideration.
 This particular case is derived from the general problem of distinguishing two or more users and represents a more specific case of using mouse behavioral biometrics.
 
 \subsection{Custom dataset research participation limitation}\label{subsec:custom-dataset-research}
@@ -125,13 +125,13 @@ The research gathered \num{63} unique users.
 Overall user mouse actions collected are equal to \num{334184} rows.
 The number of bot actions registered and collected is equal to only \num{24791} rows.\\
 Such an uneven ratio of the data made the dataset imbalanced, which resulted in the model making assumptions about every sequence biased towards the class of human users.
-Training set contained about \num{269231} bot and user sequences, whereas the test set contained \num{89744} sequences – even using transfer learning technique, the dataset was too small for efficient model training.
+Training set contained about \num{269231} bot and user sequences, whereas the test set contained \num{89744} sequences --- even using transfer learning technique, the dataset was too small for efficient model training.
 
 \subsection{Finance limitation}\label{subsec:finance-limitation}
 Another problem encountered when preparing the thesis was the limit of the finance intended.\\
 Because the research was planned to reach many different users it had to be deployed and hosted on trusted and reliable resources.
 
-Cloud services are really convenient way to handle such a project – the hosting, computation, and storage resources can be acquired on-demand, with no time and commitment.
+Cloud services are really convenient way to handle such a project --- the hosting, computation, and storage resources can be acquired on-demand, with no time and commitment.
 In the variety of different cloud solutions, in this case, the Google Cloud Platform\footnote{\url{https://cloud.google.com/}} was selected and used.
 
 Google cloud services are able to handle the deployment of the whole system efficiently.
@@ -143,7 +143,7 @@ Longer exposure on the web would cost extra money, that could not be afforded.
 \subsection{Time limitation}\label{subsec:time-limitation}
 Engineering thesis defending has its term specified, thus the project has been carefully thought-out in the manner of time since the beginning of the implementation.
 In order to meet the adopted milestones and goals, the data collection period had to follow strict deadlines.
-The duration of the period when the data was collected could not be extended to broader terms, thus the research and the voluntary participation in data collection were canceled during the further implementation of the project – the bot detection part\footnote{\url{https://github.com/Mouse-BB-Team/Bot-Detection}}, where the machine learning model was in build.
+The duration of the period when the data was collected could not be extended to broader terms, thus the research and the voluntary participation in data collection were canceled during the further implementation of the project --- the bot detection part\footnote{\url{https://github.com/Mouse-BB-Team/Bot-Detection}}, where the machine learning model was in build.
 
 \section{Conclusions and further study}\label{sec:conclusions-and-further-study}
 
