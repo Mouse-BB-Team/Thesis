@@ -1,4 +1,5 @@
-\chapter{Summary}\label{ch:summary}
+\chapter{Final results and summary discussion}\label{ch:final-results-and-summary-discussion}
+
 
 \section{Results}\label{sec:results}
 
@@ -42,7 +43,7 @@ This limitation had an effect on resizing original pictures of sequences to the 
 \end{table}
 
 The total amount of sequences depends on the minimal sequence length, because sequences that were shorter than \num{50} were simply rejected.
-The sequence split point was established by the time interval between two consecutive actions and in presented work was fixed to one second.
+The sequence split point was established by the time interval between two consecutive actions and in presented work was fixed to \num{1} second.
 The minimal sequence length was fixed based on several attempts.
 Shorter sequences than the determined ones resulted in apparently lower accuracy, when longer did not improve performance at all.
 The length of \num{50} seemed to be the golden mean between accuracy and amount of sequences.
@@ -52,7 +53,7 @@ It can be seen that model accuracy during the testing part is in most epochs hig
 It is caused by an imbalanced dataset which was the input for the presented model, where
 the amount of user data for testing was greater than the bot one.
 It is direct effect of having more user data in the whole dataset.
-The impact is also seen on the lost function chart \mbox{(Fig.~\ref{fig:loss})} where values are lower in the testing part.
+The impact is also seen on the loss function chart \mbox{(Fig.~\ref{fig:loss})} where values are lower in the testing part.
 
 \begin{figure}[!hbt]
     \centering
@@ -79,7 +80,7 @@ It can be seen \mbox{(Tab.~\ref{tab:confusion-matrix})} that after the learning 
 The model always predicted that the input data was the user's one.
 It is the result of a large amount of user data in comparison to bot sequences, whereas it is not the result of having only one bot user and many human users, because each user's sequence was joined into a global one.
 
-Comparing the achieved results to the ones from the original paper~\cite{Main}, the presented solution behaves unilaterally.
+Chong et al.~\cite{Main} present similar approach to related problem, but the results achieved in this study show that the presented solution behaves unilaterally.
 In many cases from cited work, authors achieved very low values of FRR\footnote{False Rejection Rate} and FAR\footnote{False Acceptance Rate}\@.
 In this work, using CNN's\footnote{Convolutional Neural Network} as a core of a solution, totally different results were achieved.
 The authors of this study consider the imbalanced dataset as the main foundation of that unexpected behavior.
@@ -88,7 +89,7 @@ The obtained accuracy chart (Fig.~\ref{fig:accuracy}) is somehow expected due to
 However, the loss function (Fig.~\ref{fig:loss}) as well as confusion matrix (Tab.~\ref{tab:confusion-matrix}) have undesirable values.
 
 
-\section{Limitations, conditions and problems of the current study}\label{sec:limitations-conditions-problems}
+\section{Limitations, conditions and problems}\label{sec:limitations-conditions-problems}
 Although the model was considered using different sets of parameters and various approaches, it did not perform well.
 Due to certain limitations, some aspects of the model performance could not have been improved.
 Some problems that have a great impact on the overall results are described in the following sections.
