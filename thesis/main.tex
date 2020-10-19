@@ -12,6 +12,7 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{hyperref}
 
 % --- < bibliografia > ---
 
@@ -39,7 +40,7 @@ backend=bibtex
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
-\DeclareQuoteAlias{croatian}{polish}
+\DeclareQuoteAlias{croatian}{english}
 
 \addbibresource{bibliography/bibliography.bib}
 
@@ -101,37 +102,40 @@ backend=bibtex
 
 %---------------------------------------------------------------------------
 
-\author{Kamil Kaliś, Piotr Kuglin}
-\shortauthor{K. Kaliś, P. Kuglin}
+\author{Kamil~Kaliś and Piotr~Kuglin}
+\shortauthor{K.~Kaliś P.~Kuglin}
 
-%\titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
-%\titleEN{Preparation of a very long and fascinating bachelor or master thesis in \LaTeX}
+% \titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
+% \titleEN{Protection of Web Applications with Behavioral Biometrics}
 
-\titlePL{Ochrona aplikacji WWW z użyciem metod biometrii behawioralnej}
+\titlePL{}
 \titleEN{Protection of Web Applications with Behavioral Biometrics}
 
 
-\shorttitlePL{Ochrona aplikacji WWW z użyciem metod biometrii behawioralnej} % skrócona wersja tytułu jeśli jest bardzo długi
+% \shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
 \shorttitleEN{Protection of Web Applications with Behavioral Biometrics}
 
-\thesistype{Bachelor Degree Thesis}
-%\thesistype{Master of Science Thesis}
+% \thesistype{Praca dyplomowa magisterska}
+\thesistype{Bachelor's Thesis}
 
-\supervisor{prof. dr hab. inż. Piotr Chołda}
-%\supervisor{Marcin Szpyrka PhD, DSc}
+% \supervisor{prof. dr hab. Marcin Szpyrka}
+\supervisor{Piotr Chołda, BEng, PhD, DS}
 
-\degreeprogramme{Electronics and Telecommunications Engineering}
-%\degreeprogramme{Computer Science}
+% \degreeprogramme{Informatyka}
+\degreeprogramme{Electronics and Telecommunications}
 
 \date{2020}
 
-\department{Department of Telecommunication}
-%\department{Department of Applied Computer Science}
+% \department{Katedra Informatyki Stosowanej}
+\department{Department of Telecommunications}
 
+% \faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
 \faculty{Faculty of Computer Science, Electronics and Telecommunications}
-%\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
 
-\acknowledgements{Serdecznie dziękuję somsiadowi}
+\acknowledgements{We hereby express our thanks to our supervisor – Piotr Chołda, BEng, PhD, DS, who was guiding the process of creation of this thesis. The support in granting the needed resources for the study and feedback provided by Mr. Chołda are invaluable.\\
+Special thanks to Krzysztof Rusek BEng, PhD – for consulting the approach for proper machine learning model execution.\\
+This research was supported in part by PLGrid Infrastructure.
+}
 
 
 \setlength{\cftsecnumwidth}{10mm}
