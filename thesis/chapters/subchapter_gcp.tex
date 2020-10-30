@@ -1,0 +1,20 @@
+\section{Deployment and orchestration}\label{sec:deployment-and-orchestration}
+In order to overcome the issues described in the previous chapter, the cloud providers' research was conducted, and based on the results it was decided to adopt the Google Cloud Platform\footnote{\url{https://cloud.google.com/}} (GCP) as a deployment environment.
+
+Unlike Heroku, GCP had no free pricing plan, but it did not restrict the usage of resources and therefore it met the project assumptions, and moreover, it had some extra advantages like native support for containers orchestration.
+The latter was provided by using Kubernetes\footnote{\url{https://kubernetes.io/}}, the open-source solution introducing flexible deployments, scaling and container management.
+Those features drastically simplify working with application development in a cloud but require additional setup and configuration files.
+
+Kubernetes natively supports the usage of Docker containers so the ones prepared before could be reused, but the deployment process requires a so-called Deployment configuration files that enables tuning the resources assigned to the single instance of an application and also the number of mirror deployments of the application.
+The basic unit managed by Kubernetes is Pod which may consist of many single Docker containers, but in this work the Pod is associated with a single container of application.
+The described scaling method is known as Horizontal Pod Scaling, and it improves reliability and allows to increase the limit of the maximal load accepted by a single deployment of the application because the load is split into the mirror instances of the same application that work in parallel.
+
+To deliver the load to all of the mirror applications, Kubernetes uses Services as an entry point to a group of Pods that are managed by one Deployment.
+The Service exposes the Deployment under the single DNS\footnote{Domain Name System} name and updates the underlying IP address in cases of its change, but it also works as a load balancer which distributes the load among the managed Pods.
+Kubernetes has several different Service types, but in this work, it was used two of them: Cluster IP that exposes the Deployments in the scope of Kubernetes but hides them from external access and NodePort that permits the access using port-forwarding.
+The latter one was dictated by the usage of Google Cloud HTTP(S) load balancer and it also required additional configuration by using an Ingress and obtaining the static external IP address.
+
+To provide encryption of connection, Transport Layer Security protocol (TLS) should have been used, but requires the SSL Server Certificate, which can be issued only for existing valid domain names, so the authors were forced to buy such a domain name, while the certificate was issued by GCP.
+
+The configuration also included some sensitive data, such as database credentials, OAuth2 secret, and SSH-RSA keys, thus the Secrets and ConfigMaps were used.
+In contrast to the Redis cache database, the main database instance was not deployed in Kubernetes itself, but the Cloud SQL service with \mbox{PostgreSQL} was used.
