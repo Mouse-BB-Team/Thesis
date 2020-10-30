@@ -11,7 +11,7 @@ The described scaling method is known as Horizontal Pod Scaling, and it improves
 
 To deliver the load to all of the mirror applications, Kubernetes uses Services as an entry point to a group of Pods that are managed by one Deployment.
 The Service exposes the Deployment under the single DNS\footnote{Domain Name System} name and updates the underlying IP address in cases of its change, but it also works as a load balancer which distributes the load among the managed Pods.
-Kubernetes has several different Service types, but in this work, it was used two of them: Cluster IP that exposes the Deployments in the scope of Kubernetes but hides them from external access and NodePort that permits the access using port-forwarding.
+Kubernetes has several different Service types but in this work two of them were used: Cluster IP that exposes the Deployments in the scope of Kubernetes but hides them from external access and NodePort that permits the access using port-forwarding.
 The latter one was dictated by the usage of Google Cloud HTTP(S) load balancer and it also required additional configuration by using an Ingress and obtaining the static external IP address.
 
 To provide encryption of connection, Transport Layer Security protocol (TLS) should have been used, but requires the SSL Server Certificate, which can be issued only for existing valid domain names, so the authors were forced to buy such a domain name, while the certificate was issued by GCP.
