@@ -1,0 +1,20 @@
+\section{Prometheus computing cluster}\label{sec:prometheus-computing-cluster}
+Data processing and machine learning model training and evaluation require a lot of computing resources.
+Performing such computations locally, on a single processing core is not the best approach, at least not the most effective method.
+
+To enhance the process of manipulating the collected data, the computing cluster was used as a part of the educational grant issued by the PLGrid.
+To make the most out of the computing cluster, plenty of helpers and steering scripts were prepared to automate the process of managing the Prometheus supercomputer.
+
+Prometheus cluster is sharing the resources among multiple users.
+Therefore, the computation is scheduled as a job by the SLURM Workload Manager\footnote{SLURM homepage --- \url{https://slurm.schedmd.com/documentation.html}}.
+To submit a batch job to the SLURM manager, the input shell script is needed and in this case, this is the \textit{sbatch\_job\_config} script which contains the job description.
+There is a declaration for requesting the 2 GPUs for the 5 hours of a total wall time with the main python script usage as a last step.
+
+On the top of the \textit{sbatch} script exists a helper shell script --- \textit{run-plgrid-job}, which is obtaining useful values that steers the SLURM scheduler as well as triggers the notification job described in previous subsection~\ref{subsec:slack-notifier}.
+
+For automation, the Git version control system was used to implement a very simple continuous delivery system.
+The combination of the git versioning system with its aliases allowed to create a \textit{deploy} alias, which was simply performing the pushing to the remote system --- in this case, the Prometheus cluster --- but also connecting to it and submitting the job.
+After successfully submitting, the user receives a notification on Slack.
+When the job starts, crashes, of finishes properly, the notification is sent again to the Slack.
+This gives a very convenient insight into the process and progress of the job without constantly checking for the status manually.
+The whole setup can be done easily via the \textit{make} program with prepared \textit{Makefile} file.
