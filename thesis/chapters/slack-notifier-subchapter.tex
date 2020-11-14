@@ -1,0 +1,15 @@
+\subsection{Slack notifier}\label{subsec:slack-notifier}
+Working with PLGrid infrastructure and running a job on the Prometheus computing cluster was very helpful in terms of delegating the great amount of computing load onto external resources.
+However, this solution has its downsides.
+One of the major issues is the job queueing mechanism, which does not determine when the job will be executed and therefore it requires constant manual checking for results.
+To avoid that somehow, the authors prepared a custom mechanism, that can monitor the status of the job and notify the Prometheus user through the Slack\footnote{\url{https://slack.com/} – a messaging app for teams} channel.
+Three following message templates were prepared for the purpose of notification:
+\begin{enumerate}
+    \item Simple message --- Generic message type build as a JSON template with help of Builder design pattern to have flexibility in customizing the message.
+    \item Pending job message --- able to notify about: job title, reporter, commit hash, job registration date and time, header for app preview, info message taken from a commit.
+    Build as a special case of Simple type message.
+    \item Results message --- The most complex message with all the statistic results produced as a result of the model computation.
+    Prepared as a JSON template with the help of the Builder design pattern.
+\end{enumerate}
+
+To avoid that somehow, the authors prepared a custom mechanism, that can monitor the status of the job and notify the Prometheus user through the Slack\footnote{\url{https://slack.com/} – a messaging app for teams} channel using observability-like architecture.

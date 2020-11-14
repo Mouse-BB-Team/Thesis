@@ -1,0 +1,25 @@
+\subsection{Statistics calculation}\label{subsec:statistics-calculation}
+The prepared model was intended to be running several times in order to measure the consistency and stability of the results.
+To properly measure and visualize the model scores, a dedicated module for processing the results was prepared.
+Two main core parts can be distinguished --- the plotting utilities and the statistics metrics calculation submodule.
+
+The submodule for calculating a metrics allows for producing the following model statistics:
+\begin{enumerate}
+    \item Mean accuracy
+    \item Mean loss
+    \item Mean FAR\footnote{False Acceptance Rate}
+    \item Mean FRR\footnote{False Rejection Rate}
+    \item Mean true negatives
+    \item Mean false negatives
+    \item Mean true positives
+    \item Mean false positives
+\end{enumerate}
+
+The submodule for plotting the charts allows for the following:
+\begin{enumerate}
+    \item Generic linear plot creation used to display accuracy and loss charts
+    \item Creating the accuracy percentile histogram
+\end{enumerate}
+
+The above metrics and functionalities are designed to produce the averaged model results for multiple executions.
+The developed model is stable and the error is irrelevant between each execution.
