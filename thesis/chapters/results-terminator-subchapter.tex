@@ -1,6 +1,6 @@
 \subsection{Results terminating}\label{subsec:results-terminating}
 When the model was executing the calculations multiple times, the results for each iteration were collected.
 This is giving a really interesting insight into the model and its stability.
-The tool called \textit{ResultTerminator} class was serving this purpose.
+The tool called \mbox{\textit{ResultTerminator}} was serving this purpose.
 The helper methods were used to determine whether the file is existing already and if not creating it.
-To avoid concurrent computing problems, the file is achieving the lock and releasing it when the content is successfully saved to CSV\footnote{Comma-Separated Values} file.
+To avoid concurrent saving problems, the file is achieving the lock and releasing it when the content is successfully saved to CSV\footnote{Comma-Separated Values} file.
