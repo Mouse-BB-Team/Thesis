@@ -2,7 +2,7 @@
 In order to prepare a dataset that consists of two classes --- the valid user and human impersonating bot, the custom bot was prepared.
 
 The main idea behind this module is to first create scenarios that next could be executed by the bot software.
-To achieve scenarios creation the most convenient, the authors prepared a utility to record the coordinates and actions of the mouse.
+To achieve the most convenient creation of scenarios, the authors prepared a utility to record the coordinates and actions of the mouse.
 Using this approach, the bot could impersonate a user in a more natural way.
 Recorded mouse events are stored as a YAML\footnote{\url{https://yaml.org/}} schema, which is a human-readable standard for data serialization.
 The structure of a YAML scenario schema is shown in Listing~\ref{listing:bot-events-yaml-schema}.
@@ -16,5 +16,5 @@ If the coordinates are different than the current mouse position, the cursor is 
 The Bézier curves are used to effectively represent a smooth curve on a computer screen, as stated by B. T. Bertka~\cite{bezier-curves}. Knowing this, this concept can be used to simulate smooth human-like movements.
 
 To be able to run a set of scenarios, the module introduces a so-called "batch runner" for predefined cases.
-This automation saves a lot of time and effort while a set of scenarios can be executed at once to generate data for the bot class.
+This automation saves a lot of time and effort because a set of scenarios can be executed at once to generate data for the bot class.
 
