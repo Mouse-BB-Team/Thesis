@@ -21,7 +21,14 @@ From now on, the actions performed by the user are recorded into the batches and
 The event listeners are awaiting four different action types: mouse move, mouse-down, mouse-up, mouse wheel action.
 Collected actions are packed into JSON object and sent to the server side API (described in~\ref{subsec:server-side-module}) --- the fields included are shown in the Listing~\ref{listing:mouse-events-json-schema}.
 
-\lstinputlisting[language=json, caption=JSON schema for mouse event batches, label=listing:mouse-events-json-schema]{resources/mouse-event-json-schema.json}
+%\lstinputlisting[language=json, caption=JSON schema for mouse event batches, label=listing:mouse-events-json-schema]{resources/mouse-event-json-schema.json}
+\inputminted[
+linenos,
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2
+fontsize=\footnotesize
+]{json}{resources/mouse-event-json-schema.json}
 
 \subsection{Server side module}\label{subsec:server-side-module}
 The server side module is build with Node.js\footnote{\url{https://nodejs.org/}} runtime with the Express\footnote{\url{https://expressjs.com/}} framework on the top of it.
