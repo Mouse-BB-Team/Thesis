@@ -1,4 +1,3 @@
-\input{chapters/implementation}
 \section{Data serialization}\label{sec:data-serialization}
 The persisted data from the database is to serve as the input for a machine learning model, however, due to inconvenient usage of SQL queries for such purposes, the serialization tool was developed in order to translate the state of the database records to binary files.
 In the presented solution, such files are treated as immutable, so the operation of serialization can be performed only once, which results in the improvement of the required time to read the data by the machine learning model.
