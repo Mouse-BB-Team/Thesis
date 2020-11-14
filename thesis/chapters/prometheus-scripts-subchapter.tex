@@ -8,7 +8,6 @@ To make the most out of the computing cluster, plenty of helpers and steering sc
 Prometheus cluster is sharing the resources among multiple users.
 Therefore, the computation is scheduled as a job by the SLURM Workload Manager\footnote{SLURM homepage --- \url{https://slurm.schedmd.com/documentation.html}}.
 To submit a batch job to the SLURM manager, the input shell script is needed and in this case, the \textit{sbatch\_job\_config} script which contains the job description was prepared.
-There is a declaration for requesting the 2 GPUs for the 5 hours of a total wall time with the main python script usage as a last step.
 
 On the top of the \textit{sbatch} script, a helper shell script exists --- \textit{run-plgrid-job}, which is obtaining useful values that steer the SLURM scheduler as well as triggers the notification job described in previous subsection~\ref{subsec:slack-notifier}.
 
