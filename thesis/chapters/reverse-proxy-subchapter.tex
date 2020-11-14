@@ -37,7 +37,7 @@ The user is granted JWT Access and Refresh tokens after logging in using the log
 The user credentials are secured with TLS and received by proxy API, whereas the proxy server is additionally appending the Client id and Client secret for OAuth2 server to the request "Authorization" header, as the proxy server authenticates to OAuth2 server with HTTP Basic authentication scheme.
 Credentials of the user that wishes to log in are included in the body of the request.
 When the user is properly authenticated, the OAuth2 server responds with a valid JWT token which is then set as a cookie with HttpOnly, Secure, and SameSite strict options.
-When the token is successfully granted, it is also saved to the Redis, which is a simple to use key-value NoSQL database efficient enough for caching.
+When the token is successfully granted, it is also saved to the Redis, which is a simple to use key-value NoSQL database suitable for caching.
 The retrieval of such a token is very fast, so this is serving the purpose of the caching system, which results in a great efficiency improvement and lower response time of the server.
 For each interaction and request for resources, the user has to hold a valid JWT Token.
 First, the token is searched in the cache database.
