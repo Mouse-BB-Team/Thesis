@@ -3,16 +3,16 @@ The second core submodule created for the purpose of collecting the data from th
 This can be split further into two different functional modules~--- client and server-side.
 
 \subsection{Client side module}\label{subsec:client-side-module}
-The client-side module is an end-user presentation layer that is built with the HTML5\footnote{\url{https://html5.org/}}~and~CSS3\footnote{\url{https://www.w3.org/Style/CSS/Overview.en.html}}~--- technologies that are the core and standard for modern web applications nowadays.
+The client-side module is an end-user presentation layer that is built with the HTML5 and CSS3~--- technologies that are the core and standard for modern web applications nowadays.
 HTML is a widely used markup language used to create hypertext documents and CSS is used as a style-sheet for modifying the design of web documents.
-The content of the website is a free, prebuilt template taken from the Colorlib\footnote{\url{https://colorlib.com/}} collection which web templates are licensed under the CC BY 3.0 License \footnote{Creative Commons Attribution 3.0 License --- \url{https://creativecommons.org/licenses/by/3.0/}}.
+The content of the website is a free, prebuilt template taken from the Colorlib\footnote{\url{https://colorlib.com/}} collection which web templates are licensed under the CC BY 3.0 License\footnote{Creative Commons Attribution 3.0 License --- \url{https://creativecommons.org/licenses/by/3.0/}}.
 The mechanism that collects users' mouse actions is designed as a "plugin" script, meaning that the template can be changed easily, so different styled environments that serve various purposes can be used to collect the data.
 
 To use the system and participate in the research, an interested user is required to first accept the consents of usage of the website as well as accept the usage of the cookies and then registration is allowed and required, and afterward, the user is redirected to the login page.
 To persists consistency of the registration and login, the custom static web pages were created to be easily transferable between the templates.
 On each document, the FAQ panel with more information regarding the project is exposed as a drop-down list.
 To authenticate, users are required to provide the credentials to log in to the system.
-These credentials are then sent through https --- which means that they are secured and encrypted --- to the reverse proxy server which then performs some action to authenticate a user, sets the cookie with granted JWT\footnote{\url{https://jwt.io/}} token and redirects the user to the homepage.
+These credentials are then sent through https --- which means that they are secured and encrypted --- to the reverse proxy server which then performs some action to authenticate a user, sets the cookie with granted JWT token and redirects the user to the homepage.
 More on the user authentication and the token obtaining sequence is described in
 The whole sequence is described and shown in subsection~\ref{subsec:server-side-module}).
 
