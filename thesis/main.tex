@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 %\usepackage{minted}
 
+\usepackage[acronym, toc]{glossaries}
 
 % --- < bibliografia > ---
 
@@ -39,7 +40,7 @@ url=false,
 % Ustawienia związane z polskimi normami dla bibliografii.
 maxbibnames=3,
 % Jeżeli używamy BibTeXa:
-backend=bibtex
+backend=bibtex,
 ]{biblatex}
 
 \usepackage{csquotes}
@@ -233,6 +234,10 @@ This research was supported in part by PLGrid Infrastructure.
 \setcounter{secnumdepth}{4}
 \brokenpenalty=10000\relax
 
+
+\input{glossary/glossary}
+\usepackage[toc,page]{appendix}
+
 \begin{document}
 
 \titlepages
@@ -246,6 +251,9 @@ This research was supported in part by PLGrid Infrastructure.
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
 }
+
+\newcounter{refcounter}
+\newcommand{\upperref}[1]{\textsuperscript{\ref{#1}}}
 
 \setcounter{tocdepth}{2}
 \tableofcontents
@@ -275,11 +283,19 @@ This research was supported in part by PLGrid Infrastructure.
 \input{chapters/summary/summary}
 
 % itd.
-% \appendix
-% \include{dodatekA}
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\begin{appendices}
+\setcounter{section}{0}
+    \input{chapters/appendix/appendix}
+\end{appendices}
+
+
 % \include{dodatekB}
 % itd.
+%\clearpage
+\printglossary
+\printbibliography[heading=bibintoc]
 
-\printbibliography
 
 \end{document}
