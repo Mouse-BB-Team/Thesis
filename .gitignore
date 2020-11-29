@@ -12,3 +12,11 @@ main-blx.bib
 *.fdb_latexmk
 *.fls
 .idea
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.xdy
