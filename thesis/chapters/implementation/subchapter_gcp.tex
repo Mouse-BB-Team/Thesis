@@ -1,8 +1,8 @@
 \section{Deployment and orchestration}\label{sec:deployment-and-orchestration}
-In order to overcome the issues described in the previous chapter, the cloud providers' research was conducted, and based on the results it was decided to adopt the \gls{gcp} (Google Cloud Platform)\footnote{\url{https://cloud.google.com/}} as a deployment environment.
+In order to overcome the issues described in the previous chapter, the cloud providers' research was conducted, and based on the results it was decided to adopt the \gls{gcp} (Google Cloud Platform)\upperref{itm:gcp} as a deployment environment.
 
 Unlike Heroku, \gls{gcp} had no free pricing plan, but it does not restrict the usage of resources and therefore it met the project assumptions, and moreover, it has some extra advantages like native support for containers orchestration.
-The latter is provided by using Kubernetes\footnote{\url{https://kubernetes.io/}}, the open-source solution introducing flexible deployments, scaling and container management.
+The latter is provided by using Kubernetes\upperref{itm:kubernetes}, the open-source solution introducing flexible deployments, scaling and container management.
 Those features drastically simplify working with application development in a cloud but require additional setup and configuration files.
 
 Kubernetes natively supports the usage of Docker containers so the ones prepared before can be reused, but the deployment process requires a so-called Deployment configuration files that enable tuning the resources assigned to the single instance of an application and also the number of the replicas of the application.

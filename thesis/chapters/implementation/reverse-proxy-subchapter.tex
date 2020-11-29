@@ -5,7 +5,7 @@ This can be split further into two different functional modules~--- client and s
 \subsection{Client side module}\label{subsec:client-side-module}
 The client-side module is an end-user presentation layer that is built with the HTML5 and CSS3~--- technologies that are the core and standard for modern web applications nowadays.
 HTML is a widely used markup language used to create hypertext documents and CSS is used as a style-sheet for modifying the design of web documents.
-The content of the website is a free, prebuilt template taken from the Colorlib\footnote{\url{https://colorlib.com/}} collection which web templates are licensed under the CC BY 3.0 License\footnote{Creative Commons Attribution 3.0 License --- \url{https://creativecommons.org/licenses/by/3.0/}}.
+The content of the website is a free, prebuilt template taken from the Colorlib\upperref{itm:colorlib} collection which web templates are licensed under the CC BY 3.0 License\upperref{itm:license}.
 The mechanism that collects users' mouse actions is designed as a "plugin" script, meaning that the template can be changed easily, so different styled environments that serve various purposes can be used to collect the data.
 
 To use the system and participate in the research, an interested user is required to first accept the consents of usage of the website as well as accept the usage of the cookies and then registration is allowed and required, and afterward, the user is redirected to the login page.
@@ -36,7 +36,7 @@ Collected actions are packed into \gls{json} object and sent to the server side 
 %\end{listing}
 
 \subsection{Server side module}\label{subsec:server-side-module}
-The server side module is build with Node.js\footnote{\url{https://nodejs.org/}} runtime with the Express\footnote{\url{https://expressjs.com/}} framework on the top of it.
+The server side module is build with Node.js\upperref{itm:node} runtime with the Express\upperref{itm:express} framework on the top of it.
 Node.js is an asynchronous JavaScript runtime, which is widely used to build high-end, scalable commercial applications.
 Express is light-weight and simple to use, yet powerful web framework for Node.js, which allows for a fast and convenient HTTP server set-up server for serving the static web documents over the internet.
 This module is serving the purpose of reverse proxy between clients and the backend \gls{api}.

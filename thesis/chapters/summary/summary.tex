@@ -82,7 +82,7 @@ It is the result of a large amount of user data in comparison to bot sequences, 
 
 Chong et al.~\cite{Main} present similar approach to related problem, but the results achieved in this study show that the presented solution behaves unilaterally.
 In many cases from cited work, authors achieved very low values of \gls{frr} and \gls{far}.
-In this work, using \gls{cnn}'s\footnote{Convolutional Neural Network} as a core of a solution, totally different results were achieved.
+In this work, using \gls{cnn}'s as a core of a solution, totally different results were achieved.
 The authors of this study consider the imbalanced dataset as the main foundation of that unexpected behavior.
 Despite the numerous efforts taken, the results are unsatisfactory.
 The obtained accuracy chart (Fig.~\ref{fig:accuracy}) is somehow expected due to the dominance of one kind of data in the binary selection problem.
@@ -97,7 +97,7 @@ Some problems that have a great impact on the overall results are described in t
 \subsection{Dataset limitation}\label{subsec:dataset-limitation}
 The main reason for poor performance has to be an insufficient dataset used in the study.
 The search for proper and publicly available data resulted in failure.
-In other related works, like Chong et al.~\cite{Main} or Antal et al.~\cite{antal2019intrusion} points at the Balabit Mouse Challenge Dataset\footnote{\url{https://github.com/balabit/Mouse-Dynamics-Challenge}} as the most popular and comprehensive, yet still quite small data source for mouse sequences and behaviors.
+In other related works, like Chong et al.~\cite{Main} or Antal et al.~\cite{antal2019intrusion} points at the Balabit Mouse Challenge Dataset as the most popular and comprehensive, yet still quite small data source for mouse sequences and behaviors.
 However, this dataset is not appropriate for the problem considered in this study.
 
 The Balabit dataset consists of user sessions recorded on the remote machine.
@@ -113,7 +113,7 @@ This particular case is derived from the general problem of distinguishing two o
 
 \subsection{Custom dataset research participation limitation}\label{subsec:custom-dataset-research}
 Since no public dataset is available, the goal of this work was to collect exclusive and dedicated data for purpose of the study.
-The custom environment\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} created as a playground for research participants was designed to collect and record the mouse data, but it did not serve the responsiveness of a real commercial website, and therefore it may be causing some confusion among the subject users.
+The custom environment\upperref{itm:data-collection} created as a playground for research participants was designed to collect and record the mouse data, but it did not serve the responsiveness of a real commercial website, and therefore it may be causing some confusion among the subject users.
 By that means, data collecting was in some kind suggestive and task-oriented.
 Given factors could have a negative impact on the quality of the collected data.
 
@@ -136,7 +136,7 @@ In the variety of different cloud solutions, in this case, the Google Cloud Plat
 However, the cost of this kind of resources is high enough to be a limitation for the work.
 
 \subsection{Time limitation}\label{subsec:time-limitation}
-Due to the time limitation, the duration of the period when the data was collected could not be extended to broader terms, thus the research and the voluntary participation in data collection were canceled during the further implementation of the project --- the bot detection part\footnote{\url{https://github.com/Mouse-BB-Team/Bot-Detection}}, where the machine learning model was in build.
+Due to the time limitation, the duration of the period when the data was collected could not be extended to broader terms, thus the research and the voluntary participation in data collection were canceled during the further implementation of the project --- the bot detection part\upperref{itm:bot-detection}, where the machine learning model was in build.
 
 \section{Conclusions and further study}\label{sec:conclusions-and-further-study}
 
@@ -175,7 +175,7 @@ According to the described issues, the authors find further study mainly in the 
 Some efforts may be taken to extend the size of the recorded data.
 Firstly, recording sequences of a bigger group of users may be proposed as a solution, especially enlarge the bot users to prevent imbalance.
 Such a solution should improve the overall performance of the model or at least suggest other problems related to the quality of the dataset.\\
-If the quality of the recorded samples would be inappropriate, the collection module\footnote{\url{https://github.com/Mouse-BB-Team/Data-Collection}} should be reviewed and improved.
+If the quality of the recorded samples would be inappropriate, the collection module\upperref{itm:data-collection} should be reviewed and improved.
 The main object of interest should be the method of gathering the samples.
 Delays and synchronization that can disturb the reliability of the data may be considered as a major area of study.
 
