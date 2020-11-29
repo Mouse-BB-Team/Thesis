@@ -16,10 +16,7 @@ jobs:
       - name: Compile LaTeX document
         run: |
           cd thesis
-          pdflatex -interaction=nonstopmode $FILENAME && \
-          bibtex $BIB_FILENAME && \
-          pdflatex -interaction=nonstopmode -output-directory=.. $FILENAME
-          cd ..
+          make
       - name: Upload to Google Drive
         uses: satackey/action-google-drive@v1
         with:
