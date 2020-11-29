@@ -5,7 +5,7 @@
 *.xml
 *.gz
 *.toc
-main-blx.bib
+*.bib
 *.bbl
 *.blg
 *.dvi

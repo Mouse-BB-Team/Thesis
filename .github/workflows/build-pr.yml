@@ -15,7 +15,6 @@ jobs:
         uses: actions/checkout@v1
       - name: Compile LaTeX document
         run: |
-          cd thesis
           make
       - name: Rename output file
         id: rename
