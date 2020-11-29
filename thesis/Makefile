@@ -1,16 +1,18 @@
 MAIN_FILE=main
 
-.PHONY: all
+.PHONY: all compile
 
-all: compile bibliography glossary compile copy_result
+all: compile copy_result
 
-compile:
+compile: pdflatex bibtex makeglossaries pdflatex
+
+pdflatex:
 	pdflatex -interaction=nonstopmode $(MAIN_FILE).tex
 
-bibliography:
+bibtex:
 	bibtex $(MAIN_FILE).aux
 
-glossary:
+makeglossaries:
 	makeglossaries $(MAIN_FILE)
 
 copy_result:
