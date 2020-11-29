@@ -3,3 +3,4 @@ run:
 	bibtex main.aux
 	makeglossaries main
 	pdflatex -interaction=nonstopmode main.tex
+	cp main.pdf ../main.pdf
