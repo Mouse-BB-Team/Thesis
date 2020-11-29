@@ -1,5 +1,5 @@
 \section{Data serialization}\label{sec:data-serialization}
-The persisted data from the database is to serve as the input for a machine learning model, however, due to inconvenient usage of SQL queries for such purposes, the serialization tool was developed in order to translate the state of the database records to binary files.
+The persisted data from the database is to serve as the input for a machine learning model, however, due to inconvenient usage of \gls{sql} queries for such purposes, the serialization tool was developed in order to translate the state of the database records to binary files.
 In the presented solution, such files are treated as immutable, so the operation of serialization can be performed only once, which results in the improvement of the required time to read the data by the machine learning model.
 Moreover, binary files allow straightforward sending and storing data in external infrastructures, such as PLGrid\footnote{\url{http://www.plgrid.pl/}}, because it does not require maintenance of database engine in that environment.
 Such an approach also makes it possible to process data and prepare them in a way that is required by the machine learning model.
@@ -11,7 +11,7 @@ The results of such filtration are saved in the chosen directory dividing the ou
 It is also possible to use a so-called one-user mode that enables generating output data only for a single arbitrary chosen user for debugging purposes.
 
 In order to make serialization uncomplicated and transferable between different programming languages, the serialization framework was used.
-At the beginning the chosen one was Apache Avro\footnote{\url{https://avro.apache.org/}} which allows to defining the schema in simple JSON file.
+At the beginning the chosen one was Apache Avro\footnote{\url{https://avro.apache.org/}} which allows to defining the schema in simple \gls{json} file.
 The serialization is performed with help of a library that allows reading schema and saving programming language native objects to binary files.
 In the presented solution serialization should be performed using the library for Go and the deserialization with support of the library for Python, however, they proved to be incompatible which resulted in errors in deserialized data.
 
