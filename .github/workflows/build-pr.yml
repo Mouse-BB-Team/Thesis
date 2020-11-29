@@ -20,6 +20,7 @@ jobs:
       - name: Rename output file
         id: rename
         run: |
+          cd thesis
           SUFFIX=$(echo $GITHUB_REF | grep -Po "\d+")
           NEW_FILENAME=$PREFIX-pr-$SUFFIX.pdf
           mv main.pdf $NEW_FILENAME
