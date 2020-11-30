@@ -1,12 +1,10 @@
 \section{Behavioral Biometrics}\label{sec:behavioral-biometrics}
 With the development of more and more powerful technology, there comes a need for sophisticated authentication methods.
 One of a kind for authenticating a user with his individual physical patterns is static biometrics.
-This approach is widely used nowadays in laptops or smartphones as a way for authentication.
-The main concepts for this kind of biometrics are facial recognition, iris and fingerprint scanning.
-However, these static methods raise big concerns.
-First of all, the static approach is insecure, because when compromised, there is no way to change it dynamically.
-Data are bounded in a way that cannot be deleted afterward.
-Secondly, the big growth in technology, especially computer vision and cameras, raise a thread for facial recognition method, where the human face can be simply replicated based on a properly scanned subject head.
+This approach is widely used nowadays in computers and phones as a way for authentication besides the traditional methods like PIN verification or pattern matching.
+The main concepts for this kind of biometrics are facial recognition and iris or fingerprint scanning.
+However, these static methods raise big concerns --- when compromised, there is no way to change it dynamically, because data is bounded physically thus cannot be changed.
+Secondly, the big progress in technology, especially computer vision and cameras, raise a thread for facial recognition method, where the human face can be simply replicated based on a properly scanned subject head.
 Moreover, this type of recognition raises concerns about human rights and privacy.
 The IBM CEO, Arvinid Krishna in his letter~\cite{ibm_2020} to the US government deputies commit the withdrawal of facial recognition in the IBM technology stack.
 
@@ -18,8 +16,8 @@ Thanks to that, the properly designed system may be used to provide a continuous
 The malicious, hijacked session would be discovered because as stated by Yampolskiy --- "one of the defining characteristics of a behavioral biometric is the incorporation of the time dimension as a part of the behavioral signature"~\cite{Yampolskiy2011}, therefore the data is gathered and analyzed dynamically.
 The domain can be divided into a couple of main categories, in which there exist the Human-Computer Interaction (HCI) based biometrics~\cite{Yampolskiy2011}.
 In this approach, the data from different external devices is gathered along with its usage and then analyzed.
-This device could be the keyboard with keystrokes analytics or mouse pointer usage.
-This last seems to be the least discovered method due to time.
-The mouse behavioral biometrics can find its usage in the web bot/web crawlers detection, as Wei et al.~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics} raise a topic of huge malicious bot traffic over the internet, which according to Bot Traffic Report 2016~\cite{bot-share-2016} reach to almost 30\% share of overall web bots traffic, thus the adoption of mouse behavioral biometrics would fit into the problem, hence "although web bots can
-generate mouse events, it’s difficult for bots to perform mouse operations in a human manner"~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics}.
-This works aims for broadening the knowledge in mouse behavioral biometrics.
+This device could be the keyboard with keystrokes analytics or mouse pointer usage, the latter seems to be the least discovered method to date.
+The mouse behavioral biometrics can find its usage in the web crawlers detection, as Wei et al.~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics} raise a topic of huge malicious bot traffic over the internet. 
+According to Bot Traffic Report 2016~\cite{bot-share-2016}, this kind of bot activity reaches almost 30\% share of overall web bots traffic.
+
+The mouse behavioral biometrics would fit into the problem, as Wei et al. says --- "although web bots can generate mouse events, it’s difficult for bots to perform mouse operations in a human manner"~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics}, so the malicious bot and legitimate user should be classified smoothly.
