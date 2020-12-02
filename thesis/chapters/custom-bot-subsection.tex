@@ -7,13 +7,27 @@ Using this approach, the bot could impersonate a user in a more natural way.
 Recorded mouse events are stored as a YAML schema, which is a human-readable standard for data serialization.
 The structure of a YAML scenario schema is shown in Listing~\ref{listing:bot-events-yaml-schema}.
 
-\lstinputlisting[language=yaml, caption=YAML schema for bot event scenarios, label=listing:bot-events-yaml-schema]{resources/bot-scenario-schema.yaml}
+\begin{listing}[ht]
+    \inputminted
+    [
+    linenos,
+    autogobble,
+    frame=single,
+    framesep=2mm,
+    labelposition=bottomline,
+    baselinestretch=1.2,
+    fontsize=\footnotesize
+    ]{yaml}{resources/bot-scenario-schema.yaml}
+    \caption{YAML schema for bot event scenarios}
+    \label{listing:bot-events-yaml-schema}
+\end{listing}
 
 After the scenarios are recorded, the mechanism to execute them is required.
 The Custom Bot executor script reads the YAML file and loads it to the memory as a list of events, that is then traversed.
 The executor script performs an action stored as an "event" filed at the coordinates $(x, y)$.
 If the coordinates are different than the current mouse position, the cursor is moved, but to make it more natural, movement is based on the Bézier curve concept.
-The Bézier curves are used to effectively represent a smooth curve on a computer screen, as stated by D. F. Rogers~\cite{bezier-curves}. Knowing this, this concept can be used to simulate smooth human-like movements.
+The Bézier curves are used to effectively represent a smooth curve on a computer screen, as stated by D. F. Rogers~\cite{bezier-curves}.
+Knowing this, this concept can be used to simulate smooth human-like movements.
 
 To be able to run a set of scenarios, the module introduces a so-called "batch runner" for predefined cases.
 This automation saves a lot of time and effort because a set of scenarios can be executed at once to generate data for the bot class.
