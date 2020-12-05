@@ -4,9 +4,14 @@ MAIN_FILE=main
 
 all: compile copy_result
 
-compile: pdflatex bibtex makeglossaries pdflatex
+compile: pdflatex bibtex makeglossaries pdflatex_final
 
 pdflatex:
+	pdflatex -interaction=nonstopmode -shell-escape $(MAIN_FILE).tex
+
+pdflatex_final:
+	pdflatex -interaction=nonstopmode -shell-escape $(MAIN_FILE).tex
+	pdflatex -interaction=nonstopmode -shell-escape $(MAIN_FILE).tex
 	pdflatex -interaction=nonstopmode -shell-escape $(MAIN_FILE).tex
 
 bibtex:
