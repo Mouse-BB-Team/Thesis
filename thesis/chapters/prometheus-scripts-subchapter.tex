@@ -9,7 +9,7 @@ Prometheus cluster is sharing the resources among multiple users.
 Therefore, the computation is scheduled as a job by the SLURM Workload Manager\footnote{SLURM homepage --- \url{https://slurm.schedmd.com/documentation.html}}.
 To submit a batch job to the SLURM manager, the input shell script is needed and in this case, the \textit{sbatch\_job\_config} script which contains the job description was prepared.
 
-On the top of the \textit{sbatch} script, a helper shell script exists --- \textit{run-plgrid-job}, which is obtaining useful values that steer the SLURM scheduler as well as triggers the notification job described in previous subsection~\ref{subsec:slack-notifier}.
+On the top of the \textit{sbatch} script, a helper shell script exists --- \textit{run-plgrid-job}, which is obtaining useful values that steer the SLURM scheduler as well as triggers the notification job described in the paragraph~\nameref{para:slack-notifier} in the section~\ref{sec:bot-detection-module}.
 
 For automation, the Git version control system was used to implement a very simple continuous delivery system.
 The combination of the git versioning system with its aliases allowed to create a \textit{deploy} alias, which was simply performing the pushing to the remote system --- in this case, the Prometheus cluster --- but also connecting to it and submitting the job.

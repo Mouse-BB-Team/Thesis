@@ -1,25 +1,17 @@
-\subsection{Statistics calculation}\label{subsec:statistics-calculation}
+% How to ref to paragraph: https://tex.stackexchange.com/a/334756
+\paragraph{Statistics calculation}\label{para:statistics-calculation}
 The prepared model was intended to be running several times in order to measure the consistency and stability of the results.
 To properly measure and visualize the model scores, a dedicated module for processing the results was prepared.
 Two main core parts can be distinguished --- the plotting utilities and the statistics metrics calculation submodule.
 
-The submodule for calculating a metrics allows for producing the following model statistics:
-\begin{enumerate}
-    \item Mean accuracy
-    \item Mean loss
-    \item Mean FAR
-    \item Mean FRR
-    \item Mean true negatives
-    \item Mean false negatives
-    \item Mean true positives
-    \item Mean false positives
-\end{enumerate}
-
-The submodule for plotting the charts allows for the following:
-\begin{enumerate}
-    \item Generic linear plot creation used to display accuracy and loss charts
-    \item Creating the accuracy percentile histogram
-\end{enumerate}
+The submodule for calculating a metrics allows for producing the mean value of accuracy, model losss, percentage of FAR and FRR, number of true negatives, true positives, false negatives and false positives.
+The plotting submodule allows for producing the following charts:
+\begin{samepage}
+    \begin{itemize}
+        \item[---] Generic linear plot creation used to display accuracy and loss charts
+        \item[---] Creating the accuracy percentile histogram
+    \end{itemize}
+\end{samepage}
 
 The above metrics and functionalities are designed to produce the averaged model results for multiple executions.
 The developed model is stable and the error is irrelevant between each execution.
