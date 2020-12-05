@@ -1,0 +1,22 @@
+\section{Related works}\label{sec:related-works}
+The idea of using behavioral biometrics, especially based on mouse dynamics is still a relatively new concept.
+The more advanced papers on using the authentication systems that deploy a mouse movement was created in the late 2000s.
+In 2007, Ahmed A. A. E. and Traore I. presented a work~\cite{firstMouseBBPapers1} in which they introduce a new form of behavioral biometrics based on mouse dynamics that can be used in different security applications.
+The method is based on neural networks.
+Later on, they continued their work and in 2009 presented a work~\cite{wang2009behavioral} that showed promising results.
+However, in those works the ratios of False Acceptance Rate (\gls{far}) and False Rejection Rate (\gls{frr}) were reaching the values above the accepted commercial standards, therefore the systems were still not applicable for real-world scenarios.
+
+With the recent technology improvements and standards, the detecting architectures were getting more and more accurate and robust, thus interesting to perform research on them.
+The works like~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics} using deep learning techniques --- convolutional neural networks to achieve accuracy over the 96\%.
+The authors gather the data with a custom site build for such a purpose, however, they do not share details for reproducing this system.
+In other work, Wang Kaixin et al.~\cite{a-user-authentication-and-identification-model-based-on-mouse-dynamics} using a Support Vector Machine classifier to determine the authority of the user based on statistical and dynamical data taken from a low count of users.
+The process of collecting data is unknown in this work, and the problem remains between different works related to the authentication based on the mouse dynamics.
+
+The remedy for the lacking data gathering information would be to get access to publicly available, verified vast datasets of good quality.
+One of the best available datasets is the Balabit dataset\upperref{itm:pierwsze}.
+The mentioned dataset is used by Antal et al.~\cite{antal2019intrusion} whose work shows the good quality of the data.
+However, the given dataset has a couple of drawbacks, like short test sessions and overall lack of data abundance.
+Chong et al.~\cite{Main} emphasize the lack of good data source as well and point at a Balabit dataset as the most adequate for the day.
+The chosen 2D-CNN approach shows interesting and promising results when evaluated on the dataset.
+To come across the lack of datasets, we propose the architecture of the system for gathering the mouse data from users.
+Furthermore, the user data along with the simulated bot actions are evaluated on the prepared model to show a potential and suitability for usage in a real machine learning model.

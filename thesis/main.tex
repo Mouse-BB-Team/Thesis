@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 %\usepackage{minted}
 
+\usepackage[acronym, toc]{glossaries}
 
 % --- < bibliografia > ---
 
@@ -39,7 +40,7 @@ url=false,
 % Ustawienia związane z polskimi normami dla bibliografii.
 maxbibnames=3,
 % Jeżeli używamy BibTeXa:
-backend=bibtex
+backend=bibtex,
 ]{biblatex}
 
 \usepackage{csquotes}
@@ -233,6 +234,10 @@ This research was supported in part by PLGrid Infrastructure.
 \setcounter{secnumdepth}{4}
 \brokenpenalty=10000\relax
 
+
+\input{glossary/glossary}
+\usepackage[toc,page]{appendix}
+
 \begin{document}
 
 \titlepages
@@ -247,35 +252,50 @@ This research was supported in part by PLGrid Infrastructure.
 	\renewcommand{\footrulewidth}{0pt}
 }
 
+\newcounter{refcounter}
+\newcommand{\upperref}[1]{\textsuperscript{\ref{#1}}}
+
 \setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 
-\input{chapters/implementation}
-\input{chapters/subchapter_api}
-\input{chapters/reverse-proxy-subchapter}
-\input{chapters/subchapter_performance_tests}
-\input{chapters/subchapter_gcp}
-\input{chapters/custom-bot-subsection}
-\input{chapters/serialization_subchapter}
-\input{chapters/prometheus-scripts-subchapter}
-\input{chapters/preprocessing_subchapter}
-\input{chapters/bot-detection-module}
-\input{chapters/csv-writer}
-\input{chapters/imgur-uploader-subchapter}
-\input{chapters/results-terminator-subchapter}
-\input{chapters/slack-notifier-subchapter}
-\input{chapters/statistics-calculation}
-\input{chapters/machine-learning-model-subchapter}
-\input{chapters/model-execution-strategy}
-\input{chapters/summary}
+\input{chapters/introduction/introduction-chapter}
+    \input{chapters/introduction/concept-subchapter}
+    \input{chapters/introduction/abstract-subchapter}
+    \input{chapters/introduction/related-works}
+\input{chapters/implementation/implementation}
+    \input{chapters/implementation/subchapter_api}
+    \input{chapters/implementation/reverse-proxy-subchapter}
+    \input{chapters/implementation/subchapter_performance_tests}
+    \input{chapters/implementation/subchapter_gcp}
+    \input{chapters/implementation/custom-bot-subsection}
+    \input{chapters/implementation/serialization_subchapter}
+    \input{chapters/implementation/prometheus-scripts-subchapter}
+    \input{chapters/implementation/preprocessing_subchapter}
+    \input{chapters/implementation/bot-detection-module}
+    \input{chapters/implementation/csv-writer}
+    \input{chapters/implementation/imgur-uploader-subchapter}
+    \input{chapters/implementation/results-terminator-subchapter}
+    \input{chapters/implementation/slack-notifier-subchapter}
+    \input{chapters/implementation/statistics-calculation}
+    \input{chapters/implementation/model-execution-strategy}
+    \input{chapters/implementation/machine-learning-model-subchapter}
+\input{chapters/summary/summary}
 
 % itd.
-% \appendix
-% \include{dodatekA}
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\begin{appendices}
+\setcounter{section}{0}
+    \input{chapters/appendix/appendix}
+\end{appendices}
+
+
 % \include{dodatekB}
 % itd.
+%\clearpage
+\printglossary
+\printbibliography[heading=bibintoc]
 
-\printbibliography
 
 \end{document}
