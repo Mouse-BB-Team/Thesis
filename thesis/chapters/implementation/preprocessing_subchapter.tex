@@ -1,0 +1,11 @@
+\section{Data preprocessing}\label{sec:data-preprocessing}
+To fulfill the requirements of the adapted transfer learning model the preprocessing tool was developed alongside a whole bunch of settings.
+The collected data sequences are in form of coordinates' series, so it is necessary to represent them as 3-dimensional pictures which are the input to the convolutional neural network.
+The described tool allows transferring those sequences into multidimensional arrays of integers and also scale them to the required input size of a used transfer learning model.
+
+The data consists of isolated points that are result of discrete sampling, so to improve performance efficiency these points on the "painting" are interpolated using a linear interpolation mechanism.
+It was verified on the collected dataset that interpolated data results in better accuracy of a model in comparison to the isolated ones.
+The presented tool works also as a splitter between training and testing sets using the provided ratio between them and as a label assigner which allows adding the corresponding labels to the single sequence basing on the provided identifier of the bot user.
+
+Using this tool it is also possible to increase the number of bot samples by using several repetitions of the original bot set in cases of an imbalanced dataset.
+The output of the preprocessor is a tuple of training and testing dataset along with labels, which can be directly the input of a neural network model.

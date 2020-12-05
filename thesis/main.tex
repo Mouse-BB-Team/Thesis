@@ -4,17 +4,20 @@
 % (Zgodnie z zasadami tworzenia bibliografii każda pozycja powinna zostać utworzona zgodnie z zasadami języka, w którym dana publikacja została napisana.)
 \usepackage[english]{babel}
 
-% Użyj polskiego łamania wyrazów (zamiast domyślnego angielskiego).
-%\usepackage{polski}
-
 \usepackage[utf8]{inputenc}
 
 % dodatkowe pakiety
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
 
 \usepackage{mathtools}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage[chapter,outputdir=build]{minted}
+
+\usepackage[toc]{glossaries}
 
 % --- < bibliografia > ---
 
@@ -37,12 +40,12 @@ url=false,
 % Ustawienia związane z polskimi normami dla bibliografii.
 maxbibnames=3,
 % Jeżeli używamy BibTeXa:
-backend=bibtex
+backend=bibtex,
 ]{biblatex}
 
 \usepackage{csquotes}
 % Ponieważ `csquotes` nie posiada polskiego stylu, można skorzystać z mocno zbliżonego stylu chorwackiego.
-\DeclareQuoteAlias{croatian}{polish}
+\DeclareQuoteAlias{croatian}{english}
 
 \addbibresource{bibliography/bibliography.bib}
 
@@ -52,6 +55,91 @@ backend=bibtex
 
 % ------------------------
 % --- < listingi > ---
+%--- < json listing > ---
+\definecolor{delim}{RGB}{20,105,176}
+\definecolor{numb}{RGB}{106, 109, 32}
+\definecolor{string}{rgb}{0.64,0.08,0.08}
+
+\lstdefinelanguage{json}{
+numbers=left,
+numberstyle=\small,
+frame=single,
+rulecolor=\color{black},
+showspaces=false,
+showtabs=false,
+breaklines=true,
+captionpos=b,
+postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
+breakatwhitespace=true,
+basicstyle=\ttfamily\small,
+upquote=true,
+morestring=[b]",
+stringstyle=\color{string},
+literate=
+*{0}{{{\color{numb}0}}}{1}
+{1}{{{\color{numb}1}}}{1}
+{2}{{{\color{numb}2}}}{1}
+{3}{{{\color{numb}3}}}{1}
+{4}{{{\color{numb}4}}}{1}
+{5}{{{\color{numb}5}}}{1}
+{6}{{{\color{numb}6}}}{1}
+{7}{{{\color{numb}7}}}{1}
+{8}{{{\color{numb}8}}}{1}
+{9}{{{\color{numb}9}}}{1}
+{\{}{{{\color{delim}{\{}}}}{1}
+{\}}{{{\color{delim}{\}}}}}{1}
+{[}{{{\color{delim}{[}}}}{1}
+{]}{{{\color{delim}{]}}}}{1},
+}
+
+% ---- YAML ----
+\newcommand\YAMLcolonstyle{\color{red}\mdseries}
+\newcommand\YAMLkeystyle{\color{black}\bfseries}
+\newcommand\YAMLvaluestyle{\color{blue}\mdseries}
+
+\makeatletter
+
+% here is a macro expanding to the name of the language
+% (handy if you decide to change it further down the road)
+\newcommand\language@yaml{yaml}
+
+\expandafter\expandafter\expandafter\lstdefinelanguage
+\expandafter{\language@yaml}
+{
+keywords={true,false,null,n},
+keywordstyle=\color{darkgray}\bfseries,
+basicstyle=\YAMLkeystyle,                                 % assuming a key comes first
+sensitive=false,
+comment=[l]{\#},
+captionpos=b,
+numbers=left,
+numberstyle=\small,
+frame=single,
+rulecolor=\color{black},
+showspaces=false,
+showtabs=false,
+breaklines=true,
+morecomment=[s]{/*}{*/},
+commentstyle=\color{purple}\ttfamily,
+stringstyle=\YAMLvaluestyle\ttfamily,
+moredelim=[l][\color{orange}]{\&},
+moredelim=[l][\color{magenta}]{*},
+moredelim=**[il][\YAMLcolonstyle{:}\YAMLvaluestyle]{:},   % switch to value style at :
+morestring=[b]',
+morestring=[b]",
+literate =    {---}{{\ProcessThreeDashes}}3
+{>}{{\textcolor{red}\textgreater}}1
+{|}{{\textcolor{red}\textbar}}1
+{\ -\ }{{\mdseries\ -\ }}3,
+}
+
+% switch to key style at EOL
+\lst@AddToHook{EveryLine}{\ifx\lst@language\language@yaml\YAMLkeystyle\fi}
+\makeatother
+
+\newcommand\ProcessThreeDashes{\llap{\color{cyan}\mdseries-{-}-}}
+
+% ---- YAML end ----
 
 % Użyj czcionki kroju Courier.
 \usepackage{courier}
@@ -84,8 +172,8 @@ backend=bibtex
 % ------------------------
 
 \AtBeginDocument{
-	\renewcommand{\tablename}{Tabela}
-	\renewcommand{\figurename}{Rys.}
+	\renewcommand{\tablename}{Tab.}
+	\renewcommand{\figurename}{Fig.}
 }
 
 % ------------------------
@@ -104,44 +192,54 @@ backend=bibtex
 
 %---------------------------------------------------------------------------
 
-\author{Marcin Szpyrka}
-\shortauthor{M. Szpyrka}
+\author{Kamil~Kaliś and Piotr~Kuglin}
+\shortauthor{K.~Kaliś P.~Kuglin}
 
-%\titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
-%\titleEN{Preparation of a very long and fascinating bachelor or master thesis in \LaTeX}
+% \titlePL{Przygotowanie bardzo długiej i pasjonującej pracy dyplomowej w~systemie~\LaTeX}
+% \titleEN{Protection of Web Applications with Behavioral Biometrics}
 
-\titlePL{Przygotowanie pracy dyplomowej w~systemie~\LaTeX}
-\titleEN{Thesis in \LaTeX}
+\titlePL{}
+\titleEN{Protection of Web Applications with Behavioral Biometrics}
 
 
-\shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
-\shorttitleEN{Preparation of a long and fascinating thesis in \LaTeX}
+% \shorttitlePL{Przygotowanie pracy dyplomowej w~systemie \LaTeX} % skrócona wersja tytułu jeśli jest bardzo długi
+\shorttitleEN{Protection of Web Applications with Behavioral Biometrics}
 
-\thesistype{Praca dyplomowa magisterska}
-%\thesistype{Master of Science Thesis}
+% \thesistype{Praca dyplomowa magisterska}
+\thesistype{Bachelor's Thesis}
 
-\supervisor{prof. dr hab. Marcin Szpyrka}
-%\supervisor{Marcin Szpyrka PhD, DSc}
+% \supervisor{prof. dr hab. Marcin Szpyrka}
+\supervisor{Piotr Chołda, PhD}
 
-\degreeprogramme{Informatyka}
-%\degreeprogramme{Computer Science}
+% \degreeprogramme{Informatyka}
+\degreeprogramme{Electronics and Telecommunications}
 
-\date{2015}
+\date{2020}
 
-\department{Katedra Informatyki Stosowanej}
-%\department{Department of Applied Computer Science}
+% \department{Katedra Informatyki Stosowanej}
+\department{Department of Telecommunications}
 
-\faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
-%\faculty{Faculty of Electrical Engineering, Automatics, Computer Science and Biomedical Engineering}
+% \faculty{Wydział Elektrotechniki, Automatyki,\protect\\[-1mm] Informatyki i Inżynierii Biomedycznej}
+\faculty{Faculty of Computer Science, Electronics and Telecommunications}
 
-\acknowledgements{Serdecznie dziękuję \dots tu ciąg dalszych podziękowań np. dla promotora, żony, sąsiada itp.}
+\acknowledgements{We hereby express our thanks to our supervisor – Piotr Chołda, PhD, who was guiding the process of creation of this thesis. The support in granting the needed resources for the study and feedback provided by Mr. Chołda are invaluable.\\
+\newline
+Special thanks to Krzysztof Rusek, PhD – for consulting the approach for proper machine learning model execution.\\
+\newline
+This research was supported in part by PLGrid Infrastructure.
+}
 
 
 \setlength{\cftsecnumwidth}{10mm}
 
 %---------------------------------------------------------------------------
+\renewcommand{\theparagraph}{}
 \setcounter{secnumdepth}{4}
 \brokenpenalty=10000\relax
+
+
+\input{glossary/glossary}
+\usepackage[toc,page]{appendix}
 
 \begin{document}
 
@@ -157,23 +255,52 @@ backend=bibtex
 	\renewcommand{\footrulewidth}{0pt}
 }
 
+\newcounter{refcounter}
+\newcommand{\upperref}[1]{\textsuperscript{\ref{#1}}}
+
 \setcounter{tocdepth}{2}
 \tableofcontents
 \clearpage
 
-\input{chapters/chapter3}
-\input{chapters/chapter1}
-\input{chapters/chapter2}
-\input{chapters/tests}
-
-
+\input{chapters/introduction/introduction-chapter}
+    \input{chapters/introduction/concept-subchapter}
+    \input{chapters/introduction/abstract-subchapter}
+    \input{chapters/introduction/related-works}
+\input{chapters/theory/Theory-chapter}
+    \input{chapters/theory/behavioral-biometrics}
+\input{chapters/implementation/implementation}
+    \input{chapters/implementation/subchapter_api}
+    \input{chapters/implementation/reverse-proxy-subchapter}
+    \input{chapters/implementation/subchapter_performance_tests}
+    \input{chapters/implementation/subchapter_gcp}
+    \input{chapters/implementation/custom-bot-subsection}
+    \input{chapters/implementation/serialization_subchapter}
+    \input{chapters/implementation/prometheus-scripts-subchapter}
+    \input{chapters/implementation/preprocessing_subchapter}
+    \input{chapters/implementation/bot-detection-module}
+    \input{chapters/implementation/csv-writer}
+    \input{chapters/implementation/imgur-uploader-subchapter}
+    \input{chapters/implementation/results-terminator-subchapter}
+    \input{chapters/implementation/slack-notifier-subchapter}
+    \input{chapters/implementation/statistics-calculation}
+    \input{chapters/implementation/model-execution-strategy}
+    \input{chapters/implementation/machine-learning-model-subchapter}
+\input{chapters/summary/summary}
 
 % itd.
-% \appendix
-% \include{dodatekA}
+\appendix
+\renewcommand{\thesection}{\Alph{section}}
+\begin{appendices}
+\setcounter{section}{0}
+    \input{chapters/appendix/appendix}
+\end{appendices}
+
+
 % \include{dodatekB}
 % itd.
+%\clearpage
+\printglossary
+\printbibliography[heading=bibintoc]
 
-\printbibliography
 
 \end{document}

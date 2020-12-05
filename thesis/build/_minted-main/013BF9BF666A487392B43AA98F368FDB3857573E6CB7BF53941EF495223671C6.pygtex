@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{p}{\PYGZob{}}
+  \PYG{n+nt}{\PYGZdq{}mouseEvents\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}
+    \PYG{p}{\PYGZob{}}
+      \PYG{n+nt}{\PYGZdq{}x\PYGZus{}cor\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}int\PYGZdq{}}\PYG{p}{,}
+      \PYG{n+nt}{\PYGZdq{}y\PYGZus{}cor\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}int\PYGZdq{}}\PYG{p}{,}
+      \PYG{n+nt}{\PYGZdq{}event\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}string\PYGZdq{}}\PYG{p}{,}
+      \PYG{n+nt}{\PYGZdq{}event\PYGZus{}time\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd HH:mm:ss.SSS\PYGZdq{}}\PYG{p}{,}
+      \PYG{n+nt}{\PYGZdq{}x\PYGZus{}res\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}int\PYGZdq{}}\PYG{p}{,}
+      \PYG{n+nt}{\PYGZdq{}y\PYGZus{}res\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}int\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{]}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
