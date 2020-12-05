@@ -2,7 +2,7 @@
 The machine learning model prepared and trained on the collected dataset was the part of the data evaluation final part.
 
 The dataset collected during the thesis preparation is not sufficient enough due to the limitation for proper and full machine learning process.
-Google cloud services are able to handle the deployment of the whole system efficiently.
+Google Cloud Services are able to handle the deployment of the whole system efficiently.
 However, this form of hosting and maintaining the infrastructure of the application comes with its price.
 The whole infrastructure was running for about two months and during this time generated the cost of a total \$300.
 This amount of cash is the highest financial outlay that could have been incurred by the authors of the work since no other scholarship than PLGrid computation cluster was granted for the purpose of preparing the thesis.
@@ -16,8 +16,8 @@ As stated in the "A survey of transfer learning"~\cite{transfer-learning-def} by
 Therefore, there is a need to create a high-performance learner for a target domain trained from a related source domain.
 This is the motivation for transfer learning.
 Transfer learning is used to improve a learner from one domain by transferring information from a related domain".
-The base feature vector for transferring to the bot recognition domain was taken from the TensorFlow Hub\footnote{\url{https://www.tensorflow.org/hub}} website.
-The model was pre-trained on ImageNet dataset\footnote{\url{http://www.image-net.org/} --- "An image database organized according to the WordNet hierarchy"} using the architecture of Inception V3, which is showing great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
+The base feature vector for transferring to the bot recognition domain was taken from the TensorFlow Hub\upperref{itm:tensorflow-hub} website.
+The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
 The model was built with the following dimensions of $299$\texttimes$299$\texttimes$3$ for the data input.
 The topmost layers were added for the transferring and tuning to the bot detection domain.
 For the optimization of the model, the optimizer called Adam with the learning rate fixed at the \num{0.5e-6} point was used.

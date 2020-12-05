@@ -6,7 +6,7 @@ To enhance the process of manipulating the collected data, the computing cluster
 To make the most out of the computing cluster, plenty of helpers and steering scripts were prepared to automate the process of managing the Prometheus supercomputer.
 
 Prometheus cluster is sharing the resources among multiple users.
-Therefore, the computation is scheduled as a job by the SLURM Workload Manager\footnote{SLURM homepage --- \url{https://slurm.schedmd.com/documentation.html}}.
+Therefore, the computation is scheduled as a job by the SLURM Workload Manager\upperref{itm:slurm}.
 To submit a batch job to the SLURM manager, the input shell script is needed and in this case, the \textit{sbatch\_job\_config} script which contains the job description was prepared.
 
 On the top of the \textit{sbatch} script, a helper shell script exists --- \textit{run-plgrid-job}, which is obtaining useful values that steer the SLURM scheduler as well as triggers the notification job described in the paragraph~\nameref{para:slack-notifier} in the section~\ref{sec:bot-detection-module}.
