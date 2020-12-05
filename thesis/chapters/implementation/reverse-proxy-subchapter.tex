@@ -42,7 +42,6 @@ Express is light-weight and simple to use, yet powerful web framework for Node.j
 This module is serving the purpose of reverse proxy between clients and the backend API.
 
 The main responsibilities of the reverse proxy are signing up the user, token granting, validation and caching, serving static web documents storing and passing the data to for persistence.
-
 When a new user tries to sign-up, secured with TLS credentials from the sign-up form are sent to one of the proxy endpoints, where they are then passed to the backend API.
 Because the backend is not exposed anywhere over the public network, there is no need to secure the credentials with TLS.\\
 The user is granted JWT Access and Refresh tokens after logging in using the login form.
