@@ -7,7 +7,22 @@ Using this approach, the bot could impersonate a user in a more natural way.
 Recorded mouse events are stored as a \gls{yaml} schema, which is a human-readable standard for data serialization.
 The structure of a \gls{yaml} scenario schema is shown in Listing~\ref{listing:bot-events-yaml-schema}.
 
-\lstinputlisting[language=yaml, caption=\gls{yaml} schema for bot event scenarios, label=listing:bot-events-yaml-schema]{resources/bot-scenario-schema.yaml}
+\begin{listing}[ht]
+    \inputminted
+    [
+    linenos,
+    autogobble,
+    xleftmargin=0.7cm,
+    xrightmargin=0.7cm,
+%    frame=single,
+    framesep=2mm,
+    labelposition=bottomline,
+    baselinestretch=1.2,
+    fontsize=\footnotesize
+    ]{yaml}{resources/bot-scenario-schema.yaml}
+    \caption{YAML schema for bot event scenarios}
+    \label{listing:bot-events-yaml-schema}
+\end{listing}
 
 After the scenarios are recorded, the mechanism to execute them is required.
 The Custom Bot executor script reads the \gls{yaml} file and loads it to the memory as a list of events, that is then traversed.

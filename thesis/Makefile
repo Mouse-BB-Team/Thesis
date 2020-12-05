@@ -7,7 +7,7 @@ all: compile copy_result
 compile: pdflatex bibtex makeglossaries pdflatex
 
 pdflatex:
-	pdflatex -interaction=nonstopmode $(MAIN_FILE).tex
+	pdflatex -interaction=nonstopmode -shell-escape $(MAIN_FILE).tex
 
 bibtex:
 	bibtex $(MAIN_FILE).aux
@@ -17,3 +17,4 @@ makeglossaries:
 
 copy_result:
 	cp $(MAIN_FILE).pdf ../$(MAIN_FILE).pdf
+
