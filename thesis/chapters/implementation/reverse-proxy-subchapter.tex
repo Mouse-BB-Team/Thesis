@@ -8,17 +8,16 @@ HTML is a widely used markup language used to create hypertext documents and CSS
 The content of the website is a free, prebuilt template taken from the Colorlib\upperref{itm:colorlib} collection which web templates are licensed under the CC BY 3.0 License\upperref{itm:license}.
 The mechanism that collects users' mouse actions is designed as a "plugin" script, meaning that the template can be changed easily, so different styled environments that serve various purposes can be used to collect the data.
 
-To use the system and participate in the research, an interested user is required to first accept the consents of usage of the website as well as accept the usage of the cookies and then registration is allowed and required, and afterward, the user is redirected to the login page.
+To use the system and participate in the research, an interested user is required to first accept the consents of usage of the website as well as accept the usage of the cookies and then registration is allowed and required. Afterward, the user is redirected to the login page.
 To persists consistency of the registration and login, the custom static web pages were created to be easily transferable between the templates.
 On each document, the FAQ panel with more information regarding the project is exposed as a drop-down list.
 To authenticate, users are required to provide the credentials to log in to the system.
-These credentials are then sent through https --- which means that they are secured and encrypted --- to the reverse proxy server which then performs some action to authenticate a user, sets the cookie with granted \gls{jwt} token and redirects the user to the homepage.
-More on the user authentication and the token obtaining sequence is described in
-The whole sequence is described and shown in subsection~\ref{subsec:server-side-module}).
+These credentials are then sent through HTTPS --- which means that they are secured and encrypted --- to the reverse proxy server which then performs some action to authenticate a user, sets the cookie with granted \gls{jwt} token and redirects the user to the homepage.
+More on the user authentication and the whole token obtaining sequence is described and shown in subsection~\ref{subsec:server-side-module}.
 
 After a successful login, the token allows for site usage and ensures the identity of the user.
 From now on, the actions performed by the user are recorded into the batches and sent to the \gls{api} every two seconds.
-The event listeners are awaiting four different action types: mouse move, mouse-down, mouse-up, mouse wheel action.
+The event listeners are awaiting four different action types: \mbox{mouse move}, \mbox{mouse-down}, \mbox{mouse-up}, \mbox{mouse wheel} action.
 Collected actions are packed into \gls{json} object and sent to the server side \gls{api} (described in~\ref{subsec:server-side-module}) --- the fields included are shown in the Listing~\ref{listing:mouse-events-json-schema}.
 
 \begin{listing}[H]
