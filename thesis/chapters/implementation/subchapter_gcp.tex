@@ -9,6 +9,7 @@ Kubernetes natively supports the usage of Docker containers so the ones prepared
 The basic unit managed by Kubernetes is Pod which may consist of many single Docker containers, but in this work the Pod is associated with a single container of application.
 The described scaling method is known as Horizontal Pod Scaling and can be seen in the Fig.~\ref{fig:gcp_diagram} as a several same Pods in single Deployment.
 It improves reliability and allows to increase the limit of the maximal load accepted by a single deployment of the application because the load is split into the mirror instances of the same application that work in parallel.
+In Fig.~\ref{fig:gcp_diagram} the Deployments are draw as rectangles which states that all of their content is in some measure related to them.
 
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/gcp_diagram}
