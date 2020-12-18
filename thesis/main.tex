@@ -239,7 +239,7 @@ This research was supported in part by PLGrid Infrastructure.
 
 
 \input{glossary/glossary}
-\usepackage[toc,page]{appendix}
+\usepackage[toc]{appendix}
 
 \begin{document}
 
@@ -296,9 +296,8 @@ This research was supported in part by PLGrid Infrastructure.
 
 % itd.
 \appendix
-\renewcommand{\thesection}{\Alph{section}}
 \begin{appendices}
-\setcounter{section}{0}
+    \addcontentsline{toc}{section}{Appendix: Links}
     \input{chapters/appendix/appendix}
 \end{appendices}
 
