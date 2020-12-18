@@ -7,6 +7,6 @@ To enable such a possibility, the \mbox{Dockerfiles} with container configuratio
 In order to deliver reliable and efficient product to the users, the performance tests were prepared using JavaScript programming language in Node.js environment.
 Those tests cover mainly the token exchange and refreshment and also allow to test the behavior of application during increased load produced by using the system by many different users.
 The results of the tests showed that the Heroku free pricing plan had some limitations regarding database storage volume and response time from the application.
-It turned out that the database in such a plan permit to store only 20,000 rows overall which is unacceptable for the data stream with the time resolution measured in milliseconds because a single user may cause exceeding the limit in a relatively short time.
-Moreover, the described cloud system suspends the working of the application when it is idle and the waking up time is very long which is manifested in a usage lag after a short period.
+It turned out that the database in such a plan permit to store only 20,000 rows overall which is unacceptable for the data stream with the time resolution measured in milliseconds because a single user may cause exceeding the limit in a few minutes.
+Moreover, the described cloud system suspends the working of the application when it is idle and the waking up time is very long which is manifested in a usage lag after 30 minutes without any web traffic.
 Described issues with the Heroku Cloud Application Platform forced the authors to find another suitable cloud provider.
