@@ -1,5 +1,7 @@
 \section{Deployment and orchestration}\label{sec:deployment-and-orchestration}
 In order to overcome the issues described in the section \ref{sec:performance-tests}, the cloud providers' research was conducted, and based on the results it was decided to adopt the \gls{gcp} (Google Cloud Platform)\upperref{itm:gcp} as a deployment environment.
+In the scope of the conducted research, some popular cloud providers were considered, such as \gls{gcp} and \gls{aws} (Amazon Web Services)\upperref{itm:aws}.
+Due to the similar costs of both options, the choice was dictated by experience that authors had with the \gls{gcp}.
 
 Unlike Heroku, \gls{gcp} had no free pricing plan, but it does not restrict the usage of resources and therefore it met the project assumptions, and moreover, it has some extra advantages like native support for containers orchestration.
 The latter is provided by using Kubernetes\upperref{itm:kubernetes}, the open-source solution introducing flexible deployments, scaling and container management.
