@@ -10,7 +10,7 @@ The other matter is that the engineering thesis defending has its term specified
 In order to meet the adopted milestones and goals, the data collection period had to follow strict deadlines.
 The duration of the period when the data was collected could not be extended to broader terms.
 
-The remedy for a small amount of data collected was to use the transfer learning technique.
+The first remedy for a small amount of data collected was to use the transfer learning technique.
 As stated in the "A survey of transfer learning"~\cite{transfer-learning-def} by Weiss et al. article --- "In certain scenarios, obtaining training data that matches the feature space and predicted data distribution characteristics of the test data can be difficult and expensive.
 Therefore, there is a need to create a high-performance learner for a target domain trained from a related source domain.
 This is the motivation for transfer learning.
@@ -19,5 +19,39 @@ The base feature vector for transferring to the bot recognition domain was taken
 The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
 The model was built with the following dimensions of $299$\texttimes$299$\texttimes$3$ for the data input.
 The topmost layers were added for the transferring and tuning to the bot detection domain.
-For the optimization of the model, the optimizer called Adam with the learning rate fixed at the \num{0.5e-6} point was used.
-This and other setup was experimentally tested, and the presented above was giving the best, yet still not very exciting results.
+%For the optimization of the model, the optimizer called Adam with the learning rate fixed at the \num{0.5e-6} point was used.
+%This and other setup was experimentally tested, and the presented above was giving the best, yet still not very exciting results.
+
+The first attempts were not very exciting because of the limited amount of samples.
+The model behaved unilaterally which means that the dominance of user's samples outshone the bot ones.
+The different approaches were taken to improve the performance such linear interpolation by connecting the points in recorded sequences.
+Each used sequence originally consisted of many single discrete points without any additional pieces of information.
+Interpolation provided an order between discrete coordinates and allowed feeding the neural network with additional information.
+
+Another considered approach was a manipulation of the input data size.
+The user's sequences were limited to the number of total bot sequences.
+This solution was aimed to balance the dataset at the cost of fewer data.
+The results of this approach turned out insufficient.
+Because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a performance deterioration.
+On the other hand, the duplication of the bot sequences was used.
+The idea was similar to the one before, but instead of reducing, the number of bot samples was increased by using a single sample several times.
+It resulted in an artificially balanced dataset.
+However, this approach did not increase performance at all.
+
+Manipulation of the distribution of labels between training and testing dataset was also considered.
+It was done by performing either an equalization of the total number of both types in the testing dataset and the distribution of samples between both datasets.
+The first solution did not affect model performance, but the second one slightly improved overall performance if the ratio was close to 50:50.
+When the number of training samples was significantly greater than testing ones, the accuracy decreased due to a very small number of bot samples in testing dataset.
+
+Yet another attempt to reduce the impact of the inappropriate dataset was changing the dataset itself.
+The developed serializing tool made it possible to create a few datasets from recorded data with different minimal sequence length limits.
+Using longer sequences meant that the overall number of them would be smaller.
+The authors tested several ones and found out that the best performance was for a length equal to 50.
+
+To overcome the described issue, another technique called data augmentation was used.
+The main idea of this approach is to increase the samples of the dataset by using the same sample several times, but each time slightly transformed it.
+The transformation is based on operations such as rotations, zooming, and flipping the original sample with some probability to do so, so each artificially generated sample should be slightly different than the others.
+This approach allows to significantly increase the size of the dataset.
+In the presented solution, each of the datasets (user's and bot) were extended to 30 000 samples which results in total 60 000 samples with just 639.
+The ratio between the training and testing part was set to 8:2, so the network used for the training 48 000 samples and for the testing 12 000.
+
