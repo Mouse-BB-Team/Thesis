@@ -37,6 +37,6 @@ In this work, due to the limitation of costs, the Kubernetes cluster was limited
 In the next step, the load goes to the Deployment of the frontend application through the NodePort service where is divided between several instances of the same application.
 This division allows for seamless changes of application versions and also decreases the requirements for efficiency of a single application instance.
 Some of the requests such as authorization ones can have their data cached in the Redis database, but most of them are passed to the backend API in the second Deployment.
-As in the previous case, the entry point for this Deployment is Service (Cluster IP), which also serves the load between some instances of the backend API.
+As in the previous case, the entry point for this Deployment is Service (Cluster IP), which also serves the load between some instances of the backend \gls{api}.
 These applications use the underlying database to persist their data, such as user credentials and collected mouse events.
 The response for the request is at the end passed back through all of these layers to the end-user and displayed in his browser.
