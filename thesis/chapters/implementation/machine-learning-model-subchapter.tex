@@ -19,8 +19,6 @@ The base feature vector for transferring to the bot recognition domain was taken
 The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
 The model was built with the following dimensions of $299$\texttimes$299$\texttimes$3$ for the data input.
 The topmost layers were added for the transferring and tuning to the bot detection domain.
-%For the optimization of the model, the optimizer called Adam with the learning rate fixed at the \num{0.5e-6} point was used.
-%This and other setup was experimentally tested, and the presented above was giving the best, yet still not very exciting results.
 
 The first attempts were not very exciting because of the limited amount of samples.
 The model behaved unilaterally which means that the dominance of user's samples outshone the bot ones.
@@ -58,3 +56,4 @@ In the presented solution, each of the datasets (user's and bot) were extended t
 The ratio between the training and testing part was set to 8:2, so the network used for the training 48 000 samples and for the testing 12 000.
 For the optimization of the model, the optimizer called Adam was used along with the learning rate exponential decay set initially to \num{1e-4}.
 The decay rate was equal to \num{0.96} and the decay steps were set to \num{1e5}.
+The loss function was set to the binary cross entropy loss due to the binary classification problem.
