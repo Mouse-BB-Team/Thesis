@@ -19,6 +19,14 @@ After a successful login, the token allows for site usage and ensures the identi
 From now on, the actions performed by the user are recorded into the batches and sent to the \gls{api} every two seconds.
 The event listeners are awaiting four different action types: \mbox{mouse move}, \mbox{mouse-down}, \mbox{mouse-up}, \mbox{mouse wheel} action.
 Collected actions are packed into \gls{json} object and sent to the server side \gls{api} (described in~\ref{subsec:server-side-module}) --- the fields included are shown in the Listing~\ref{listing:mouse-events-json-schema}.
+The schema holds the list of the mouse event objects and it is called \textit{mouseEvents}.
+The single mouse event object has the \textit{x\_cor} and \textit{y\_cor} keys with the values of the respective $x$ and $y$ coordinates of the mouse pointer on the screen.
+The \textit{x\_res} and \textit{y\_res} represents the resolution of the screen.
+To distinguish the type of the mouse action and place it on the time axis, there are \textit{event} and \textit{event\_time} attributes.
+The event time is saved in the datetime format of "yyyy-MM-dd HH:mm:ss.SSS" (example: 2021-01-25 12:23:31.334).
+Event has following predefined values: \textit{MOVE}, \textit{LEFT\_DOWN}, \textit{LEFT\_UP}, \textit{RIGHT\_DOWN}, \textit{RIGHT\_UP}, \textit{SCROLL\_PUSH}, \textit{SCROLL\_PULL}, \textit{SCROLL\_DOWN}, \textit{SCROLL\_UP}\@.
+They respective meaning is: mouse movement, left button pressed, left button released, right button pressed, right button released, wheel pushed, wheel released, wheel-scroll down, wheel-scroll up.
+
 
 \begin{listing}[H]
     \inputminted[
