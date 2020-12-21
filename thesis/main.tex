@@ -265,6 +265,11 @@ This research was supported in part by PLGrid Infrastructure.
 \rhead{\textit{Bibliography}}
 }
 
+\fancypagestyle{contents}
+{
+\rhead{\textit{Contents}}
+}
+
 \newcounter{refcounter}
 \newcommand{\upperref}[1]{\textsuperscript{\ref{#1}}}
 
@@ -277,6 +282,7 @@ This research was supported in part by PLGrid Infrastructure.
 
 \setcounter{tocdepth}{2}
 \tableofcontents
+\thispagestyle{contents}
 \clearpage
 
 \input{chapters/introduction/introduction-chapter}
