@@ -49,7 +49,7 @@ Shorter sequences than the determined ones resulted in apparently lower accuracy
 The length of 50 seemed to be the golden mean between accuracy and amount of sequences.
 
 The charts presented in \mbox{Fig.~\ref{fig:accuracy} and Fig.~\ref{fig:loss}} show that the model accuracy reaches the level of 90\% with 55\% value of the loss function.
-It can be seen that the model accuracy during the testing part is in later epochs lower than the one in the training phase.
+It can be seen that the model accuracy during gap between the testing part and training part tends to be increasing in later epochs.
 The difference tends to increase along with the epochs, which is probably caused by the amount of input data.
 The impact of the small dataset is also seen on the loss function chart \mbox{(Fig.~\ref{fig:loss})}, where values in the training phase tend to move away from the testing phase ones.
 
@@ -74,12 +74,12 @@ The impact of the small dataset is also seen on the loss function chart \mbox{(F
 The results presented in \mbox{Tab.~\ref{tab:confusion-matrix}} show that the model has correct prediction, most of the samples are classified to an appropriate category.
 The value of \gls{far} is relatively acceptable, however the \gls{frr} is significantly higher than in commercial applications.
 
-Chong et al.~\cite{Main} present similar approach to related problem and in many cases from cited work, authors achieved very low values of \gls{frr} and \gls{far}.
+Chong et al.~\cite{Main} present a similar approach to the related problem and in many cases, they achieved very low values of \gls{frr} and \gls{far}.
 In this work, using \gls{cnn}'s as a core of a solution, a little bit poorer results were achieved.
 The authors of this study consider the small dataset as the main foundation of this behavior and despite the data augmentation and other applied techniques, the results did not reach the values from the cited work.
 
 \section{Limitations, conditions and problems}\label{sec:limitations-conditions-problems}
-Although the model was considered using different sets of parameters and various approaches, it did not perform as great as was expected.
+Although the model was considered using different sets of parameters and various approaches, it did not perform as great as it was expected.
 Due to certain limitations, some aspects of the model performance could not have been improved.
 Some problems that have a great impact on the overall results are described in the following sections.
 
@@ -130,10 +130,10 @@ Due to the time limitation, the duration of the period when the data was collect
 During the work on the presented solution, the steps to limit the impact of the original imbalanced dataset were taken.
 Many of them resulted in slightly improved performance or did not improve it at all.
 The key factor was the data augmentation, which resulted in a significant increase in the number of samples and also in a better performance.
-This technique allowed to convert the unilaterally behaving model into the one whose results are promising for further research.
+This technique allowed to convert the unilaterally behaving model into the one whose results are promising and encouraging for further research.
 The linear interpolation, proposed at the beginning, was also very helpful for the model because the additional data was provided to the input which resulted in more close data domain to the ImageNet dataset.
 The final results suggest that the augmented dataset admittedly improves and makes the solution promising, but the tendency of moving the training curve away from the testing one should be reviewed.
-The authors find the small number of samples as a potential cause of these disturbances, but also the quality of the dataset should be verified.
+The authors find the small number of samples as a potential cause of these disturbances.
 
 The presented results verify the data gathering system as a potential source of data for mouse dynamics biometrics researches.
 The system is created in a way that it can be easily deployed and tuned to the exact domain requirements.
