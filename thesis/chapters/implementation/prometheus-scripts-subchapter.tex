@@ -1,17 +1,24 @@
 \section{Prometheus computing cluster}\label{sec:prometheus-computing-cluster}
 Data processing and machine learning model training and evaluation require a lot of computing resources.
 Performing such computations locally, on a single processing core is not the best approach, at least not the most effective method.
-
 To enhance the process of manipulating the collected data, the computing cluster was used as a part of the educational grant issued by the PLGrid.
 To make the most out of the computing cluster, plenty of helpers and steering scripts were prepared to automate the process of managing the Prometheus supercomputer.
 Prometheus cluster is sharing the resources among multiple users.
 Therefore, the computation is scheduled as a job by the SLURM Workload Manager\upperref{itm:slurm}.
 To submit a batch job to the SLURM manager, the input shell script is needed and in this case, the \textit{sbatch\_job\_config} script which contains the job description was prepared.
+This includes all necessary configuration parameters for the SLURM manager, like job name, time, grant name, nodes count, GPU partition selection, CPUs allocated with the memory, modules added to properly run the main Python script.
 On the top of the \textit{sbatch} script, a helper shell script exists --- \textit{run-plgrid-job}, which is obtaining useful values that steer the SLURM scheduler as well as triggers the notification job described in the paragraph~\nameref{para:slack-notifier} in the section~\ref{sec:bot-detection-module}.
+These notifications are really convenient, because one don't need to constantly check for the job status, but instead for every state, there is an appropriate notification for job schedule, running, crashed, and finished job.
 
-For automation, the Git version control system was used to implement a very simple continuous delivery system.
-The combination of the git versioning system with its aliases allowed to create a \textit{deploy} alias, which was simply performing the pushing to the remote system --- in this case, the Prometheus cluster --- but also connecting to it and submitting the job.
+
+For automation, the Git version control system was utilization to implement a very simple continuous delivery system.
+For delivering and scheduling the job on remote host, the \textit{git deploy} alias was created and can be set up using the \textit{create-git-alias} script.
+When alias is created and used, the script named \textit{git-push-alias} is launched which triggers the \textit{git push} command to update the repository and next the routine for executing the job on remote host is triggered with \textit{run-commit-execution} script.
 After successfully submitting, the user receives a notification on Slack.
 When the job starts, crashes, or finishes properly, the notification is sent again to the Slack.
 This gives a very convenient insight into the process and progress of the job without constantly checking for the status manually.
 The whole setup can be done easily via the \textit{make} program with prepared \textit{Makefile} file.
+The routine sets all necessary information on local and remote system.
+User needs to provide the PLGrid username, branch name from repository to observe and execute the model from on the Prometheus cluster.
+Routine is also generating the SSH RSA key-pair for logging in seamlessly.
+At the end, the necessary environmental variables are exported.
