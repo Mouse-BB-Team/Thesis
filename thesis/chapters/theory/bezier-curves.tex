@@ -1,7 +1,29 @@
 \section{Bézier curves}\label{sec:bezier-curves}
 To achieve a smooth, parametric curve, widely used in computer graphics, animation and font creation, the Bézier curves are used.
-They are named after the Pierre Etienne Bézier (1910-1999) --- French engineer and mathematician with merits in the field of mechanical engineering.
+They are named after Pierre Etienne Bézier (1910-1999) --- a French engineer and mathematician with merits in the field of mechanical engineering.
 
-The Bézier curves are based on the \textit{Berenstein polynominal basis}, that was "introduced 100 years ago as a means to constructively prove the ability of polynomials to approximate any continuous function, to any desired accuracy, over a prescribed interval~\cite{farouki2012bernstein}.
-If so, some of the properties for the Bézier curves are derived immediately, for example it is known that the basis functions are real, the curve generally follows the shape of the control polygon, the first and last points on the curve are coincident with the first and last points of the control polygon, and so on~\cite{bezier-curves}.
+The Bézier curves are based on the \textit{Berenstein polynomial basis}, which was "introduced 100 years ago as a means to constructively prove the ability of polynomials to approximate any continuous function, to any desired accuracy, over a prescribed interval~\cite{farouki2012bernstein}.
+If so, some of the properties for the Bézier curves are derived immediately, for example, it is known that the basis functions are real, the curve generally follows the shape of the control polygon, the first and last points on the curve are coincident with the first and last points of the control polygon, and so on~\cite{bezier-curves}.
 
+The Bézier curve of $n+1$ control points are defined in~\cite{farouki2012bernstein} as:
+\[
+    r(t) = \sum_{k=0}^n p_k b_k^n(t),  \hspace{5mm} t \in [0,1]
+\]
+
+Where the $p_0,\dots,p_n$ are the \textit{control points} and $b_k^n$ is the Berenstein polynomial:
+
+\[
+    b_k^n(t) = \binom{n}{k} t^k (1-t)^{n-k}, \hspace{5mm} \binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+The control points $p_0,\dots,p_n$ shapes the control polygon for the bezier curve, where the first and the last points on the Bézier curve are coincident with the control polygon (detailed proof and mathematical derivation can be found in~\cite{farouki2012bernstein}).
+The properties of the Bézier curve allow for creating the smooth shape, that is going through a set of predefined points.
+An example of the control polygon with the Bézier curve shaped by it can be seen in Fig.~\ref{fig:bezier-example} taken from~\cite{farouki2012bernstein}.
+
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{resources/bezier-curves-example.png}
+    \captionof{figure}{"Left: confinement of a Bézier curve within the convex hull of its control polygon. Center: variation-diminishing property — no straight line may
+    intersect the curve more often than the control polygon. Right: control polygons of a quintic Bézier curve after elevation of the degree to 6, 10, 25"~\cite{farouki2012bernstein}}
+    \label{fig:bezier-example}
+\end{figure}
