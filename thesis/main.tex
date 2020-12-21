@@ -23,7 +23,7 @@
 
 \usepackage[
 style=numeric,
-sorting=none,
+sorting=nty,
 %
 % Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
 language=autobib,
@@ -255,6 +255,21 @@ This research was supported in part by PLGrid Infrastructure.
 	\renewcommand{\footrulewidth}{0pt}
 }
 
+\fancypagestyle{appendix}
+{
+\rhead{\textit{Appendix: Links}}
+}
+
+\fancypagestyle{bibliography}
+{
+\rhead{\textit{Bibliography}}
+}
+
+\fancypagestyle{contents}
+{
+\rhead{\textit{Contents}}
+}
+
 \newcounter{refcounter}
 \newcommand{\upperref}[1]{\textsuperscript{\ref{#1}}}
 
@@ -267,6 +282,7 @@ This research was supported in part by PLGrid Infrastructure.
 
 \setcounter{tocdepth}{2}
 \tableofcontents
+\thispagestyle{contents}
 \clearpage
 
 \input{chapters/introduction/introduction-chapter}
@@ -312,6 +328,7 @@ This research was supported in part by PLGrid Infrastructure.
 %\clearpage
 \printglossary
 \printbibliography[heading=bibintoc]
+\thispagestyle{bibliography}
 
 
 \end{document}

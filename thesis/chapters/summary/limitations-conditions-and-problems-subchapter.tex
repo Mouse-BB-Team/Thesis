@@ -1,10 +1,10 @@
 \section{Limitations, conditions and problems}\label{sec:limitations-conditions-problems}
-Although the model was considered using different sets of parameters and various approaches, it did not perform well.
+Although the model was considered using different sets of parameters and various approaches, it did not perform as great as it was expected.
 Due to certain limitations, some aspects of the model performance could not have been improved.
 Some problems that have a great impact on the overall results are described in the following sections.
 
 \subsection{Dataset limitation}\label{subsec:dataset-limitation}
-The main reason for poor performance has to be an insufficient dataset used in the study.
+The main reason for this performance has to be a small dataset used in the study.
 The search for proper and publicly available data resulted in failure.
 In other related works, like Chong et al.~\cite{Main} or Antal et al.~\cite{antal2019intrusion} points at the Balabit Mouse Challenge Dataset as the most popular and comprehensive, yet still quite small data source for mouse sequences and behaviors.
 However, this dataset is not appropriate for the problem considered in this study.
@@ -30,9 +30,8 @@ The advertisement for the ongoing study was posted on a couple of Facebook group
 However, such an approach resulted in non-supervised data gathering, and therefore some user actions could not be assessed as properly executed and caused disturbances and noises in the set.
 The research gathered 63 unique users.
 Overall user mouse actions collected are equal to 334,184 rows.
-The number of bot actions registered and collected is equal to only 24,791 rows.\\
-Such an uneven ratio of the data made the dataset imbalanced, which resulted in the model making assumptions about every sequence biased towards the class of human users.
-Training set contained about 269,231 bot and user sequences, whereas the test set contained 89,744 sequences --- even using transfer learning technique, the dataset was too small for efficient model training.
+The number of bot actions registered and collected is equal to only 24,791 rows.
+Such an uneven ratio of the data made the original dataset imbalanced, which at the beginning resulted in the model making assumptions about every sequence biased towards the class of human users and after data augmentation, the results were significantly better, but not enough to use the solution on the commercial market.
 
 \subsection{Finance limitation}\label{subsec:finance-limitation}
 Another problem encountered when preparing the thesis was the limit of the finance intended.\\

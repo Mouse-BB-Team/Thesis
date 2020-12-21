@@ -1,5 +1,7 @@
 \section{Deployment and orchestration}\label{sec:deployment-and-orchestration}
 In order to overcome the issues described in the section \ref{sec:performance-tests}, the cloud providers' research was conducted, and based on the results it was decided to adopt the \gls{gcp} (Google Cloud Platform)\upperref{itm:gcp} as a deployment environment.
+In the scope of the conducted research, some popular cloud providers were considered, such as \gls{gcp} and \gls{aws} (Amazon Web Services)\upperref{itm:aws}.
+Due to the similar costs of both options, the choice was directed by the prior experience that authors had with the \gls{gcp}.
 
 Unlike Heroku, \gls{gcp} had no free pricing plan, but it does not restrict the usage of resources and therefore it met the project assumptions, and moreover, it has some extra advantages like native support for containers orchestration.
 The latter is provided by using Kubernetes\upperref{itm:kubernetes}, the open-source solution introducing flexible deployments, scaling and container management.
@@ -9,6 +11,7 @@ Kubernetes natively supports the usage of Docker containers so the ones prepared
 The basic unit managed by Kubernetes is Pod which may consist of many single Docker containers, but in this work the Pod is associated with a single container of application.
 The described scaling method is known as Horizontal Pod Scaling and can be seen in the Fig.~\ref{fig:gcp_diagram} as a several same Pods in single Deployment.
 It improves reliability and allows to increase the limit of the maximal load accepted by a single deployment of the application because the load is split into the mirror instances of the same application that work in parallel.
+In Fig.~\ref{fig:gcp_diagram} the Deployments are drawn as rectangles which states that all of their content is in some measure related to them.
 
 \begin{figure}
     \includegraphics[width=\linewidth]{resources/gcp_diagram}
@@ -29,3 +32,13 @@ These configurations are matched to the appropriate component by labels and ther
 
 The whole architecture of the collector system is presented in Fig.~\ref{fig:gcp_diagram}, but the figure has several simplifications such as a way of database deployment.
 In contrast to the Redis cache database, the main database instance is not deployed in Kubernetes itself, but the Cloud SQL from \gls{gcp} available services with \mbox{PostgreSQL} is used to achieve straightforward management and reliability.
+
+The flow of the presented architecture starts with the external global public IP address that is also able to be resolved by using \gls{dns}.
+The request from the user's browser is transitioned to the Google Cloud HTTP(S) load balancer that is able to deliver the load to different nodes of the cluster even in different regions and zones.
+In this work, due to the limitation of costs, the Kubernetes cluster was limited to one region and one zone so the usage of load balancer relied mainly on passing the load from the public IP address to the Kubernetes.
+In the next step, the load goes to the Deployment of the frontend application through the NodePort service where is divided between several instances of the same application.
+This division allows for seamless changes of application versions and also decreases the requirements for efficiency of a single application instance.
+Some of the requests such as authorization ones can have their data cached in the Redis database, but most of them are passed to the backend API in the second Deployment.
+As in the previous case, the entry point for this Deployment is Service (Cluster IP), which also serves the load between some instances of the backend \gls{api}.
+These applications use the underlying database to persist their data, such as user credentials and collected mouse events.
+The response for the request is at the end passed back through all of these layers to the end-user and displayed in his browser.
