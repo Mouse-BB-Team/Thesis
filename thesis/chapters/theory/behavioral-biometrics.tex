@@ -15,10 +15,14 @@ As stated by Tony Thomas in~\cite{thomas2020machine} --- these actions include v
 The advantage of such an approach is the fact, that data collecting for further authentication can be gathered in a seamless manner, without the user's knowledge of the process.
 Thanks to that, the properly designed system may be used to provide a continuous authorization of a user.
 The malicious, hijacked session would be discovered because as stated by Yampolskiy --- "one of the defining characteristics of a behavioral biometric is the incorporation of the time dimension as a part of the behavioral signature"~\cite{Yampolskiy2011}, therefore the data is gathered and analyzed dynamically.
-The domain can be divided into a couple of main categories, in which there exist the \gls{hci} (Human-Computer Interaction) based biometrics~\cite{Yampolskiy2011}.
-In this approach, the data from different external devices is gathered along with its usage and then analyzed.
+The domain can be divided into a couple of main categories, in which there exist the \gls{hci} (Human-Computer Interaction) based biometrics alongside the category based on authorship, indirect HCI, motor-skills or direct behavioral biometrics (purely individual behavioral traits, like the way an individual walk)~\cite{Yampolskiy2011}.
+In the \gls{hci}-based approach, the data from different external devices is gathered along with its usage and then analyzed.
 This device could be the keyboard with keystrokes analytics or mouse pointer usage, the latter seems to be the least discovered method to date.
-The mouse behavioral biometrics can find its usage in the web crawlers detection, as Wei et al.~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics} raise a topic of huge malicious bot traffic over the internet. 
-According to Bot Traffic Report 2016~\cite{bot-share-2016}, this kind of bot activity reaches almost 30\% share of overall web bots traffic.
+Mouse based \gls{hci} can utilize the "raw" data recorded from the low-level mouse events like the cursor movement or button actions~\cite{kasprowski2018fusion}.
+Those normally include the timestamps and therefore could be further grouped into more high-level actions like drag-and-drop, or move-and-click actions~\cite{kasprowski2018fusion}.
+Data collection can take place in different experimental conditions, like Web browsing, text editing, dot trait following, or game scenarios~\cite{kasprowski2018fusion}.
+Some of the experiments completely discard pre-prepared environments for data collection~\cite{kasprowski2018fusion}.
 
+The mouse behavioral biometrics can find its usage in the web crawlers detection, as Wei et al.~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics} raise a topic of huge malicious bot traffic over the internet.
+According to Bot Traffic Report 2016~\cite{bot-share-2016}, this kind of bot activity reaches almost 30\% share of overall web bots traffic.
 The mouse behavioral biometrics would fit into the problem, as Wei et al. says --- "although web bots can generate mouse events, it’s difficult for bots to perform mouse operations in a human manner"~\cite{a-deep-learning-approach-to-web-bot-detection-using-mouse-behavioral-biometrics}, so the malicious bot and legitimate user should be classified smoothly.
