@@ -1,0 +1,29 @@
+\section{Summary}\label{sec:summary}
+During the work on the presented solution, the steps to limit the impact of the imbalanced dataset were taken.
+As an example, linear interpolation was used by connecting the points in recorded sequences.
+Each used sequence originally consisted of many single discrete points without any additional pieces of information.
+Interpolation provided an order between discrete coordinates and allowed feeding the neural network with additional information.
+
+Another considered approach was a manipulation of the input data size.
+The user's sequences were limited to the number of total bot sequences.
+This solution was aimed to balance the dataset at the cost of fewer data.
+The results of this approach turned out insufficient.
+Because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a performance deterioration.
+On the other hand, the duplication of the bot sequences was used.
+The idea was similar to the one before, but instead of reducing, the number of bot samples was increased by using a single sample several times.
+It resulted in an artificially balanced dataset.
+However, this approach did not increase performance at all.
+
+Manipulation of the distribution of labels between training and testing dataset was also considered.
+It was done by performing either an equalization of the total number of both types in the testing dataset and the distribution of samples between both datasets.
+The first solution did not affect model performance, but the second one slightly improved overall performance if the ratio was close to 50:50.
+When the number of training samples was significantly greater than testing ones, the accuracy decreased due to a very small number of bot samples in testing dataset.
+
+Yet another attempt to reduce the impact of the inappropriate dataset was changing the dataset itself.
+The developed serializing tool made it possible to create a few datasets from recorded data with different minimal sequence length limits.
+Using longer sequences meant that the overall number of them would be smaller.
+The authors tested several ones and found out that the best performance was for a length equal to 50, as it was mentioned before.
+
+All of the presented approaches tended to minimize the dataset problem.
+Some of them slightly improved performance and those were considered in the final solution.
+Despite the efforts and attempts for improving the model, the described problem significantly worsened the performance of the model.

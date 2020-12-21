@@ -1,0 +1,46 @@
+\section{Limitations, conditions and problems}\label{sec:limitations-conditions-problems}
+Although the model was considered using different sets of parameters and various approaches, it did not perform well.
+Due to certain limitations, some aspects of the model performance could not have been improved.
+Some problems that have a great impact on the overall results are described in the following sections.
+
+\subsection{Dataset limitation}\label{subsec:dataset-limitation}
+The main reason for poor performance has to be an insufficient dataset used in the study.
+The search for proper and publicly available data resulted in failure.
+In other related works, like Chong et al.~\cite{Main} or Antal et al.~\cite{antal2019intrusion} points at the Balabit Mouse Challenge Dataset as the most popular and comprehensive, yet still quite small data source for mouse sequences and behaviors.
+However, this dataset is not appropriate for the problem considered in this study.
+
+The Balabit dataset consists of user sessions recorded on the remote machine.
+The data includes the timing and position of the mouse cursor of ten different users.
+The split dataset represents training sessions and test sessions.
+In the training sessions, one can find 65 legitimate sessions of various lengths, wherein total gives 2,253,871 rows of registered user mouse actions.
+The test sessions consist of 1,611 shorter sequences, that in total have 2,357,714 recorded actions, where during the session execution of the legal user, the illegitimate action happens --- the session is taken over by another user.
+Illegal sessions are the mix of two legitimate users, and when the model considers the example it should assume one user, that is then interrupted and replaced by another user somewhere between the session.
+
+This data does not relate to the problem given in the scope of this work --- the model that can distinguish legitimate human user and non-human bot behavior is taken into consideration.
+This particular case is derived from the general problem of distinguishing two or more users and represents a more specific case of using mouse behavioral biometrics.
+
+\subsection{Custom dataset research participation limitation}\label{subsec:custom-dataset-research}
+Since no public dataset is available, the goal of this work was to collect exclusive and dedicated data for purpose of the study.
+The custom environment\upperref{itm:data-collection} created as a playground for research participants was designed to collect and record the mouse data, but it did not serve the responsiveness of a real commercial website, and therefore it may be causing some confusion among the subject users.
+By that means, data collecting was in some kind suggestive and task-oriented.
+Given factors could have a negative impact on the quality of the collected data.
+
+The other thing is that participation in the study was completely voluntary and community-based.
+The advertisement for the ongoing study was posted on a couple of Facebook groups, which was the most available and large user community base.
+However, such an approach resulted in non-supervised data gathering, and therefore some user actions could not be assessed as properly executed and caused disturbances and noises in the set.
+The research gathered 63 unique users.
+Overall user mouse actions collected are equal to 334,184 rows.
+The number of bot actions registered and collected is equal to only 24,791 rows.\\
+Such an uneven ratio of the data made the dataset imbalanced, which resulted in the model making assumptions about every sequence biased towards the class of human users.
+Training set contained about 269,231 bot and user sequences, whereas the test set contained 89,744 sequences --- even using transfer learning technique, the dataset was too small for efficient model training.
+
+\subsection{Finance limitation}\label{subsec:finance-limitation}
+Another problem encountered when preparing the thesis was the limit of the finance intended.\\
+Because the research was planned to reach many different users it had to be deployed and hosted on trusted and reliable resources.
+
+Cloud services are really convenient way to handle such a project --- the hosting, computation, and storage resources can be acquired on-demand, with no time and commitment.
+In the variety of different cloud solutions, in this case, the Google Cloud Platform was selected and used.
+However, the cost of this kind of resources is high enough to be a limitation for the work.
+
+\subsection{Time limitation}\label{subsec:time-limitation}
+Due to the time limitation, the duration of the period when the data was collected could not be extended to broader terms, thus the research and the voluntary participation in data collection were canceled during the further implementation of the project --- the bot detection part\upperref{itm:bot-detection}, where the machine learning model was in build.
