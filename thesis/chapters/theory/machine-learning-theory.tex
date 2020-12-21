@@ -1,0 +1,44 @@
+\section{Machine learning approaches}\label{sec:machine-learning-approaches}
+In modern cybersecurity, there exist many different threats that potentially expose the system to being compromised.
+Many of them are very sophisticated, some are pretty difficult to distinguish from legitimate operations.
+Nowadays, there is a trend to use machine learning approaches to meet the high demands for the quality and reliability of security systems.
+
+As stated by Tony Thomas et al. in \cite{thomas2020machine} --- "Machine learning (ML) may be defined as the ability of machines to learn without being explicitly programmed.
+Using mathematical techniques across cyberdata, ML algorithms can build models of behaviors and use those models as a basis for making predictions on newly input data".
+This behavior of machine learning techniques is very convenient, especially when the domain of the problem and the borders between the data cannot be explicitly expressed by the written program.
+Machine learning models can learn from their own mistakes and then recognize or even predict the future attacks.
+
+In scope of sequential data with natural timespan interpretation such us mouse actions, the recursive neural networks are natural choice.
+However, if the data can be represented as a bit map or picture, the convolutional neural networks become possible to use.
+Due to the size of picture representation in a computer world, it is pretty expensive in the meaning of computational cost to use plain neural networks because the number of weights in such a network becomes tremendous.
+Convolutional neural networks address this issue and make the computation significantly faster and efficient.
+
+Keiron O'Shea et. al in \cite{cnn-description} define an architecture of \gls{cnn}'s as a connected network of three types layers: convolutional layer, pooling layer and fully-connected layer.
+Thomas et. al in \cite{thomas2020machine} add to these layers so-called "rectified linear unit" layer.
+The convolutional layer is combined out of filters that represent features of the images that the given filter should recognize.
+These filters are then used on the different regions of images from the dataset by performing convolution.
+The output reflects the found matches between the image that is recognized and the one described by the filter.
+Pooling is a technique used to decrease the size of the image by grouping pixels and returning the representative value for this group.
+As an example, the max-pooling bases on returning the pixel with the highest value in the group.
+The fully-connected layer is a layer that builds plain artificial neural networks.
+All of the neurons inside this layer are pairwise connected to the ones from the previous layer, but they are not connected inside the current layer.
+The rectified linear unit (ReLU) layer mentioned in \cite{thomas2020machine} is in some sense responsible for adding a non-linearity to the neural network.
+The authors of this work define its responsibility as "changing the negative pixel values in the image to zero, which gives us another stack of images with no negative values"~\cite{thomas2020machine}.
+This layer is called an activation function because it activates the next layer only if the value of the pixel is positive.
+
+The problem that this work raises can be specified as a binary problem because there exist only two possible categories for the data --- user's and bot actions.
+In such situations, the measure of quality and correctness of the solution is commonly defined by a confusion matrix.
+This matrix defines the performance of the model and consists of several measures: true positives, true negatives, false positives and false negatives.
+True positives (TP) are defined as the number of samples that the model assign to the positive category and the assignment was correct.
+The opposite to them are false positives (FP), which can be described as faulty categorized to the positive category.
+The true negatives (TN) and false negatives are analogous, but the assigned category is negative.
+
+Basing on described measures, one can define relative measures --- false rejection rate (FRR) and false acceptance rate (FAR).
+They are defined as follows:
+
+\[
+    FRR = \frac{FN}{FN + TP} \hspace{8mm} FAR = \frac{FP}{FP + TN}
+\]
+The smaller their values, the better the performance of the model.
+
+\textbf{Transfer learning + augmentation}
