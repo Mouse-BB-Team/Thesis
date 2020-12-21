@@ -51,7 +51,7 @@ Even when the data is of lower quality, algorithms can actually perform better, 
 The main idea of this approach is to increase the samples of the dataset by using the same sample several times, but each time slightly transformed it.
 The transformation is based on operations such as rotations, zooming, and flipping the original sample with some probability to do so, so each artificially generated sample should be slightly different than the others.
 This approach allows to significantly increase the size of the dataset.
-In the presented solution, each of the datasets (user's and bot) were extended to 30 000 samples which results in total 60 000 samples with just 639.
+In the presented solution, each of the datasets (users and bot) was extended to 30 000 samples which results in a total of 60 000 samples with just 639.
 The ratio between the training and testing part was set to 80:20, so the network used for the training 48 000 samples and for the testing 12 000.
 For the optimization of the model, the optimizer called Adam was used along with the learning rate exponential decay set initially to \num{1e-4}.
 The decay rate was equal to \num{0.96} and the decay steps were set to \num{1e5}.
