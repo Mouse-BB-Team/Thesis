@@ -3,6 +3,13 @@ To fulfill the requirements of the adapted transfer learning model the preproces
 The collected data sequences are in form of coordinates' series, so it is necessary to represent them as 3-dimensional pictures which are the input to the convolutional neural network.
 The described tool allows transferring those sequences into multidimensional arrays of integers and also scale them to the required input size of a used transfer learning model.
 
+\begin{figure}[!hbt]
+    \center
+    \includegraphics[width=0.6\linewidth]{resources/sequences}
+    \captionof{figure}{Collected and preprocessed sequences with applied linear interpolation}
+    \label{fig:sequences}
+\end{figure}
+
 The data consists of isolated points that are result of discrete sampling, so to improve performance efficiency these points on the "painting" are interpolated using a linear interpolation mechanism.
 It was verified on the collected dataset that interpolated data results in better accuracy of a model in comparison to the isolated ones.
 The presented tool works also as a splitter between training and testing sets using the provided ratio between them and as a label assigner which allows adding the corresponding labels to the single sequence basing on the provided identifier of the bot user.
