@@ -3,8 +3,8 @@ In modern cybersecurity, there exist many different threats that potentially exp
 Many of them are very sophisticated, some are pretty difficult to distinguish from legitimate operations.
 Nowadays, there is a trend to use machine learning approaches to meet the high demands for the quality and reliability of security systems.
 
-As stated by Tony Thomas et al. in \cite{thomas2020machine} --- "Machine learning (ML) may be defined as the ability of machines to learn without being explicitly programmed.
-Using mathematical techniques across cyberdata, ML algorithms can build models of behaviors and use those models as a basis for making predictions on newly input data".
+As stated by Tony Thomas et al. --- "Machine learning (\gls{ml}) may be defined as the ability of machines to learn without being explicitly programmed.
+Using mathematical techniques across cyberdata, \gls{ml} algorithms can build models of behaviors and use those models as a basis for making predictions on newly input data"~\cite{thomas2020machine}.
 This behavior of machine learning techniques is very convenient, especially when the domain of the problem and the borders between the data cannot be explicitly expressed by the written program.
 Machine learning models can learn from their own mistakes and then recognize or even predict the future attacks.
 
@@ -22,23 +22,36 @@ Pooling is a technique used to decrease the size of the image by grouping pixels
 As an example, the max-pooling bases on returning the pixel with the highest value in the group.
 The fully-connected layer is a layer that builds plain artificial neural networks.
 All of the neurons inside this layer are pairwise connected to the ones from the previous layer, but they are not connected inside the current layer.
-The rectified linear unit (ReLU) layer mentioned in \cite{thomas2020machine} is in some sense responsible for adding a non-linearity to the neural network.
+The rectified linear unit (\gls{relu}) layer mentioned in \cite{thomas2020machine} is in some sense responsible for adding a non-linearity to the neural network.
 The authors of this work define its responsibility as "changing the negative pixel values in the image to zero, which gives us another stack of images with no negative values"~\cite{thomas2020machine}.
 This layer is called an activation function because it activates the next layer only if the value of the pixel is positive.
 
 The problem that this work raises can be specified as a binary problem because there exist only two possible categories for the data --- user's and bot actions.
 In such situations, the measure of quality and correctness of the solution is commonly defined by a confusion matrix.
 This matrix defines the performance of the model and consists of several measures: true positives, true negatives, false positives and false negatives.
-True positives (TP) are defined as the number of samples that the model assign to the positive category and the assignment was correct.
-The opposite to them are false positives (FP), which can be described as faulty categorized to the positive category.
-The true negatives (TN) and false negatives are analogous, but the assigned category is negative.
+True positives (\gls{tp}) are defined as the number of samples that the model assign to the positive category and the assignment was correct.
+The opposite to them are false positives (\gls{fp}), which can be described as faulty categorized to the positive category.
+The true negatives (\gls{tn}) and false negatives (\gls{fn}) are analogous, but the assigned category is negative.
 
-Basing on described measures, one can define relative measures --- false rejection rate (FRR) and false acceptance rate (FAR).
+Basing on described measures, one can define relative measures --- false rejection rate (\gls{frr}) and false acceptance rate (\gls{far}).
 They are defined as follows:
 
-\[
-    FRR = \frac{FN}{FN + TP} \hspace{8mm} FAR = \frac{FP}{FP + TN}
-\]
-The smaller their values, the better the performance of the model.
+\begin{gather*}
+    FRR = \frac{FN}{FN + TP}\\
+    \\
+    FAR = \frac{FP}{FP + TN}\\
+\end{gather*}
 
-\textbf{Transfer learning + augmentation}
+The values of \gls{frr} and \gls{far} are often expressed as a percentage value and the smaller their values, the better the performance of the model.
+
+In the presented solution, the authors use a transfer learning technique wherein the previously trained model on the original domain is transferred to the related domain.
+This approach provides several conveniences, such as computational time and cost reduction.
+The pretrained network does not require such a long time as in the case of training from scratches which also translates into the cost of calculations and in the end does not require a large computational grant.
+The main advantage of such an approach is the reduction of the required amount of representative data.
+In cases where the data gathering is difficult or the collected dataset is small, transfer learning seems to be a technique that is worth considering.
+
+As a transfer learning model, the authors chose the InceptionV3\upperref{itm:inceptionV3} architecture from Tensorflow Hub\upperref{itm:tensorflow-hub}, which originally be trained on ImageNet\upperref{itm:image-net} dataset.
+Basing on several benchmarks, it was considered that the described architecture fits well to the raised problem and the performance is great at the same time.
+The architecture is build out of convolutional layers, average and max pooling, dropouts, concatenation layers and fully-connected layers.
+Description of the InceptionV3 architecture is out of the scope of this work.
+
