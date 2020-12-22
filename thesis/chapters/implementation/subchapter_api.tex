@@ -14,6 +14,12 @@ The first consists of the user's login, password and granted authority which was
 The second one includes sequences of user's captured actions with timestamps, screen resolutions and types of the events.
 The last one stores all possible action types with the description.
 
+The sequence in this work is treated as a chain of actions that were performed by a user, one by one.
+Each element of the sequence has associated several properties such as coordinates, timestamp, and action type.
+The sequence is distinguished from the other by a so-called split point which is established by the time that passed between two actions.
+If the time gap between two consecutive actions is greater than the given threshold the former action is considered as the end of one sequence and the latter one as the beginning of the second.
+The sequence length is the number of consecutive actions in one sequence and it depends on the split point.
+
 The collected data is sent to the \gls{api} via \gls{rest} (Representational State Transfer), which is nowadays one of the most popular interfaces between web applications, because of its simplicity and native support in many different programming languages and technologies.
 The schema of the interface was established at the beginning of the work on this module, so it was possible to create the \gls{api} and the fronted application simultaneously.
 
