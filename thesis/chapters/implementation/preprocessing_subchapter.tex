@@ -5,10 +5,17 @@ The described tool allows transferring those sequences into multidimensional arr
 
 \begin{figure}[!hbt]
     \center
-    \includegraphics[width=0.6\linewidth]{resources/sequences}
-    \captionof{figure}{Collected and preprocessed sequences with applied linear interpolation}
-    \label{fig:sequences}
+    \includegraphics[width=\linewidth]{resources/bot_sequences}
+    \captionof{figure}{Collected and preprocessed bot sequences with applied linear interpolation}
+    \label{fig:bot_sequences}
 \end{figure}
+\begin{figure}[!hbt]
+    \center
+    \includegraphics[width=\linewidth]{resources/user_sequences}
+    \captionof{figure}{Collected and preprocessed user's sequences with applied linear interpolation}
+    \label{fig:user_sequences}
+\end{figure}
+
 
 The data consists of isolated points that are result of discrete sampling, so to improve performance efficiency these points on the "painting" are interpolated using a linear interpolation mechanism.
 It was verified on the collected dataset that interpolated data results in better accuracy of a model in comparison to the isolated ones.
