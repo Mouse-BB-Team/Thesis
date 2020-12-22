@@ -1,0 +1,27 @@
+\section{Contribution}\label{sec:contribution}
+This thesis text and the related system implementation for data gathering, bot, and machine learning model was prepared by \textbf{Kamil Kaliś} and \textbf{Piotr Kuglin}.
+Below the contribution of both authors is listed and grouped by the module.
+
+\paragraph{Data Collection\upperref{itm:data-collection} module:}
+\begin{itemize}[label=$\bullet$]
+    \item The frontend, presentation layer with the Web template, proxy server and its \gls{api} for login, signup, token obtaining and other utilities, its containerization with Docker along with Heroku deployment, and \gls{gcp} deployment was prepared by Kamil Kaliś.
+    \item The backend \gls{api} and OAuth2 server with the database structure, containerization with Docker, performance tests for Heroku deployment, login/signup page layout, and \gls{gcp} deployment with kubernetes was prepared by Piotr Kuglin.
+\end{itemize}
+
+\paragraph{Custom Bot\upperref{itm:custom-bot} module:}
+\begin{itemize}[label=$\bullet$]
+    \item The various scenarios for bot and its execution on the data gathering system and the movement action was prepared by Kamil Kaliś.
+    \item The module for mouse action recording, scenarios execution module and the click and scroll actions was prepared by Piotr Kuglin.
+\end{itemize}
+
+\paragraph{Bot Detection\upperref{itm:bot-detection} module:}
+\begin{itemize}[label=$\bullet$]
+    \item The deserializing tool, considered previously Avro schema, sbatch input script for SLURM, machine learning execution strategy, methods for collecting execution results and statistics, imgur integration and machine learning model parameters tuning and results analyze was prepared by Kamil Kaliś.
+    \item The collected data serializing tool, Protobuf schema, data preprocessing Slack notification integration, scripts for remote job execution on Prometheus with setup automization with \textit{Makefile} and machine learning model parameters tuning with data augmentation and results analyze was prepared by Piotr Kuglin.
+\end{itemize}
+
+\paragraph{Thesis text:}
+\begin{itemize}[label=$\bullet$]
+    \item The related works (\ref{sec:related-works}), contribution (\ref{sec:contribution}), behavioral biometrics (\ref{sec:behavioral-biometrics}) and Bézier curves theory, implementation description of: ,and bibliography was prepared by Kamil Kaliś.
+    \item The abstract, concept, machine learning theory, implementation description of: bot detection module, appendix, and glossary was prepared by Piotr Kuglin.
+\end{itemize}
