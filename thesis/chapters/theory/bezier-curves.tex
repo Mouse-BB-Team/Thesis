@@ -8,7 +8,7 @@ In other words, this is the constructive proof of the \textit{Weierstrass theore
     \mid f(x) - p_n(x) \mid \leq \epsilon, \quad \forall x \in \left[ a,b \right]
 \]
 In other words, polynomials can uniformly approximate any function that is merely continuous over a closed interval"\cite{farouki2012bernstein}.
-If so, some of the properties for the Bézier curves are derived immediately, for example, it is known that the basis functions are real, the curve generally follows the shape of the control polygon, the first and last points on the curve are coincident with the first and last points of the control polygon, and so on~\cite{bezier-curves}.\\
+If so, some of the properties for the Bézier curves are derived immediately, for example, it is known that the basis functions are real, the curve generally follows the shape of the control polygon, the first and last points on the curve are coincident with the first and last points of the control polygon, and so on~\cite{bezier-curves}.
 
 The Bézier curve of $n+1$ control points are defined in~\cite{farouki2012bernstein} as:
 \[
@@ -20,19 +20,19 @@ Where the $p_0,\dots,p_n$ are the \textit{control points} and $b_k^n$ is the Ber
     b_k^n(t) = \binom{n}{k} t^k (1-t)^{n-k}, \quad \binom{n}{k} = \frac{n!}{k!(n-k)!}
 \]
 
-For example, when the $n = 2$, the quadratic Bézier curve is described as a pair of a polynomials:
+For example, the two-dimensional Bézier curve is described as a pair of a polynomials:
 \[
     (x,y) = \left( \sum_{k=0}^n x_{k} b_k^n(t), \sum_{k=0}^n y_{k} b_k^n(t), \right)
 \]
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\linewidth,scale=0.4]{resources/bezier-curve-example.png}
+    \captionof{figure}{Example of Bézier curve fitting to the control points}.
+    \label{fig:bezier-example}
+\end{figure}
 
 The control points $p_0,\dots,p_n$ shapes the control polygon for the bezier curve, where the first and the last points on the Bézier curve are coincident with the control polygon (detailed proof and mathematical derivation can be found in~\cite{farouki2012bernstein}).
 The properties of the Bézier curve allow for creating the smooth shape, that is going through a set of predefined points and the curve is trying to "follow" the polygon.
 This makes this solution convenient from the point of view of this work, because the bot prepared is using the curves to make moves, which makes this moves more human-like.
 An example of the control polygon with the Bézier curve shaped by it can be seen in Fig.~\ref{fig:bezier-example} from~\cite{farouki2012bernstein}.
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[scale=0.4]{resources/bezier-curves-example.png}
-    \captionof{figure}{Example of cubic Bézier curve fitting to the control points}.
-    \label{fig:bezier-example}
-\end{figure}
