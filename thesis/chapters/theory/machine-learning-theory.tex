@@ -23,7 +23,7 @@ As an example, the max-pooling bases on returning the pixel with the highest val
 The fully-connected layer is a layer that builds plain artificial neural networks.
 All of the neurons inside this layer are pairwise connected to the ones from the previous layer, but they are not connected inside the current layer.
 The rectified linear unit (\gls{relu}) layer mentioned in \cite{thomas2020machine} is in some sense responsible for adding a non-linearity to the neural network.
-The authors of this work define its responsibility as "changing the negative pixel values in the image to zero, which gives us another stack of images with no negative values"~\cite{thomas2020machine}.
+Thomas et al. define its responsibility as "changing the negative pixel values in the image to zero, which gives us another stack of images with no negative values"~\cite{thomas2020machine}.
 This layer is called an activation function because it activates the next layer only if the value of the pixel is positive.
 
 The problem that this work raises can be specified as a binary problem because there exist only two possible categories for the data --- user's and bot actions.
@@ -43,6 +43,7 @@ They are defined as follows:
 \end{gather*}
 
 The values of \gls{frr} and \gls{far} are often expressed as a percentage value and the smaller their values, the better the performance of the model.
+In authorization related problems such as raised in this work, there is a desire to have those values as low as possible, because \gls{far} results in the security of the system - the lower the \gls{far} the less unauthorized users have access to the system, and accordingly \gls{frr} has an impact on authorization rejections of legitimate users.
 
 In the presented solution, the authors use a transfer learning technique wherein the previously trained model on the original domain is transferred to the related domain.
 This approach provides several conveniences, such as computational time and cost reduction.
