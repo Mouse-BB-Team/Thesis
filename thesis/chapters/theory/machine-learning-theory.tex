@@ -14,7 +14,7 @@ Due to the size of picture representation in a computer world, it is pretty expe
 Convolutional neural networks address this issue and make the computation significantly faster and efficient.
 
 Keiron O'Shea et. al in \cite{cnn-description} define an architecture of \gls{cnn}'s as a connected network of three types layers: convolutional layer, pooling layer and fully-connected layer.
-Thomas et. al in \cite{thomas2020machine} add to these layers so-called "rectified linear unit" layer.
+Thomas et. al in \cite{thomas2020machine} add to these layers so-called rectified linear unit layer.
 The convolutional layer is combined out of filters that represent features of the images that the given filter should recognize.
 These filters are then used on the different regions of images from the dataset by performing convolution.
 The output reflects the found matches between the image that is recognized and the one described by the filter.
@@ -43,7 +43,7 @@ They are defined as follows:
 \end{gather*}
 
 The values of \gls{frr} and \gls{far} are often expressed as a percentage value and the smaller their values, the better the performance of the model.
-In authorization related problems such as raised in this work, there is a desire to have those values as low as possible, because \gls{far} results in the security of the system - the lower the \gls{far} the less unauthorized users have access to the system, and accordingly \gls{frr} has an impact on authorization rejections of legitimate users.
+In authorization related problems such as raised in this work, there is a desire to have those values as low as possible because low \gls{far} defines the good security level of the system --- the lower it is, the less unauthorized users have access to the system, and accordingly \gls{frr} has an impact on authorization rejections of legitimate users.
 
 In the presented solution, the authors use a transfer learning technique wherein the previously trained model on the original domain is transferred to the related domain.
 This approach provides several conveniences, such as computational time and cost reduction.
