@@ -23,7 +23,7 @@
 
 \usepackage[
 style=numeric,
-sorting=none,
+sorting=nty,
 %
 % Zastosuj styl wpisu bibliograficznego właściwy językowi publikacji.
 language=autobib,
@@ -265,6 +265,11 @@ This research was supported in part by PLGrid Infrastructure.
 \rhead{\textit{Bibliography}}
 }
 
+\fancypagestyle{contents}
+{
+\rhead{\textit{Contents}}
+}
+
 \newcounter{refcounter}
 \newcommand{\upperref}[1]{\textsuperscript{\ref{#1}}}
 
@@ -277,15 +282,18 @@ This research was supported in part by PLGrid Infrastructure.
 
 \setcounter{tocdepth}{2}
 \tableofcontents
+\thispagestyle{contents}
 \clearpage
 
 \input{chapters/introduction/introduction-chapter}
     \input{chapters/introduction/concept-subchapter}
     \input{chapters/introduction/abstract-subchapter}
     \input{chapters/introduction/related-works}
+    \input{chapters/introduction/contribution-subchapter}
 \input{chapters/theory/Theory-chapter}
     \input{chapters/theory/behavioral-biometrics}
     \input{chapters/theory/bezier-curves}
+    \input{chapters/theory/machine-learning-theory}
 \input{chapters/implementation/implementation}
     \input{chapters/implementation/subchapter_api}
     \input{chapters/implementation/reverse-proxy-subchapter}
@@ -304,6 +312,11 @@ This research was supported in part by PLGrid Infrastructure.
     \input{chapters/implementation/machine-learning-model-subchapter}
     \input{chapters/implementation/model-execution-strategy}
 \input{chapters/summary/summary}
+    \input{chapters/summary/results-subchapter}
+    \input{chapters/summary/limitations-conditions-and-problems-subchapter}
+\input{chapters/conclusions-and-further-study/conclusions-and-further-study-chapter}
+    \input{chapters/conclusions-and-further-study/summary-subchapter}
+    \input{chapters/conclusions-and-further-study/further-work-subchapter}
 
 % itd.
 \appendix

@@ -1,0 +1,21 @@
+\section{Summary}\label{sec:summary}
+During the work on the presented solution, the steps to limit the impact of the original imbalanced dataset were taken.
+Many of them resulted in slightly improved performance or did not improve it at all.
+The key factor was the data augmentation, which resulted in a significant increase in the number of samples and also in a better performance.
+This technique allowed to convert the unilaterally behaving model into the one whose results are promising and encouraging for further research.
+The linear interpolation, proposed at the beginning, was also very helpful for the model because the additional data was provided to the input which resulted in more close data domain to the ImageNet dataset.
+The final results suggest that the augmented dataset admittedly improves and makes the solution promising, but the tendency of moving the training curve away from the testing one should be reviewed.
+The authors find the small number of samples as a potential cause of these disturbances.
+
+The presented results verify the data gathering system as a potential source of data for mouse dynamics biometrics researches.
+The system is created in a way that it can be easily deployed and tuned to the exact domain requirements.
+By using the Kubernetes, it is also scalable and can be even extended to the usage in related problems.
+The variety of collected mouse events enables the potential of the system application as a data source for recursive neural networks and also makes it possible to include other events like clicks or scroll actions into the input dataset.
+
+The developed human impersonating bot was created mainly for verification purposes.
+The idea of implementation is very simple, but it can be an inspiration for more sophisticated implementations.
+The bot as is, can be also used in different problems --- not related to behavioral biometrics.
+The possibility of recording the sequences allows for fast and easy configuration which can be important for researches that not focus on the bot implementation but require the bot itself.
+
+The created tools like a serializer/deserializer allows for easily manipulating of the recorded data and transferring it into the input dataset.
+The tools related to the Prometheus computing cluster significantly facilitated the work with such an infrastructure and can be considered as a motivation for automation of computing and results obtaining in such an environment.

@@ -9,4 +9,4 @@ This caused the problem of many machine learning models trying to run on a singl
 
 When run on the Prometheus cluster, the better approach was to split the computation between two \gls{gpu}s and run the model sequentially.
 For this purpose, the Mirrored Strategy distribution technique from the TensorFlow library was used whereas training is split across multiple replicas.
-Thanks to the split and the computing power of \gls{gpu}, single execution is fast, thus can be multiplied several times.
+Thanks to the split and the computing power of \gls{gpu}, single execution is faster, thus can be multiplied several times.
