@@ -1,13 +1,13 @@
 \section{Performance tests}\label{sec:performance-tests}
-Solutions presented in previous chapters were deployed to the Heroku Cloud Application Platform\upperref{itm:heroku} to deliver the possibility of using the system among a wide range of users.
+The solutions presented in previous sections were deployed to the Heroku Cloud Application Platform\upperref{itm:heroku} to deliver the possibility of using the system among a wide range of users.
 Heroku as a cloud provider has a free pricing plan for non-commercial apps, which is suitable for scientific usage such as this work.
-The deployment process is performed using the idea of containerization based on Docker\upperref{itm:docker} which is a pretty convenient way of application delivery to the web server.
+The deployment process is performed using the idea of containerization based on Docker\upperref{itm:docker} which is a pretty convenient way of application delivery to the Web server.
 To enable such a possibility, the \mbox{Dockerfiles} with container configuration description were prepared for both frontend and backend services and also docker-compose configuration files were created to allow easy testing and development in the local environment.
 
-In order to deliver reliable and efficient product to the users, the performance tests were prepared using JavaScript programming language in Node.js environment.
+In order to deliver reliable and efficient product to the users, the performance tests were prepared using JavaScript programming language in the Node.js environment.
 Those tests cover mainly the token exchange and refreshment and also allow to test the behavior of application during increased load produced by using the system by many different users.
 The results of the tests showed that the Heroku free pricing plan had some limitations regarding database storage volume and response time from the application.
-It turned out that the database in such a plan permit to store only 20,000 rows overall which is unacceptable for the data stream with the time resolution measured in milliseconds because a single user may cause exceeding the limit in just a few minutes, which disqualifies the Heroku as a service provider for multi-user environment.
-Moreover, the described cloud system suspends the working of the application when it is idle.
-Waking the application up takes a very long time (up to the minute or more), which is manifested in a usage lag after 30 minutes without any web traffic.
+It turned out that the database in such a plan permit to store only 20,000 rows overall which is unacceptable for the data stream with the time resolution measured in milliseconds because a single user may cause exceeding the limit in just a few minutes, which disqualifies the Heroku as a service provider for a multi-user environment.
+Moreover, the described cloud system suspends the work of the application when it is idle.
+Waking the application up takes a very long time (up to the minute or more), which is manifested in a usage lag after 30 minutes without any Web traffic.
 Described issues with the Heroku Cloud Application Platform forced the authors to find another suitable cloud provider.
