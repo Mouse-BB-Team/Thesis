@@ -89,14 +89,14 @@ Supervisor: & {\itshape \@supervisor}\\
 
 \newpage \titlepage 
 
-\begin{center}
+\begin{center} \fontfamily{lmss}
 \vspace*{1.5cm}
 
 \includegraphics[scale=0.6]{resources/agh}
 
 \vspace*{2mm}
 
-{\sffamily{\large{\bfseries{\scshape AGH University of Science and Technology}}}
+{{\large{\bfseries{\scshape AGH University of Science and Technology}}}
 
 \vspace*{1mm}
 
