@@ -1,20 +1,20 @@
 \section{Machine learning model}\label{sec:machine-learning-model}
 The machine learning model prepared and trained on the collected dataset was the part of the data evaluation final part.
-The dataset collected during the thesis preparation is not sufficient enough for a proper and full machine learning process.
+The dataset collected during the thesis preparation is not sufficient for a proper and full machine learning process.
 Google Cloud Services are able to handle the deployment of the whole system efficiently.
 However, this form of hosting and maintaining the infrastructure of the application comes with its price.
 The whole infrastructure was running for about two months and during this time generated the cost of a total \$300.
 This amount of cash is the highest financial outlay that could have been incurred by the authors of the work since no other scholarship than PLGrid computation cluster was granted for the purpose of preparing the thesis.
 Longer exposure on the web would cost extra money, that could not be afforded.
-The other matter is that the engineering thesis defending has its term specified, thus the project has been carefully thought-out in the manner of time since the beginning of the implementation.
+The other matter is that the engineering thesis defending has its deadline specified, thus the project has been carefully thought-out in the manner of time since the beginning of the implementation.
 In order to meet the adopted milestones and goals, the data collection period had to follow strict deadlines.
 The duration of the period when the data was collected could not be extended to broader terms.
 
 The first remedy for a small amount of collected data was to use the transfer learning technique.
-As stated in the "A survey of transfer learning"~\cite{transfer-learning-def} by Weiss et al. article --- "In certain scenarios, obtaining training data that matches the feature space and predicted data distribution characteristics of the test data can be difficult and expensive.
+As stated in the "A survey of transfer learning" by Weiss et al. --- "In certain scenarios, obtaining training data that matches the feature space and predicted data distribution characteristics of the test data can be difficult and expensive.
 Therefore, there is a need to create a high-performance learner for a target domain trained from a related source domain.
 This is the motivation for transfer learning.
-Transfer learning is used to improve a learner from one domain by transferring information from a related domain".
+Transfer learning is used to improve a learner from one domain by transferring information from a related domain"~\cite{transfer-learning-def}.
 The base feature vector for transferring to the bot recognition domain was taken from the TensorFlow Hub\upperref{itm:tensorflow-hub} website.
 The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
 The model was built with the following dimensions of $299$\texttimes$299$\texttimes$3$ for the data input.

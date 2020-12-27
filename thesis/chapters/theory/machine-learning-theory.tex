@@ -56,3 +56,8 @@ Basing on several benchmarks, it was considered that the described architecture 
 The architecture is build out of convolutional layers, average and max pooling, dropouts, concatenation layers and fully-connected layers.
 Description of the InceptionV3 architecture is out of the scope of this work.
 
+In order to perform the learning process of the model, the main dataset should be divided into two subsets --- training and test dataset.
+The network basing on the output of the loss function is able to improve its predictions and make progress in classification.
+In the case of the supervised learning, where the network learns from the given examples, there is also a requirement for the assignment of the labels that are considered as descriptive ones for the input sample.
+When the gathered data consist of several categories, among which there is a dominant class in the meaning of volume of samples, such dataset is considered as an imbalanced one.
+This issue has a negative impact on the learning process and should be resolved in order to improve the performance of the model.

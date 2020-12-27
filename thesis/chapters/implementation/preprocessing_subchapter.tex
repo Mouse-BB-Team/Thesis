@@ -17,7 +17,8 @@ The described tool allows transferring those sequences into multidimensional arr
 \end{figure}
 
 
-The data consists of isolated points that are result of discrete sampling, so to improve performance efficiency these points on the `painting' are interpolated using a linear interpolation mechanism.
+The data consists of isolated points that are result of discrete sampling, so to improve performance efficiency these points that represent the original coordinates on the user's screen are interpolated using a linear interpolation technique.
+The operation was performed by connecting the discrete points using straight lines, so each consecutive event's coordinates were combined into a chain that results in a continuous curve on the input pictures.
 It was verified on the collected dataset that interpolated data results in better accuracy of a model in comparison to the isolated ones.
 The presented tool works also as a splitter between training and testing sets using the provided ratio between them and as a label assigner which allows adding the corresponding labels to the single sequence basing on the provided identifier of the bot user.
 
