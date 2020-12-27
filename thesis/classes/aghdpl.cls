@@ -107,12 +107,12 @@ Supervisor: & {\itshape \@supervisor}\\
 \vspace*{12mm}
 
 {\sffamily\Large \@thesistype}
-\vspace*{9mm}
-
-{\sffamily\Large\itshape \@titlePL}
-\vspace*{1mm}
+\vspace*{16mm}
 
 {\sffamily\Large\itshape \@titleEN}
+\vspace*{7mm}
+
+{\sffamily\large\itshape \@titlePL}
 \vspace{\fill}
 \end{center}
 
