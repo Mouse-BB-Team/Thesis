@@ -29,10 +29,11 @@ The latter one is dictated by the usage of Google Cloud HTTP(S) load balancer an
 To provide encryption of connection, \gls{tls} should be used, which requires the \gls{ssl} Server Certificate, which can be issued only for existing valid domain names, thus the authors were forced to buy such a domain name, while the certificate is issued by \gls{gcp}.
 
 The configuration also includes some sensitive data, such as database credentials, OAuth2 secret, and SSH-RSA keys, thus, the Secrets are used with encoded content.
-The insensitive data are included in ConfigMaps that are similar to the Secrets but their content is plain text.
-These configurations are matched to the appropriate component by labels and therefore they are drawn inside the Deployment rectangles in Fig.~\ref{fig:gcp_diagram}, in practice they can be mounted as volumes basing on the component labels and can also expose their values as environmental variables.
+The insensitive data are included in ConfigMaps that are similar to the Secrets, but their content is a plain text.
+These configurations are matched to the appropriate component by labels and therefore they are drawn inside the Deployment rectangles in Fig.~\ref{fig:gcp_diagram}.
+In practice, they can be mounted as volumes basing on the component labels and can also expose their values as environmental variables.
 
-The whole architecture of the collector system is presented in Fig.~\ref{fig:gcp_diagram}, but the figure has several simplifications such as a way of database deployment.
+The whole architecture of the collector system is presented in Fig.~\ref{fig:gcp_diagram}, but the figure applies several simplifications such as a way of database deployment.
 In contrast to the Redis cache database, the main database instance is not deployed in Kubernetes itself, but the Cloud SQL from \gls{gcp} available services with \mbox{PostgreSQL} is used to achieve straightforward management and reliability.
 
 The flow of the presented architecture starts with the external global public IP address that is also able to be resolved by using \gls{dns}.
