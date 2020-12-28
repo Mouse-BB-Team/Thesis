@@ -34,13 +34,14 @@ The opposite to them are false positives (\gls{fp}), which can be described as f
 The true negatives (\gls{tn}) and false negatives (\gls{fn}) are analogous, but the assigned category is negative.
 
 Basing on described measures, one can define relative measures --- false rejection rate (\gls{frr}) and false acceptance rate (\gls{far}).
-They are defined as follows:
+These are defined as follows:
 
-\begin{gather*}
-    FRR = \frac{FN}{FN + TP}\\
-    \\
-    FAR = \frac{FP}{FP + TN}\\
-\end{gather*}
+\begin{equation}
+    FRR = \frac{FN}{FN + TP}\label{eq:frr}
+\end{equation}
+\begin{equation}
+    FAR = \frac{FP}{FP + TN}\label{eq:far}
+\end{equation}
 
 The values of \gls{frr} and \gls{far} are often expressed as a percentage value and the smaller their values, the better the performance of the model.
 In authorization related problems such as raised in this work, there is a desire to have those values as low as possible because low \gls{far} defines the good security level of the system --- the lower it is, the less unauthorized users have access to the system, and accordingly \gls{frr} has an impact on authorization rejections of legitimate users.
@@ -50,7 +51,6 @@ This approach provides several conveniences, such as computational time and cost
 The pretrained network does not require such a long time as in the case of training from scratches which also translates into the cost of calculations and in the end does not require a large computational grant.
 The main advantage of such an approach is the reduction of the required amount of representative data.
 In cases where the data gathering is difficult or the collected dataset is small, transfer learning seems to be a technique that is worth considering.
-
 As a transfer learning model, the authors chose the InceptionV3\upperref{itm:inceptionV3} architecture from Tensorflow Hub\upperref{itm:tensorflow-hub}, which originally be trained on ImageNet\upperref{itm:image-net} dataset.
 Basing on several benchmarks, it was considered that the described architecture fits well to the raised problem and the performance is great at the same time.
 The architecture is build out of convolutional layers, average and max pooling, dropouts, concatenation layers and fully-connected layers.

@@ -19,7 +19,7 @@ The sequence is distinguished from the other by a so-called split point which is
 If the time gap between two consecutive actions is greater than the given threshold the former action is considered as the end of one sequence and the latter one as the beginning of the second.
 The sequence length is the number of consecutive actions in one sequence and it depends on the split point.
 
-The collected data is sent to the \gls{api} via \gls{rest} (Representational State Transfer), which is nowadays one of the most popular interfaces between Web applications, because of its simplicity and native support in many different programming languages and technologies.
+The collected data is sent to the \gls{api} using \gls{rest} (Representational State Transfer), which is nowadays one of the most popular architectural style for building interfaces between Web applications, because of its simplicity and native support in many different programming languages and technologies.
 The schema of the interface was established at the beginning of the work on this module, so it was possible to create the \gls{api} and the frontend application simultaneously.
 
 To protect the data from invalid properties like negative coordinates or invalid timestamps, the input was also validated before saving to the database in such a way that all of the persisted data contained required elements.
