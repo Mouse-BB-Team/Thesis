@@ -1,6 +1,6 @@
 \section{Presentation and reverse proxy}\label{sec:reverse-proxy}
 The second core submodule created for the purpose of collecting the data from the users is the frontend application exposed to the Internet.
-This can be split further into two different functional modules~--- client and server-side.
+This can be split further into two different functional modules~--- client-side and server-side.
 
 \subsection{Client-side module}\label{subsec:client-side-module}
 The client-side module is an end-user presentation layer that is built with the HTML5 and CSS3~--- technologies that are the core and standard for modern Web applications nowadays.
@@ -20,11 +20,11 @@ To persists consistency of the registration and login, the custom static Web pag
 On each document, the FAQ panel with more information regarding the project is exposed as a drop-down list.
 The layout of the login page, and landing index page is shown in Fig.~\ref{fig:frontpage}.
 To authenticate, users are required to provide the credentials to log in to the system.
-These credentials are then sent through HTTPS --- which means that they are secured and encrypted --- to the reverse proxy server which then performs some action to authenticate a user, sets the cookie with granted \gls{jwt} token and redirects the user to the homepage.
+These credentials are then sent through HTTPS --- which means that they are secured and encrypted --- to the reverse proxy server which then performs actions to authenticate a user, sets the cookie with granted \gls{jwt} token and redirects the user to the homepage.
 More on the user authentication and the whole token obtaining sequence is described and shown in Subsection~\ref{subsec:server-side-module}.
 
 After a successful login, the token allows for site usage and ensures the identity of the user.
-From now on, the actions performed by the user are recorded into the batches and sent to the \gls{api} every two seconds.
+From now on, the actions performed by the user are recorded and grouped into the batches and sent to the \gls{api} every two seconds.
 The event listeners are awaiting four different action types: \mbox{mouse move}, \mbox{mouse-down}, \mbox{mouse-up}, \mbox{mouse wheel} action.
 Collected actions are packed into \gls{json} object and sent to the server side \gls{api} (described in Section~\ref{subsec:server-side-module}) --- the fields included are shown in the Listing~\ref{listing:mouse-events-json-schema}.
 The schema holds the list of the mouse event objects and it is called \textit{mouseEvents}.
@@ -53,13 +53,13 @@ They respective meaning is: mouse movement, left button pressed, left button rel
     \label{listing:mouse-events-json-schema}
 \end{listing}
 
-\subsection{Server side module}\label{subsec:server-side-module}
+\subsection{Server-side module}\label{subsec:server-side-module}
 The server side module is build with Node.js\upperref{itm:node} runtime with the Express\upperref{itm:express} framework on the top of it.
 Node.js is an asynchronous JavaScript runtime, which is widely used to build high-end, scalable commercial applications.
-Express is simple to use, yet powerful Web framework for Node.js, which allows for a fast and convenient HTTP server set-up server for serving the static Web documents over the Internet.
+Express is simple to use, yet powerful Web framework for Node.js, which allows for a fast and convenient HTTP server set-up for serving the static Web documents over the Internet.
 This module is serving the purpose of reverse proxy between clients and the backend \gls{api}.
 
-The main responsibilities of the reverse proxy are signing up the user, token granting, validation and caching, serving static Web documents storing and passing the data to for persistence.
+The main responsibilities of the reverse proxy are signing up the user, token granting, validation and caching, serving static Web documents storing and passing the data for persistence.
 When a new user tries to sign-up, secured with \gls{tls} (Transport Layer Security) credentials from the sign-up form are sent to one of the proxy endpoints, where they are then passed to the backend \gls{api}.
 Since the backend is not exposed anywhere over the public network, there is no need to secure the credentials with \gls{tls}.\\
 The user is granted \gls{jwt} Access and Refresh tokens after logging in using the login form.

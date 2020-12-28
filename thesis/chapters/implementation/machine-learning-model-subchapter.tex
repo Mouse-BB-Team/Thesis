@@ -1,6 +1,5 @@
 \section{Machine learning model}\label{sec:machine-learning-model}
 The machine learning model prepared and trained on the collected dataset was the part of the data evaluation final part.
-The dataset collected during the thesis preparation is not sufficient for a proper and full machine learning process.
 Google Cloud Services are able to handle the deployment of the whole system efficiently.
 However, this form of hosting and maintaining the infrastructure of the application comes with its price.
 The whole infrastructure was running for about two months and during this time generated the cost of a total \$300.
@@ -8,7 +7,7 @@ This amount of cash is the highest financial outlay that could have been incurre
 Longer exposure on the Web would cost extra money, that could not be afforded.
 The other matter is that the engineering thesis defending has its deadline specified, thus the project has been carefully thought-out in the manner of time since the beginning of the implementation.
 In order to meet the adopted milestones and goals, the data collection period had to follow strict deadlines.
-The duration of the period when the data was collected could not be extended to broader terms.
+The duration of the period when the data was collected could not be extended to broader terms, which resulted in relatively small dataset.
 
 The first remedy for a small amount of collected data was to use the transfer learning technique.
 As stated in the "A survey of transfer learning" by Weiss et al. --- "In certain scenarios, obtaining training data that matches the feature space and predicted data distribution characteristics of the test data can be difficult and expensive.
@@ -54,8 +53,8 @@ This approach allows to significantly increase the size of the dataset.
 In the presented solution, it was done by development of augmentation script using Augmentor\upperref{itm:augmentor} package for Python.
 Each of the datasets (users and bot) was extended to 30,000 samples which results in a total of 60,000 samples from just 639 original samples.
 The ratio between the training and testing part was set to 80:20, so the network used for the training 48,000 samples and for the testing 12,000.
-For the optimization of the model, the optimizer called Adam was used along with the learning rate exponential decay set initially to \num{1e-4}.
-The decay rate was equal to 0.96 and the decay steps were set to \num{1e5}.
+For the optimization of the model, the optimizer called Adam was used along with the learning rate exponential decay set initially to 1e-4.
+The decay rate was equal to 0.96 and the decay steps were set to 1e5.
 The loss function was set to the binary cross entropy loss due to the binary classification problem.
 
 To save time and optimize resources usage, the first approach for running the model was to execute it in a multi-threaded way.
