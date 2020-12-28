@@ -40,13 +40,13 @@ It was done by performing either an equalization of the total number of both typ
 The first solution did not affect model performance, but the second one slightly improved overall performance if the ratio was close to 50:50.
 When the number of training samples was significantly greater than testing ones, the accuracy decreased due to a very small number of bot samples in testing dataset.
 
-Yet another attempt to reduce the impact of the inappropriate dataset was changing the dataset itself.
+Yet another attempt to reduce the impact of the small dataset was changing the dataset itself.
 The developed serializing tool made it possible to create a few datasets from recorded data with different minimal sequence length limits.
 Using longer sequences meant that the overall number of them would be smaller.
 The authors tested several ones and found out that the best performance was for a length equal to 50.
 
 To overcome the described issue, another technique called data augmentation was used.
-As stated in the "The Effectiveness of Data Augmentation in Image Classification using Deep Learning" by Perez et al. article --- "It is common knowledge that the more data an ML algorithm has access to, the more effective it can be.
+As stated in the "The Effectiveness of Data Augmentation in Image Classification using Deep Learning" by Perez et al. article --- "It is common knowledge that the more data an \gls{ml} algorithm has access to, the more effective it can be.
 Even when the data is of lower quality, algorithms can actually perform better, as long as useful data can be extracted by the model from the original data set"~\cite{augmentation}.
 The main idea of this approach is to increase the samples of the dataset by using the same sample several times, but each time slightly transformed it.
 The transformation is based on operations such as rotations, zooming, and flipping the original sample with some probability to do so, so each artificially generated sample should be slightly different than the others.
