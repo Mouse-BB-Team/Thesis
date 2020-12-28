@@ -25,3 +25,9 @@ The presented tool works also as a splitter between training and testing sets us
 
 Using this tool it is also possible to increase the number of bot samples by using several repetitions of the original bot set in cases of an imbalanced dataset.
 The output of the preprocessor is a tuple of training and testing dataset along with labels, which can be directly the input of a neural network model.
+
+In further work, in order to improve the performance of the model, data augmentation was introduced and applied.
+A detailed description will be provided in further sections, but it is worth mentioning that this approach required changes in the preprocessor tool.
+The preprocessor was extend to allow saving interpolated and scaled images to the directory provided by the user.
+Along with the extensions in the preprocessor, the main script was enhanced with the ability to load the dataset from image files.
+The previous option --- loading from binary files --- was unchanged.
