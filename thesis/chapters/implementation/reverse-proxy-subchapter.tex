@@ -56,10 +56,10 @@ They respective meaning is: mouse movement, left button pressed, left button rel
 \subsection{Server side module}\label{subsec:server-side-module}
 The server side module is build with Node.js\upperref{itm:node} runtime with the Express\upperref{itm:express} framework on the top of it.
 Node.js is an asynchronous JavaScript runtime, which is widely used to build high-end, scalable commercial applications.
-Express is simple to use, yet powerful Web framework for Node.js, which allows for a fast and convenient HTTP server set-up server for serving the static Web documents over the Internet.
+Express is simple to use, yet powerful Web framework for Node.js, which allows for a fast and convenient HTTP server set-up for serving the static Web documents over the Internet.
 This module is serving the purpose of reverse proxy between clients and the backend \gls{api}.
 
-The main responsibilities of the reverse proxy are signing up the user, token granting, validation and caching, serving static Web documents storing and passing the data to for persistence.
+The main responsibilities of the reverse proxy are signing up the user, token granting, validation and caching, serving static Web documents storing and passing the data for persistence.
 When a new user tries to sign-up, secured with \gls{tls} (Transport Layer Security) credentials from the sign-up form are sent to one of the proxy endpoints, where they are then passed to the backend \gls{api}.
 Since the backend is not exposed anywhere over the public network, there is no need to secure the credentials with \gls{tls}.\\
 The user is granted \gls{jwt} Access and Refresh tokens after logging in using the login form.

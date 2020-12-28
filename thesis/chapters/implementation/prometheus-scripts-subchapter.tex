@@ -11,7 +11,7 @@ On the top of the \textit{sbatch} script, a helper shell script exists --- \text
 These notifications are really convenient, because one don't need to constantly check for the job status, but instead for every state, there is an appropriate notification for job schedule, running, crashed, and finished job.
 
 
-For automation, the Git version control system was utilization to implement a very simple continuous delivery system.
+For automation, the Git version control system was utilized to implement a very simple continuous delivery system.
 For delivering and scheduling the job on remote host, the \textit{git deploy} alias was created and can be set up using the \textit{create-git-alias} script.
 When alias is created and used, the script named \textit{git-push-alias} is launched which triggers the \textit{git push} command to update the repository and next the routine for executing the job on remote host is triggered with \textit{run-commit-execution} script.
 After successfully submitting, the user receives a notification on Slack.
