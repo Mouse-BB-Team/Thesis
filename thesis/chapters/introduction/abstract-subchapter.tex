@@ -1,13 +1,29 @@
-This work consists of several chapters.
-In the beginning, the authors describe the main concept of the conducted research alongside the related works that are an inspiration for this one.
-The further chapters describe an implementation where the authors discuss the architecture of their solution along with problems during the development and obtained solutions.
-The content of the mentioned chapters consists of several submodules that form a core of the presented solution.
-In the beginning, a system for the data gathering is described (further called the Data Collection module), which was shared for the public usage during the research conduction.
-The module architecture incorporates two applications --- backend API and frontend application --- that were deployed to the cloud and allowed to collect the data for the machine learning model.
-The next module is the so-called Custom Bot module wherein the authors developed a bot that impersonates human-like users using the mathematical concept of Bézier curves.
-The last submodule --- the Bot Detection is composed of the machine learning model itself and a set of tools that facilitate work with remote computational architecture where the model was trained and stored.
-Among the mentioned tools, one can find serializer and deserializer tools that allow for effortless data preparation for usage in machine learning Python script as well as many statistics, preprocessing, and notification tools.
+\section{Abstract}\label{sec:abstract}
+Cyber security is a hot topic, especially nowadays, when there are many threats and vulnerabilities in hardware as well as in software and the facilitated remote access to computers.
+In the era of coronavirus, many people work from home.
+This increases the risk of attacks because they are outside the internal company network and many of them use their own devices, thus the remote session could be easily hijacked.
+People store sensitive data on their phones and other devices exposing them to a potential risk of stealing, extortion, or blackmail.
+Therefore, security is necessary and nowadays it is developed and discussed dynamically in various applications and fields.
+One of them is invisible user authentication that identifies the user based on his behavior, such as keystroke dynamic or mouse dynamics.
+The mentioned concept is relatively new because it requires a lot of computational resources and therefore could not be developed in the past.
+The evolution of technology and machine learning approaches, such as deep learning, allows us to imagine behavioral biometrics as a possible future solution for securing applications and hardware.
+The idea is fresh and therefore gives the potential to conduct the research.
+However, it requires additional effort to collect the proper dataset for the machine learning model.
+There exist some public datasets mentioned in related works such as the Balabit dataset\upperref{itm:balabit}\blfootnote{\textsuperscript{*} The complete list of links can be found in the Appendix section}\textsuperscript{*}, but they are not suitable for the problem of distinguishing a bot from a human.
+Therefore, the main ambition of this work is the creation of a system to gather such data from an example website, alongside the creation of a bot that impersonates the human-like user.
+The authors proposed also a machine learning model basing on the collected data.
 
-After the implementation description, the authors present the results of an adapted machine learning approach based on collected data during the research conduction.
-The chapter also contains the limitations and conditions of the conducted research and the impact of them on the presented results.
-The work ends with the conclusion along with the description of possible further study which in the authors' opinion may improve the obtained results.
+This work consists of several chapters.
+In the beginning, the authors describe the main concept (Chapter~\ref{ch:introduction}) of the conducted research alongside the related works that are an inspiration for the presented thesis.
+To understand the concepts raised in this work, the brief theory for the main topics is introduced (Chapter~\ref{ch:theory}).
+The further chapter describes an implementation (Chapter~\ref{ch:implementation}) where the authors discuss the architecture of their solution along with encountered problems during the development.
+The content of the mentioned chapter discusses several submodules that form a core of the presented solution.
+In the beginning, a system for the data gathering is described (further called the Data Collection module; Sections~\ref{sec:persistence-and-security} -- \ref{sec:deployment-and-orchestration}), which was shared for the public usage during the research conduction.
+The module architecture incorporates two applications --- backend API and frontend application --- they were deployed in the cloud and allowed to collect the data for the machine learning model.
+The next module is the so-called Custom Bot module (Section~\ref{sec:custom-bot}), wherein the authors developed a bot that impersonates human-like users basing on the mathematical concept of Bézier curves.
+The last submodule --- the Bot Detection (Sections~\ref{sec:data-serialization} -- \ref{sec:machine-learning-model}) --- is composed of the machine learning model itself and a set of tools that facilitate work with a remote computational architecture where the model was trained and stored.
+Among the mentioned tools, one can find serializer and deserializer tools that allow for effortless data preparation for usage in a machine learning Python script, as well as many statistics, preprocessing, and notification tools.
+
+Following the implementation description, the authors present the results (Section~\ref{sec:results}) of an adapted machine learning approach based on the data collected during the research conduction.
+The chapter also contains the limitations and conditions (Section~\ref{sec:limitations-conditions-problems}) of the conducted research and the impact of them on the presented results.
+The thesis ends with the conclusion along with the description of possible further study (Chapter~\ref{ch:conclusions-and-further-study}) which in the authors' opinion may improve the obtained results.

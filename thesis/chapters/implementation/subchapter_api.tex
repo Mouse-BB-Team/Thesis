@@ -1,34 +1,33 @@
 \section{Persistence and security}\label{sec:persistence-and-security}
-The Data Collection module consists of several submodules, but the core of it is the backend \gls{api} (Application Programming Interface) which was written in the 8\textsuperscript{th} version of Java.
-The responsibilities of that API are mainly the persistence of captured data and user authentication.
+The Data Collection module consists of several submodules, but the core of it is the backend \gls{api} which was written in the 8\textsuperscript{th} version of Java.
+The responsibilities of that API are mainly the persistence of the captured data and user authentication.
 The whole architecture of the API is based on the Spring\upperref{itm:spring} framework which is widely used for such purposes and provides many capabilities in fields of securing and persisting data.
+Spring is divided into many projects that create compatible ecosystem and make it possible to develop scalable Web applications.
+In order to make development in Spring easier and faster, the authors of the framework created Spring Boot\upperref{itm:spring-boot} which sets up the environment for the developer and provides many easily imported libraries (so-called starters) to use.
 
-Spring is divided into many projects that create compatible ecosystem and make it possible to develop scalable web applications.
-In order to make development in Spring easier and faster the authors of the framework created Spring Boot\upperref{itm:spring-boot} which sets up the environment for the developer and provides many easily imported libraries (so-called starters) to use.
-
-To perform database operations using the idea of \gls{orm} (Object–Relational Mapping) the implementation of \gls{jpa} (Java Persistence \gls{api})\upperref{itm:jpa} provided by Spring Boot was used.
+To perform database operations using the idea of \gls{orm} (Object–Relational Mapping), the implementation of \gls{jpa} (Java Persistence \gls{api})\upperref{itm:jpa} provided by Spring Boot was used.
 The choice of the database was in the scope of relational databases because the captured data forms the time series which are easily mapped to the structure of the table.
-The authors decided to use PostgreSQL because of the popularity and wide range of support.
+The decision was made to use PostgreSQL because of the popularity and wide range of support.
 The data was stored in three different tables.
-The first consists of the user's login, password and granted authority which was required to distinguish administrators from ordinary users.
+The first one consists of the user's login, password, and granted authority which was required to distinguish administrators from ordinary users.
 The second one includes sequences of user's captured actions with timestamps, screen resolutions and types of the events.
 The last one stores all possible action types with the description.
 
 The sequence in this work is treated as a chain of actions that were performed by a user or bot, one by one.
 Each element of the sequence has associated several properties such as coordinates, timestamp, and action type.
-The sequence is distinguished from the other by a so-called split point which is established by the time that passed between two actions.
+The sequence is distinguished, one from the other, by a so-called split point which is established by the time that passed between two actions.
 If the time gap between two consecutive actions is greater than the given threshold the former action is considered as the end of one sequence and the latter one as the beginning of the second.
 The sequence length is the number of consecutive actions in one sequence and it depends on the split point.
 
-The collected data is sent to the \gls{api} via \gls{rest} (Representational State Transfer), which is nowadays one of the most popular interfaces between web applications, because of its simplicity and native support in many different programming languages and technologies.
-The schema of the interface was established at the beginning of the work on this module, so it was possible to create the \gls{api} and the fronted application simultaneously.
+The collected data is sent to the \gls{api} using \gls{rest} (Representational State Transfer), which is nowadays one of the most popular architectural style for building interfaces between Web applications, because of its simplicity and native support in many different programming languages and technologies.
+The schema of the interface was established at the beginning of the work on this module, so it was possible to create the \gls{api} and the frontend application simultaneously.
 
-To protect the data from invalid properties, the input was also validated before saving to the database in such a way that all of persisted data contained all required elements.
-Securing such an application from malware users is also important issue, so the access was restricted only for signed users that existed in the database.
+To protect the data from invalid properties like negative coordinates or invalid timestamps, the input was also validated before saving to the database in such a way that all of the persisted data contained required elements.
+Securing such an application from malware users is also an important issue, so the access was restricted only for signed users that existed in the database.
 The security was provided by using OAuth2\upperref{itm:oauth2} and \gls{jwt} (\gls{json} Web Token)\upperref{itm:jwt}.
-The API was working as a OAuth2 provider which issued \gls{jwt} tokens and authorized them basing on the user's credentials stored in the database.
+The API was working as an OAuth2 provider which issued \gls{jwt} tokens and authorized them basing on the user's credentials stored in the database.
 Such a mechanism allowed to control access to the application and enforce registration before the use of the system.
 
 The \gls{api} was prepared with two different switchable profiles: admin oriented and user oriented.
 They were created to provide flexibility in accounts creation~---~respectively~---~only by admin and anyone.
-In further work only user oriented profile was used.
+In further work, only user oriented profile was used.

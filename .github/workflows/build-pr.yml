@@ -5,7 +5,7 @@ jobs:
   build_pr:
     runs-on: ubuntu-latest
     container:
-      image: danteev/texlive:latest
+      image: danteev/texlive:202012150217538488ac
     env:
       FILENAME: main.tex
       PREFIX: main
