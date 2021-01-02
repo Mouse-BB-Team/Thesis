@@ -29,7 +29,7 @@ The event listeners are awaiting four different action types: \mbox{mouse move},
 Collected actions are packed into \gls{json} object and sent to the server side \gls{api} (described in Section~\ref{subsec:server-side-module}) --- the fields included are shown in the Listing~\ref{listing:mouse-events-json-schema}.
 The schema holds the list of the mouse event objects and it is called \textit{mouseEvents}.
 The single mouse event object has the \textit{x\_cor} and \textit{y\_cor} keys with the values of the respective $x$ and $y$ coordinates of the mouse pointer on the screen.
-The \textit{x\_res} and \textit{y\_res} represents the resolution of the screen.
+The values \textit{x\_res} and \textit{y\_res} represent the resolution of the screen.
 To distinguish the type of the mouse action and place it on the time axis, there are \textit{event} and \textit{event\_time} attributes.
 The event time is saved in the datetime format of \textit{`yyyy-MM-dd HH:mm:ss.SSS'} (example: 2021-01-25 12:23:31.334).
 Event has following predefined values: \textit{MOVE}, \textit{LEFT\_DOWN}, \textit{LEFT\_UP}, \textit{RIGHT\_DOWN}, \textit{RIGHT\_UP}, \textit{SCROLL\_PUSH}, \textit{SCROLL\_PULL}, \textit{SCROLL\_DOWN}, \textit{SCROLL\_UP}\@.
@@ -54,18 +54,18 @@ They respective meaning is: mouse movement, left button pressed, left button rel
 \end{listing}
 
 \subsection{Server-side module}\label{subsec:server-side-module}
-The server side module is build with Node.js\upperref{itm:node} runtime with the Express\upperref{itm:express} framework on the top of it.
+The server side module is built with Node.js\upperref{itm:node} runtime with the Express\upperref{itm:express} framework on the top of it.
 Node.js is an asynchronous JavaScript runtime, which is widely used to build high-end, scalable commercial applications.
 Express is simple to use, yet powerful Web framework for Node.js, which allows for a fast and convenient HTTP server set-up for serving the static Web documents over the Internet.
 This module is serving the purpose of reverse proxy between clients and the backend \gls{api}.
 
 The main responsibilities of the reverse proxy are signing up the user, token granting, validation and caching, serving static Web documents storing and passing the data for persistence.
 When a new user tries to sign-up, secured with \gls{tls} (Transport Layer Security) credentials from the sign-up form are sent to one of the proxy endpoints, where they are then passed to the backend \gls{api}.
-Since the backend is not exposed anywhere over the public network, there is no need to secure the credentials with \gls{tls}.\\
+Since the backend is not exposed anywhere over the public network, there is no need to secure the credentials with \gls{tls}.
 The user is granted \gls{jwt} Access and Refresh tokens after logging in using the login form.
 The user credentials are secured with \gls{tls} and received by proxy \gls{api}, whereas the proxy server is additionally appending the Client id and Client secret for OAuth2 server to the request `Authorization' header, as the proxy server authenticates to OAuth2 server with HTTP Basic authentication scheme.
 
-Credentials of the user that wishes to log in are included in the body of the request.
+Credentials of the user who wishes to log in are included in the body of the request.
 When the user is properly authenticated, the OAuth2 server responds with a valid \gls{jwt} token which is then set as a cookie with HttpOnly, Secure, and SameSite strict options.
 When the token is successfully granted, it is also saved to the Redis, which is a simple to use key-value NoSQL database suitable for caching.
 The retrieval of such a token is very fast, so this is serving the purpose of the caching system, which results in a great efficiency improvement and it lowers the response time of the server.

@@ -2,7 +2,7 @@
 During the work on the presented solution, the steps to limit the impact of the original imbalanced dataset were taken.
 Many of them resulted in slightly improved performance or did not improve it at all.
 The key factor was the data augmentation, which resulted in a significant increase in the number of samples and also in a better performance.
-This technique allowed to convert the unilaterally behaving model into the one whose results are promising and encouraging for further research.
+This technique allowed converting the unilaterally behaving model into the one whose results are promising and encouraging for further research.
 The linear interpolation, proposed at the beginning, was also very helpful for the model because the additional data was provided to the input which resulted in more close data domain to the ImageNet dataset.
 The final results suggest that the augmented dataset admittedly improves and makes the solution promising, but the tendency of moving the training curve away from the testing one should be reviewed.
 The authors find the small number of samples as a potential cause of these disturbances.
@@ -17,5 +17,5 @@ The idea of implementation is very simple, but it can be an inspiration for more
 The bot as is, can be also used in different problems --- not related to behavioral biometrics.
 The possibility of recording the sequences allows for fast and easy configuration which can be important for researches that not focus on the bot implementation but require the bot itself.
 
-The created tools like a serializer/deserializer allows for easily manipulating of the recorded data and transferring it into the input dataset.
+The created tools like a serializer/deserializer allow for easily manipulating of the recorded data and transferring it into the input dataset.
 The tools related to the Prometheus computing cluster significantly facilitated the work with such an infrastructure and can be considered as a motivation for automation of computing and results obtaining in such an environment.

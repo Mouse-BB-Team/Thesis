@@ -23,5 +23,5 @@ Protobuf also requires the definition of a schema like Apache Avro, but unlike A
 At the same time it is also readable and effortless to write.
 Basing on the created schema, the code was generated both for the serializer and the deserializer, but in the case of deserializer, the data is directly read to the Pandas\upperref{itm:pandas} Dataframe objects, which provides a simple interface to manipulate huge amount of data.
 The deserializing tool was designed to work directly in the front of the neural network to reconstruct the serialized binary data.
-Therefore it was written in Python to provide flexibility in adapting this feature in further work.
+Therefore, it was written in Python to provide flexibility in adapting this feature in further work.
 It is also able to read data from the directory tree created by the serializer which enables a seamless integration between the data gathering system and Bot Detection module\upperref{itm:bot-detection}.

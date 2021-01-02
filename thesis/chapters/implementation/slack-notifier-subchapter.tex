@@ -5,9 +5,9 @@ One of the major issues is the job queueing mechanism, which does not determine 
 To avoid that, the authors prepared a custom mechanism, that can monitor the status of the job and notify the Prometheus user through the Slack\upperref{itm:slack} channel using observability-like architecture.
 The following message templates were prepared for the purpose of notification:
 \begin{enumerate}
-    \item Simple message --- Generic message type build as a \gls{json} template with help of Builder design pattern to have flexibility in customizing the message.
+    \item Simple message --- Generic message type built as a \gls{json} template with help of Builder design pattern to have flexibility in customizing the message.
     \item Pending job message --- able to notify about: job title, reporter, commit hash, job registration date and time, header for app preview, info message taken from a commit.
-    Build as a special case of Simple type message.
+    It is built as a special case of Simple type message.
     \item Results message --- The most complex message with all the statistic results produced as a result of the model computation.
     Prepared as a \gls{json} template with the help of the Builder design pattern.
 \end{enumerate}

@@ -15,7 +15,7 @@ Therefore, there is a need to create a high-performance learner for a target dom
 This is the motivation for transfer learning.
 Transfer learning is used to improve a learner from one domain by transferring information from a related domain"~\cite{transfer-learning-def}.
 The base feature vector for transferring to the bot recognition domain was taken from the TensorFlow Hub\upperref{itm:tensorflow-hub} website.
-The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
+The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing a great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
 The model was built with the following dimensions of $299$\texttimes$299$\texttimes$3$ for the data input.
 The topmost layers were added for the transferring and tuning to the bot detection domain.
 
@@ -28,9 +28,9 @@ Interpolation provided an order between discrete coordinates and allowed feeding
 Another considered approach was a manipulation of the input data size.
 The user's sequences were limited to the number of total bot sequences.
 This solution was aimed to balance the dataset at the cost of fewer data.
-The results of this approach turned out insufficient --- because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a performance deterioration.
+The results of this approach turned out to be insufficient --- because of the total amount of bot sequences, the total size of the dataset drastically shrank, which resulted in a performance deterioration.
 On the other hand, the duplication of the bot sequences was used.
-The idea was similar to the one before, but instead of reducing, the number of bot samples was increased by using a single sample several times.
+The idea was similar to the one discussed before, but instead of reducing, the number of bot samples was increased by using a single sample several times.
 It resulted in an artificially balanced dataset.
 However, this approach did not increase performance at all.
 
@@ -47,14 +47,14 @@ The authors tested several ones and found out that the best performance was for 
 To overcome the described issue, another technique called data augmentation was used.
 As stated in the "The Effectiveness of Data Augmentation in Image Classification using Deep Learning" by Perez et al. article --- "It is common knowledge that the more data an \gls{ml} algorithm has access to, the more effective it can be.
 Even when the data is of lower quality, algorithms can actually perform better, as long as useful data can be extracted by the model from the original data set"~\cite{augmentation}.
-The main idea of this approach is to increase the samples of the dataset by using the same sample several times, but each time slightly transformed it.
+The main idea of this approach is to increase the samples of the dataset by using the same sample several times, but each time slightly transforming it.
 The transformation is based on operations such as rotations, zooming, and flipping the original sample with some probability to do so, so each artificially generated sample should be slightly different than the others.
-This approach allows to significantly increase the size of the dataset.
+This approach allows significantly increasing the size of the dataset.
 In the presented solution, it was done by development of augmentation script using Augmentor\upperref{itm:augmentor} package for Python.
 Each of the datasets (users and bot) was extended to 30,000 samples which results in a total of 60,000 samples from just 639 original samples.
 The ratio between the training and testing part was set to 80:20, so the network used for the training 48,000 samples and for the testing 12,000.
-For the optimization of the model, the optimizer called Adam was used along with the learning rate exponential decay set initially to 1e-4.
-The decay rate was equal to 0.96 and the decay steps were set to 1e5.
+For the optimization of the model, the optimizer called Adam was used along with the learning rate exponential decay set initially to $10^{-4}$.
+The decay rate was equal to 0.96 and the decay steps were set to $10^{5}$.
 The loss function was set to the binary cross entropy loss due to the binary classification problem.
 
 To save time and optimize resources usage, the first approach for running the model was to execute it in a multi-threaded way.

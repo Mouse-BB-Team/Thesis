@@ -9,8 +9,9 @@ This behavior of machine learning techniques is very convenient, especially when
 Machine learning models can learn from their own mistakes and then recognize or even predict the future attacks.
 
 In scope of sequential data with natural timespan interpretation such us mouse actions, the recursive neural networks are natural choice.
+As stated by Chong et al. --- "Given the sequential nature of mouse movement data, a recurrent neural network (\gls{rnn}), commonly employed for time series structure data, would be an intuitive choice for tackling this problem"~\cite{Main}.
 However, if the data can be represented as a bit map or picture, the convolutional neural networks become possible to use.
-Due to the size of picture representation in a computer world, it is pretty expensive in the meaning of computational cost to use plain neural networks because the number of weights in such a network becomes tremendous.
+Due to the size of picture representation in a computer world, it is pretty expensive in the meaning of computational cost to use plain artificial neural networks because the number of weights in such a network becomes tremendous.
 Convolutional neural networks address this issue and make the computation significantly faster and efficient.
 
 Keiron O'Shea et. al in \cite{cnn-description} define an architecture of \gls{cnn}'s as a connected network of three types layers: convolutional layer, pooling layer and fully-connected layer.
@@ -29,11 +30,11 @@ This layer is called an activation function because it activates the next layer 
 The problem that this work raises can be specified as a binary problem because there exist only two possible categories for the data --- user's and bot actions.
 In such situations, the measure of quality and correctness of the solution is commonly defined by a confusion matrix.
 This matrix defines the performance of the model and consists of several measures: true positives, true negatives, false positives and false negatives.
-True positives (\gls{tp}) are defined as the number of samples that the model assign to the positive category and the assignment was correct.
+True positives (\gls{tp}) are defined as the number of samples that the model assign to the positive category and the assignment is correct.
 The opposite to them are false positives (\gls{fp}), which can be described as faulty categorized to the positive category.
 The true negatives (\gls{tn}) and false negatives (\gls{fn}) are analogous, but the assigned category is negative.
 
-Basing on described measures, one can define relative measures --- false rejection rate (\gls{frr}) and false acceptance rate (\gls{far}).
+Basing on the described measures, one can define relative measures --- false rejection rate (\gls{frr}) and false acceptance rate (\gls{far}).
 These are defined as follows:
 
 \begin{equation}
@@ -48,15 +49,15 @@ In authorization related problems such as raised in this work, there is a desire
 
 In the presented solution, the authors use a transfer learning technique wherein the previously trained model on the original domain is transferred to the related domain.
 This approach provides several conveniences, such as computational time and cost reduction.
-The pretrained network does not require such a long time as in the case of training from scratches which also translates into the cost of calculations and in the end does not require a large computational grant.
+The pretrained network does not require such a long time as in the case of training from scratch which also translates into the cost of calculations and in the end does not require a large computational grant.
 The main advantage of such an approach is the reduction of the required amount of representative data.
 In cases where the data gathering is difficult or the collected dataset is small, transfer learning seems to be a technique that is worth considering.
-As a transfer learning model, the authors chose the InceptionV3\upperref{itm:inceptionV3} architecture from Tensorflow Hub\upperref{itm:tensorflow-hub}, which originally be trained on ImageNet\upperref{itm:image-net} dataset.
+As a transfer learning model, the authors chose the InceptionV3\upperref{itm:inceptionV3} architecture from Tensorflow Hub\upperref{itm:tensorflow-hub}, which originally was trained on ImageNet\upperref{itm:image-net} dataset.
 Basing on several benchmarks, it was considered that the described architecture fits well to the raised problem and the performance is great at the same time.
 The architecture is build out of convolutional layers, average and max pooling, dropouts, concatenation layers and fully-connected layers.
 Description of the InceptionV3 architecture is out of the scope of this work.
 
-In order to perform the learning process of the model, the main dataset should be divided into two subsets --- training and test dataset.
+In order to perform the learning process of the model, the main dataset should be divided into two subsets --- training and test datasets.
 The network basing on the output of the loss function is able to improve its predictions and make progress in classification.
 In the case of the supervised learning, where the network learns from the given examples, there is also a requirement for the assignment of the labels that are considered as descriptive ones for the input sample.
 When the gathered data consist of several categories, among which there is a dominant class in the meaning of volume of samples, such dataset is considered as an imbalanced one.

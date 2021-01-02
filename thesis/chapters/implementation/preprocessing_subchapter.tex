@@ -22,7 +22,6 @@ The operation was performed by connecting the discrete points using straight lin
 The input data with applied linear interpolation and resizing are visualized in Fig.~\ref{fig:bot_sequences} and Fig.~\ref{fig:user_sequences}.
 It was verified on the collected dataset that interpolated data results in better accuracy of a model in comparison to the isolated ones.
 The presented tool works also as a splitter between training and testing sets using the provided ratio between them and as a label assigner which allows adding the corresponding labels to the single sequence basing on the provided identifier of the bot user.
-
 Using this tool it is also possible to increase the number of bot samples by using several repetitions of the original bot set in cases of an imbalanced dataset.
 The output of the preprocessor is a tuple of training and testing dataset along with labels, which can be directly the input of a neural network model.
 
