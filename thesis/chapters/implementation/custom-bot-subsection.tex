@@ -26,11 +26,14 @@ The structure of a \gls{yaml} scenario schema is shown in Listing~\ref{listing:b
 
 After the scenarios are recorded, the mechanism to execute them is required.
 The Custom Bot executor script reads the \gls{yaml} file and loads it to the memory as a list of events, that is then traversed.
+To be able to run a set of scenarios, the module introduces a so-called `batch runner' for predefined cases.
+This automation saves a lot of time and effort because a set of scenarios can be executed at once to generate data for the bot class.
 The executor script performs an action stored as an `event' filed at the coordinates $(x, y)$.
 If the coordinates are different than the current mouse position, the cursor is moved, but to make it more natural, movement is based on the Bézier curve concept, using the PyClick\upperref{itm:pyclick} Python package.
 The Bézier curves are used to effectively represent a smooth curve on a computer screen, as stated by D. F. Rogers~\cite{bezier-curves}.
 Knowing this, this concept can be used to simulate smooth human-like movements.
-
-To be able to run a set of scenarios, the module introduces a so-called `batch runner' for predefined cases.
-This automation saves a lot of time and effort because a set of scenarios can be executed at once to generate data for the bot class.
-
+The data generated in such a way may be prone to be suggestive for machine learning algorithms that would learn the Bézier curve concept.
+The verification process focuses on distinguishing between a human and an artificial bot that can be constructed in many different ways.
+Some bots available on the Internet are even simpler than the presented one --- many of them move from point to point in a straight line.
+If behavioral biometrics is proposed as a potential securing method, the more sophisticated bots such as the ones that use the machine learning techniques will be probably used.
+However, the way of bot creation has no impact on the data gathering system, so more sophisticated methods are out of the scope of this thesis.

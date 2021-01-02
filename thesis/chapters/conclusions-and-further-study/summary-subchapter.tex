@@ -1,11 +1,9 @@
 \section{Summary}\label{sec:summary}
-During the work on the presented solution, the steps to limit the impact of the original imbalanced dataset were taken.
-Many of them resulted in slightly improved performance or did not improve it at all.
-The key factor was the data augmentation, which resulted in a significant increase in the number of samples and also in a better performance.
-This technique allowed converting the unilaterally behaving model into the one whose results are promising and encouraging for further research.
-The linear interpolation, proposed at the beginning, was also very helpful for the model because the additional data was provided to the input which resulted in more close data domain to the ImageNet dataset.
-The final results suggest that the augmented dataset admittedly improves and makes the solution promising, but the tendency of moving the training curve away from the testing one should be reviewed.
-The authors find the small number of samples as a potential cause of these disturbances.
+The presented thesis focuses mainly on the data gathering system for the behavioral biometrics analysis related to the mouse actions.
+The introduced solution turns out successful and fulfills the main assumption of this work.
+Along with the data collector, the machine learning model is proposed as a potential verification step for the gathering system.
+To supplement the dataset with a human impersonating bot class, the custom bot is also proposed.
+The machine learning model is complemented by a set of tools that facilitate the work with computational clusters and also allows for seamless integration between the data collector and script with the model.
 
 The presented results verify the data gathering system as a potential source of data for mouse dynamics biometrics researches.
 The system is created in a way that it can be easily deployed and tuned to the exact domain requirements.
@@ -19,3 +17,11 @@ The possibility of recording the sequences allows for fast and easy configuratio
 
 The created tools like a serializer/deserializer allow for easily manipulating of the recorded data and transferring it into the input dataset.
 The tools related to the Prometheus computing cluster significantly facilitated the work with such an infrastructure and can be considered as a motivation for automation of computing and results obtaining in such an environment.
+
+During the work on the presented solution, the steps to limit the impact of the original imbalanced dataset were taken.
+Many of them resulted in slightly improved performance or did not improve it at all.
+The key factor was the data augmentation, which resulted in a significant increase in the number of samples and also in a better performance.
+This technique allowed converting the unilaterally behaving model into the one whose results are promising and encouraging for further research.
+The linear interpolation, proposed at the beginning, was also very helpful for the model because the additional data was provided to the input which resulted in more close data domain to the ImageNet dataset.
+The final results suggest that the augmented dataset admittedly improves and makes the solution promising, but the tendency of moving the training curve away from the testing one should be reviewed.
+The authors find the small number of samples as a potential cause of these disturbances.
