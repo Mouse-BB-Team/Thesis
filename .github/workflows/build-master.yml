@@ -6,7 +6,7 @@ jobs:
   build_master:
     runs-on: ubuntu-latest
     container:
-      image: danteev/texlive:latest
+      image: danteev/texlive:202012150217538488ac
     env:
       FILENAME: main.tex
       BIB_FILENAME: main.aux
