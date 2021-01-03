@@ -78,7 +78,7 @@ Opiekun pracy: & {\itshape \@supervisor}\\
 \begin{tabular}{p{45mm}l}
 Authors: & {\itshape \@author}\\[-1mm]
 Degree programme: & {\itshape \@degreeprogramme}\\[-1mm]
-Study programme type: & Full-time\\[-1mm]
+Form of studies: & Full-time\\[-1mm]
 Supervisor: & {\itshape \@supervisor}\\
 \end{tabular}
 }
