@@ -9,11 +9,7 @@ The other matter is that the engineering thesis defending has its deadline speci
 In order to meet the adopted milestones and goals, the data collection period had to follow strict deadlines.
 The duration of the period when the data was collected could not be extended to broader terms, which resulted in relatively small dataset.
 
-The first remedy for a small amount of collected data was to use the transfer learning technique.
-As stated in the "A survey of transfer learning" by Weiss et al. --- "In certain scenarios, obtaining training data that matches the feature space and predicted data distribution characteristics of the test data can be difficult and expensive.
-Therefore, there is a need to create a high-performance learner for a target domain trained from a related source domain.
-This is the motivation for transfer learning.
-Transfer learning is used to improve a learner from one domain by transferring information from a related domain"~\cite{transfer-learning-def}.
+The first remedy for a small amount of collected data was to use the transfer learning technique, described in Section~\ref{sec:machine-learning-techniques}.
 The base feature vector for transferring to the bot recognition domain was taken from the TensorFlow Hub\upperref{itm:tensorflow-hub} website.
 The model was pre-trained on ImageNet dataset\upperref{itm:image-net} using the architecture of Inception V3, which is showing a great potential in the terms of the computer vision with improved performance over the previous versions, with a relatively modest computation cost~\cite{inception-v3}.
 The model was built with the following dimensions of $299$\texttimes$299$\texttimes$3$ for the data input.

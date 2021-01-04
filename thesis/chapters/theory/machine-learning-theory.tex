@@ -1,16 +1,16 @@
 \section{Machine learning techniques}\label{sec:machine-learning-techniques}
-In modern cybersecurity, there exist many different threats that potentially expose the system to being compromised.
+In modern cyber security, there exist many different threats that potentially expose the system to being compromised.
 Many of them are very sophisticated, some are pretty difficult to distinguish from legitimate operations.
 Nowadays, there is a trend to use machine learning approaches to meet the high demands for the quality and reliability of security systems.
 
 As stated by Tony Thomas et al. --- "Machine learning (\gls{ml}) may be defined as the ability of machines to learn without being explicitly programmed.
 Using mathematical techniques across cyberdata, \gls{ml} algorithms can build models of behaviors and use those models as a basis for making predictions on newly input data"~\cite{thomas2020machine}.
 This behavior of machine learning techniques is very convenient, especially when the domain of the problem and the borders between the data cannot be explicitly expressed by the written program.
-Machine learning models can learn from their own mistakes and then recognize or even predict the future attacks.
+Machine learning models can learn from their own mistakes and then recognize or even predict the future attacks~\cite{thomas2020machine}.
 
 In scope of sequential data with natural timespan interpretation such us mouse actions, the recursive neural networks are natural choice.
 As stated by Chong et al. --- "Given the sequential nature of mouse movement data, a recurrent neural network (\gls{rnn}), commonly employed for time series structure data, would be an intuitive choice for tackling this problem"~\cite{Main}.
-However, if the data can be represented as a bit map or picture, the convolutional neural networks become possible to use.
+However, if the data can be represented as a bit map or a picture, the convolutional neural networks become possible to use.
 Due to the size of picture representation in a computer world, it is pretty expensive in the meaning of computational cost to use plain artificial neural networks because the number of weights in such a network becomes tremendous.
 Convolutional neural networks address this issue and make the computation significantly faster and efficient.
 
@@ -21,7 +21,7 @@ The output reflects the found matches between the image that is recognized and t
 Pooling is a technique used to decrease the size of the image by grouping pixels and returning the representative value for this group.
 As an example, the max-pooling bases on returning the pixel with the highest value in the group.
 The fully-connected layer is a layer that builds plain artificial neural networks and it is built out of the neurons that are connected to the neurones from the previous layer, but they are not connected inside the current layer.
-Thomas et. al in \cite{thomas2020machine} add to these layers so-called rectified linear unit layer (\gls{relu}) and define its responsibility as "changing the negative pixel values in the image to zero, which gives us another stack of images with no negative values"~\cite{thomas2020machine}.
+Thomas et. al add to these layers so-called rectified linear unit layer (\gls{relu}) and define its responsibility as "changing the negative pixel values in the image to zero, which gives us another stack of images with no negative values"~\cite{thomas2020machine}.
 This layer is called an activation function because it activates the next layer only if the value of the pixel is positive.
 
 The problem that this work raises can be specified as a binary problem because there exist only two possible categories for the data --- user's and bot actions.
@@ -34,17 +34,23 @@ The true negatives (\gls{tn}) and false negatives (\gls{fn}) are analogous, but 
 Basing on the described measures, one can define relative measures --- false rejection rate (\gls{frr}) and false acceptance rate (\gls{far}).
 These are defined as follows:
 
+\begin{samepage}
 \begin{equation}
     FRR = \frac{FN}{FN + TP}\label{eq:frr}
 \end{equation}
 \begin{equation}
     FAR = \frac{FP}{FP + TN}\label{eq:far}
 \end{equation}
+\end{samepage}
 
 The values of \gls{frr} and \gls{far} are often expressed as a percentage value and the smaller their values, the better the performance of the model.
 In authorization related problems such as raised in this work, there is a desire to have those values as low as possible because low \gls{far} defines the good security level of the system --- the lower it is, the less unauthorized users have access to the system, and accordingly \gls{frr} has an impact on authorization rejections of legitimate users.
 
-In the presented solution, the authors use a transfer learning technique wherein the previously trained model is used in a similar problem.
+In the presented solution, the authors use a transfer learning technique.
+As stated in the "A survey of transfer learning" by Weiss et al. --- "In certain scenarios, obtaining training data that matches the feature space and predicted data distribution characteristics of the test data can be difficult and expensive.
+Therefore, there is a need to create a high-performance learner for a target domain trained from a related source domain.
+This is the motivation for transfer learning.
+Transfer learning is used to improve a learner from one domain by transferring information from a related domain"~\cite{transfer-learning-def}.
 This approach provides several conveniences, such as computational time and cost reduction.
 The pretrained network does not require such a long time as in the case of training from scratch which also translates into the cost of calculations and in the end does not require a large computational grant.
 The main advantage of such an approach is the reduction of the required amount of representative data.
