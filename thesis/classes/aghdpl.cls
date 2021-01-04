@@ -74,14 +74,24 @@ Opiekun pracy: & {\itshape \@supervisor}\\
 \fancyfoot[LE,RO]{\small \@shortauthor\quad\textit{\@shorttitleEN}}
 }
 
+%\def\thesistable{
+%\begin{tabular}{p{45mm}l}
+%Authors: & {\itshape \@author}\\[-1mm]
+%Degree programme: & {\itshape \@degreeprogramme}\\[-1mm]
+%Form of studies: & Full-time\\[-1mm]
+%Supervisor: & {\itshape \@supervisor}\\
+%\end{tabular}
+%}
+
 \def\thesistable{
 \begin{tabular}{p{45mm}l}
-Authors: & {\itshape \@author}\\[-1mm]
-Degree programme: & {\itshape \@degreeprogramme}\\[-1mm]
-Form of studies: & Full-time\\[-1mm]
-Supervisor: & {\itshape \@supervisor}\\
+	Autorzy: & {\itshape \@author}\\[-1mm]
+	Kierunek studi\'{o}w: & {\itshape \@degreeprogramme}\\[-1mm]
+	Typ studi\'{o}w: & {\itshape Stacjonarne}\\[-1mm]
+	Opiekun pracy: & {\itshape \@supervisor}\\
 \end{tabular}
 }
+
 }
 
 \ProcessOptions
@@ -97,7 +107,9 @@ Supervisor: & {\itshape \@supervisor}\\
 
 \vspace*{2mm}
 
-{{\large{\bfseries{\scshape AGH University of Science and Technology}}}
+%{{\large{\bfseries{\scshape AGH University of Science and Technology}}}
+{{\large{\bfseries{\scshape Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie}}}
+
 
 \vspace*{1mm}
 
