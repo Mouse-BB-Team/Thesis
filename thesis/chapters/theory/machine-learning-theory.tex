@@ -34,12 +34,14 @@ The true negatives (\gls{tn}) and false negatives (\gls{fn}) are analogous, but 
 Basing on the described measures, one can define relative measures --- false rejection rate (\gls{frr}) and false acceptance rate (\gls{far}).
 These are defined as follows:
 
+\begin{samepage}
 \begin{equation}
     FRR = \frac{FN}{FN + TP}\label{eq:frr}
 \end{equation}
 \begin{equation}
     FAR = \frac{FP}{FP + TN}\label{eq:far}
 \end{equation}
+\end{samepage}
 
 The values of \gls{frr} and \gls{far} are often expressed as a percentage value and the smaller their values, the better the performance of the model.
 In authorization related problems such as raised in this work, there is a desire to have those values as low as possible because low \gls{far} defines the good security level of the system --- the lower it is, the less unauthorized users have access to the system, and accordingly \gls{frr} has an impact on authorization rejections of legitimate users.
