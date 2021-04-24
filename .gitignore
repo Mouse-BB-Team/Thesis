@@ -2,6 +2,7 @@
 *.aux
 *.log
 *.pdf
+!Thesis/main.pdf
 *.xml
 *.gz
 *.toc
@@ -20,3 +21,4 @@
 *.gls
 *.ist
 *.xdy
+.DS_Store
