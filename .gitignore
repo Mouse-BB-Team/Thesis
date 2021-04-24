@@ -2,7 +2,7 @@
 *.aux
 *.log
 *.pdf
-!Thesis/main.pdf
+!main.pdf
 *.xml
 *.gz
 *.toc
